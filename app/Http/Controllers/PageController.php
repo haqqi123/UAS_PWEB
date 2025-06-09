@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UMKM;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB; // ✅ Tambahkan baris ini!
+use App\Models\UMKM;
+use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
     public function login()
     {
+        if (Session::has('user')) {
+            return redirect()->route('pengelolaan');
+        }
         return view('login');
     }
 
@@ -19,117 +25,166 @@ class PageController extends Controller
             'password' => 'password123'
         ];
 
-        if ($request->username === $validCredentials['username'] && 
-            $request->password === $validCredentials['password']) {
-            return redirect()->route('dashboard', ['username' => $request->username]);
+        if (
+            ($request->username === $validCredentials['username'] && $request->password === $validCredentials['password']) ||
+            (Session::has('registered_user') &&
+                $request->username === Session::get('registered_user.username') &&
+                $request->password === Session::get('registered_user.password'))
+        ) {
+            Session::put('user', $request->username);
+            return redirect()->route('pengelolaan');
         }
 
-        return back()->withErrors([
-            'login' => 'Username atau password salah.',
-        ]);
+        return back()->withErrors(['login' => 'Username atau password salah.']);
     }
 
-    public function dashboard(Request $request)
+    public function register()
     {
-        $articles = [
-            [
-                'title' => 'Festival UMKM Desa Suci',
-                'content' => 'Desa Suci mengadakan festival UMKM tahunan dengan berbagai produk lokal yang mencerminkan kekayaan budaya dan kreativitas warganya. Festival ini menjadi ajang berkumpulnya para pelaku usaha kecil dan menengah dari berbagai sektor, mulai dari kuliner tradisional, kerajinan tangan, fashion etnik, hingga produk inovatif berbasis teknologi lokal.'
-            ],
-            [
-                'title' => 'Pelatihan Kewirausahaan',
-                'content' => 'Desa Suci menyelenggarakan pelatihan kewirausahaan untuk pengembangan UMKM sebagai bagian dari upaya meningkatkan kapasitas dan daya saing pelaku usaha lokal. Kegiatan ini diinisiasi oleh pemerintah desa bekerja sama dengan berbagai pihak, seperti dinas koperasi, lembaga pendidikan, serta komunitas bisnis yang peduli terhadap pemberdayaan ekonomi masyarakat desa.'
-            ]
-        ];
+        if (Session::has('user')) {
+            return redirect()->route('pengelolaan');
+        }
 
-        return view('dashboard', [
-            'username' => $request->query('username'),
-            'articles' => $articles
-        ]);
+        return view('register');
     }
+
+    public function storeRegister(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string|max:50',
+            'password' => 'required|string|min:5|confirmed',
+        ]);
+
+        Session::put('registered_user', [
+            'username' => $request->username,
+            'password' => $request->password,
+        ]);
+
+        Session::put('user', $request->username);
+        return redirect()->route('pengelolaan');
+    }
+
+    public function logout(Request $request)
+    {
+        Session::forget('user');
+        return redirect()->route('login');
+    }
+
+public function dashboard(Request $request)
+{
+    $articles = [
+        [
+            'title' => 'Festival UMKM Desa Suci',
+            'content' => 'Desa Suci mengadakan festival UMKM tahunan...'
+        ],
+        [
+            'title' => 'Pelatihan Kewirausahaan',
+            'content' => 'Desa Suci menyelenggarakan pelatihan kewirausahaan...'
+        ]
+    ];
+
+    // Hitung jumlah UMKM dari tabel
+    $jumlahUMKM = DB::table('UMKM')->count();
+
+    return view('dashboard', [
+        'username' => Session::get('user'),
+        'articles' => $articles,
+        'jumlahUMKM' => $jumlahUMKM
+    ]);
+}
+
 
     public function pengelolaan()
     {
-        $umkms = UMKM::all();
-        return view('pengelolaan', compact('umkms'));
+        if (!Session::has('user')) {
+        return redirect()->route('login')->withErrors(['auth' => 'Anda harus login terlebih dahulu']);
+        }
+        $umkm = DB::table('UMKM')->get();
+        return view('pengelolaan', ['umkm' => $umkm]);
+    }
+
+    public function create()
+    {
+        return view('tambah-umkm');
     }
 
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
             'Nama_UMKM' => 'required|string|max:255',
             'Deskripsi' => 'required|string',
-            'Harga_Minimum' => 'required|integer',
-            'Harga_Maximum' => 'required|integer',
-            'Gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'Harga_Minimum' => 'required|numeric',
+            'Harga_Maximum' => 'required|numeric',
+            'Gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $imageName = time().'.'.$request->Gambar->extension();  
-        $request->Gambar->move(public_path('images'), $imageName);
+        // Proses unggah gambar
+        $gambar = $request->file('Gambar');
+        $gambarName = time() . '.' . $gambar->getClientOriginalExtension();
+        $gambar->move(public_path('images'), $gambarName);
 
-        UMKM::create([
-            'Nama_UMKM' => $request->Nama_UMKM,
-            'Deskripsi' => $request->Deskripsi,
-            'Harga_Minimum' => $request->Harga_Minimum,
-            'Harga_Maximum' => $request->Harga_Maximum,
-            'Gambar' => $imageName
-        ]);
+        // Simpan ke database
+DB::table('UMKM')->insert([
+    'Nama_UMKM'     => $request->Nama_UMKM,
+    'Deskripsi'     => $request->Deskripsi,
+    'Harga_Minimum' => $request->Harga_Minimum,
+    'Harga_Maximum' => $request->Harga_Maximum,
+    'Gambar'        => $gambarName,
+    'user_id'       => auth()->id(), // jika kamu pakai Laravel Auth
+]);
 
-        return redirect()->route('pengelolaan')->with('success', 'UMKM berhasil ditambahkan');
+
+
+        // Redirect kembali ke halaman pengelolaan
+        return redirect()->route('pengelolaan')->with('success', 'Data UMKM berhasil ditambahkan.');
     }
 
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'Nama_UMKM' => 'required|string|max:255',
-            'Deskripsi' => 'required|string',
-            'Harga_Minimum' => 'required|integer',
-            'Harga_Maximum' => 'required|integer',
-            'Gambar' => '$1746631574.jpg'
-        ]);
+public function edit($id)
+{
+    $umkm = DB::table('UMKM')->where('id', $id)->first();
+    return view('ubah-umkm', compact('umkm'));
+}
 
-        $umkm = UMKM::findOrFail($id);
-        $data = $request->except('Gambar');
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'Nama_UMKM' => 'required|string|max:255',
+        'Deskripsi' => 'required|string',
+        'Harga_Minimum' => 'required|integer',
+        'Harga_Maximum' => 'required|integer',
+        'Gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        if ($request->hasFile('Gambar')) {
-            // Hapus gambar lama jika ada
-            if ($umkm->Gambar && file_exists(public_path('images/'.$umkm->Gambar))) {
-                unlink(public_path('images/'.$umkm->Gambar));
-            }
-            
-            $imageName = time().'.'.$request->Gambar->extension();  
-            $request->Gambar->move(public_path('images'), $imageName);
-            $data['Gambar'] = $imageName;
-        }
+    $data = [
+        'Nama_UMKM' => $request->Nama_UMKM,
+        'Deskripsi' => $request->Deskripsi,
+        'Harga_Minimum' => $request->Harga_Minimum,
+        'Harga_Maximum' => $request->Harga_Maximum,
+    ];
 
-        $umkm->update($data);
-
-        return redirect()->route('pengelolaan')->with('success', 'UMKM berhasil diperbarui');
+    if ($request->hasFile('Gambar')) {
+        $gambar = $request->file('Gambar');
+        $gambarName = time() . '_' . $gambar->getClientOriginalName();
+        $gambar->move(public_path('images'), $gambarName);
+        $data['Gambar'] = $gambarName;
     }
 
-    public function destroy($id)
-    {
-        $umkm = umkm::findOrFail($id);
-        
-        // Hapus gambar terkait
-        if ($umkm->Gambar && file_exists(public_path('images/'.$umkm->Gambar))) {
-            unlink(public_path('images/'.$umkm->Gambar));
-        }
-        
-        $umkm->delete();
+    DB::table('UMKM')->where('id', $id)->update($data);
 
-        return redirect()->route('pengelolaan')->with('success', 'UMKM berhasil dihapus');
-    }
+    return redirect()->route('pengelolaan')->with('success', 'Data UMKM berhasil diperbarui');
+}
 
-    public function profile()
-    {
-        return view('profile', ['selectedUmkm' => [
-        [
-            'name' => 'Kerajinan Bambu Suci',
-            'description' => 'Menyediakan berbagai kerajinan tangan dari bambu seperti tempat tisu, vas bunga, dan furniture. Produk kami dibuat dengan bahan berkualitas dan proses yang teliti.',
-            'price_range' => 'Rp 50.000 - Rp 500.000',
-            'image' => 'image (1).jpg'
-        ]
-        ]]);
-    }
+public function destroy($id)
+{
+    DB::table('UMKM')->where('id', $id)->delete();
+    return response()->json(['success' => true]);
+}
+
+
+
+public function profile()
+{
+    $umkmList = DB::table('UMKM')->get(); // Ambil semua data UMKM
+    return view('profile', ['umkmList' => $umkmList]);
+}
 }

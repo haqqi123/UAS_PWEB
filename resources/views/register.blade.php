@@ -1,18 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Login')
+@section('title', 'Register')
 
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">Login</div>
+            <div class="card-header">Register</div>
             <div class="card-body">
-                @if($errors->has('login'))
-                    <div class="alert alert-danger">{{ $errors->first('login') }}</div>
-                @endif
-
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
@@ -21,14 +17,15 @@
                             class="form-control" 
                             id="username" 
                             name="username" 
+                            value="{{ old('username') }}" 
                             required 
-                            value="{{ old('username') }}"
+                            autofocus
                         >
                         @error('username')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-
+                    
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input 
@@ -42,23 +39,24 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                        <input 
+                            type="password" 
+                            class="form-control" 
+                            id="password_confirmation" 
+                            name="password_confirmation" 
+                            required
+                        >
+                    </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <button type="submit" class="btn btn-primary w-100">Daftar</button>
                 </form>
 
-                <!-- Link ke register
                 <div class="mt-3 text-center">
-                    <p>Belum punya akun? <a href="{{ route('register') }}">Register</a></p>
-                </div> -->
-
-                <!-- Info login admin default -->
-                <div class="mt-3 text-center">
-                    <p>Gunakan username: <strong>admin</strong> dan password: <strong>password123</strong></p>
+                    <p>Sudah punya akun? <a href="{{ route('login') }}">Login</a></p>
                 </div>
-
-                @if(session('success'))
-                    <div class="alert alert-success mt-3">{{ session('success') }}</div>
-                @endif
             </div>
         </div>
     </div>

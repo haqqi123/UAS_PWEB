@@ -10,10 +10,10 @@
                     <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pengelolaan') }}">Pengelolaan</a>
+                    <a class="nav-link" href="{{ route('profile') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                    <a class="nav-link" href="{{ route('pengelolaan') }}">Pengelolaan</a>
                 </li>
             </ul>
         </div>

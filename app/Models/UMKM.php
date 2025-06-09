@@ -1,15 +1,17 @@
 <?php
 
+// app/Models/Umkm.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UMKM extends Model
+class Umkm extends Model
 {
     use HasFactory;
 
-    protected $table = 'UMKM';
+    protected $table = 'umkm';
+    
     protected $fillable = [
         'Nama_UMKM',
         'Deskripsi',

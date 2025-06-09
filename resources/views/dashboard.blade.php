@@ -1,74 +1,127 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Dashboard Desa Suci')
 
 @section('content')
-<div class="container">
-    <!-- Welcome Section -->
-    <div class="p-5 mb-4 bg-primary text-white rounded-3">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Selamat datang, {{ $username ?? 'Pengunjung' }}!</h1>
-            <p class="col-md-8 fs-4">Mari bersama membangun ekonomi Desa Suci melalui UMKM berkualitas</p>
+<div class="container-fluid px-4">
+    <!-- Welcome Section with Village Identity -->
+    <div class="welcome-banner bg-gradient-primary rounded-3 mb-4 p-4 p-md-5">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="display-5 fw-bold text-white">Selamat Datang di Desa Suci</h1>
+                <p class="lead text-white mb-4">Membangun ekonomi desa melalui UMKM berkualitas sejak 2010</p>
+                <div class="d-flex align-items-center">
+                    <span class="text-white">Halo, {{ $username ?? 'Sahabat Desa' }}!</span>
+                </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+                <img src="{{ asset('images/download__1_-removebg-preview.png') }}" alt="Ilustrasi Desa" class="img-fluid">
+            </div>
         </div>
     </div>
 
-    <!-- Articles Section -->
-    <h2 class="text-center border-bottom pb-2 mb-4">Artikel Desa Suci</h2>
-
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-        @foreach($articles as $article)
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="bg-info text-white rounded-circle p-3 me-3">
-                            <i class="fas fa-newspaper"></i>
+    <!-- UMKM Stats with Progress -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0 overflow-hidden">
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h3 class="fw-semibold mb-3">Perkembangan UMKM Desa Suci</h3>
+                            <p class="text-muted">Jumlah UMKM yang terdaftar dalam sistem kami</p>
+                            <div class="progress mb-3" style="height: 10px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ ($jumlahUMKM/150)*100 }}%" 
+                                    aria-valuenow="{{ $jumlahUMKM }}" aria-valuemin="0" aria-valuemax="150"></div>
+                            </div>
+                            <small class="text-muted">Target 150 UMKM di tahun 2023</small>
                         </div>
-                        <h3 class="card-title mb-0">{{ $article['title'] }}</h3>
+                        <div class="col-md-6 text-center">
+                            <div class="display-3 fw-bold text-primary">{{ $jumlahUMKM }}</div>
+                        </div>
                     </div>
-                    <p class="card-text">{{ $article['content'] }}</p>
-                </div>
-                <div class="card-footer bg-white">
-                    <a href="#" class="btn btn-sm btn-outline-primary">Baca Selengkapnya →</a>
                 </div>
             </div>
         </div>
-        @endforeach
     </div>
 
-    <!-- Quick Stats Section -->
-    <div class="row mt-4 g-4">
-        <div class="col-md-4">
-            <div class="card text-white bg-success h-100">
-                <div class="card-body">
-                    <h3 class="card-title">15+</h3>
-                    <p class="card-text">UMKM Terdaftar</p>
-                    <i class="fas fa-store float-end fs-1 opacity-25"></i>
-                </div>
-            </div>
+    <!-- Village History Section -->
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h2 class="fw-semibold mb-0">Sejarah Desa Suci</h2>
+            <hr class="mt-2 mb-4">
         </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-warning h-100">
-                <div class="card-body">
-                    <h3 class="card-title">8</h3>
-                    <p class="card-text">Kategori Produk</p>
-                    <i class="fas fa-tags float-end fs-1 opacity-25"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-info h-100">
-                <div class="card-body">
-                    <h3 class="card-title">4.8/5</h3>
-                    <p class="card-text">Rating Kepuasan</p>
-                    <i class="fas fa-star float-end fs-1 opacity-25"></i>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ asset('images/download (1).png') }}" class="img-fluid h-100" alt="Sejarah Desa" style="object-fit: cover;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body p-4">
+                            <h3 class="fw-semibold mb-3">Asal Usul Desa Suci</h3>
+                            <p class="text-muted mb-4">Ditulis oleh: Tim Budaya Desa | Terakhir diperbarui: 12 Mei 2023</p>
+                            <div class="history-content">
+                                <p>Desa Suci didirikan pada tahun 1850 oleh sekelompok pendatang dari daerah Mataram yang mencari tempat baru untuk bermukim. Nama "Suci" diambil dari mata air jernih yang ditemukan di tengah hutan yang sekarang menjadi pusat desa.</p>
+                                <p>Pada awalnya, Desa Suci hanya terdiri dari 15 kepala keluarga yang hidup dari bertani dan membuat kerajinan dari bambu. Mata air tersebut dianggap keramat dan menjadi tempat ritual masyarakat hingga kini.</p>
+                                <p>Pada tahun 1930, Desa Suci mulai berkembang pesat setelah dibangunnya jalan penghubung ke kota kecamatan. Tradisi kerajinan bambu terus dilestarikan dan menjadi ciri khas desa hingga sekarang.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Font Awesome for icons -->
+<style>
+    .welcome-banner {
+        background: linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .welcome-banner::after {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+    }
+    
+    .welcome-banner::before {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -80px;
+        width: 300px;
+        height: 300px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 50%;
+    }
+    
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .history-content p {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+    }
+</style>
+
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 @endsection
