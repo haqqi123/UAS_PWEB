@@ -14,6 +14,8 @@ return new class extends Migration
             $table->text('Deskripsi');
             $table->integer('Harga_Minimum');
             $table->integer('Harga_Maximum');
+            $table->integer('Nomor_Telephone');
+            $table->text('Alamat');
             $table->string('Gambar')->nullable();
             $table->timestamps();
         });

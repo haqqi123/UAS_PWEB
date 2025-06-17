@@ -9,24 +9,21 @@ Route::get('/', fn () => redirect('/login'));
 // Autentikasi
 Route::get('/login', [PageController::class, 'login'])->name('login');
 Route::post('/login', [PageController::class, 'authenticate']);
-Route::get('/register', [PageController::class, 'register'])->name('register');
-Route::post('/register', [PageController::class, 'storeRegister']);
 Route::post('/logout', [PageController::class, 'logout'])->name('logout');
 
 // Dashboard & Profile
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
-// Route::get('/pengelolaan', [PageController::class, 'pengelolaan'])->name('pengelolaan');
 Route::get('/profile', [PageController::class, 'profile'])->name('profile');
 
 Route::middleware(['check.auth'])->group(function () {
-    Route::get('/pengelolaan', [PageController::class, 'pengelolaan'])->name('pengelolaan');
-    
+    // UMKM Routes
     Route::prefix('umkm')->group(function () {
         Route::get('/', [PageController::class, 'pengelolaan'])->name('pengelolaan');
-        Route::get('/tambah', [PageController::class, 'create'])->name('tambah');
-        Route::post('/tambah', [PageController::class, 'store'])->name('store');
-        Route::get('/ubah/{id}', [PageController::class, 'edit'])->name('edit');
-        Route::put('/ubah/{id}', [PageController::class, 'update'])->name('update');
-        Route::delete('/hapus/{id}', [PageController::class, 'destroy'])->name('destroy');
+        Route::get('/create', [PageController::class, 'create'])->name('umkm.create');
+        Route::post('/store', [PageController::class, 'store'])->name('umkm.store');
+        Route::get('/{id}', [PageController::class, 'show'])->name('umkm.show');
+        Route::get('/{id}/edit', [PageController::class, 'edit'])->name('umkm.edit');
+        Route::put('/{id}', [PageController::class, 'update'])->name('umkm.update');
+        Route::delete('/{id}', [PageController::class, 'destroy'])->name('umkm.destroy');
     });
 });

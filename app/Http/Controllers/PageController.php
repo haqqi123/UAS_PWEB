@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\DB; // ✅ Tambahkan baris ini!
-use App\Models\UMKM;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\UMKM;
+use App\Models\Product;
 
 class PageController extends Controller
 {
+    /* ====================== AUTH ====================== */
     public function login()
     {
         if (Session::has('user')) {
@@ -21,16 +23,21 @@ class PageController extends Controller
     public function authenticate(Request $request)
     {
         $validCredentials = [
-            'username' => 'admin',
-            'password' => 'password123'
+            'username' => 'Jember',
+            'password' => 'jember456',
         ];
 
-        if (
-            ($request->username === $validCredentials['username'] && $request->password === $validCredentials['password']) ||
-            (Session::has('registered_user') &&
-                $request->username === Session::get('registered_user.username') &&
-                $request->password === Session::get('registered_user.password'))
-        ) {
+        $registered = Session::get('registered_user', []);
+        $registeredUser = $registered['username'] ?? null;
+        $registeredPass = $registered['password'] ?? null;
+
+        $isDefault = $request->username === $validCredentials['username']
+                   && $request->password === $validCredentials['password'];
+
+        $isRegister = $request->username === $registeredUser
+                   && $request->password === $registeredPass;
+
+        if ($isDefault || $isRegister) {
             Session::put('user', $request->username);
             return redirect()->route('pengelolaan');
         }
@@ -38,68 +45,45 @@ class PageController extends Controller
         return back()->withErrors(['login' => 'Username atau password salah.']);
     }
 
-    public function register()
-    {
-        if (Session::has('user')) {
-            return redirect()->route('pengelolaan');
-        }
-
-        return view('register');
-    }
-
-    public function storeRegister(Request $request)
-    {
-        $request->validate([
-            'username' => 'required|string|max:50',
-            'password' => 'required|string|min:5|confirmed',
-        ]);
-
-        Session::put('registered_user', [
-            'username' => $request->username,
-            'password' => $request->password,
-        ]);
-
-        Session::put('user', $request->username);
-        return redirect()->route('pengelolaan');
-    }
-
-    public function logout(Request $request)
+    public function logout()
     {
         Session::forget('user');
         return redirect()->route('login');
     }
 
-public function dashboard(Request $request)
-{
-    $articles = [
-        [
-            'title' => 'Festival UMKM Desa Suci',
-            'content' => 'Desa Suci mengadakan festival UMKM tahunan...'
-        ],
-        [
-            'title' => 'Pelatihan Kewirausahaan',
-            'content' => 'Desa Suci menyelenggarakan pelatihan kewirausahaan...'
-        ]
-    ];
+    /* ====================== DASHBOARD ====================== */
+    public function dashboard()
+    {
+        $articles = [
+            [
+                'title' => 'Festival UMKM Desa Suci',
+                'content' => 'Desa Suci mengadakan festival UMKM tahunan...',
+            ],
+            [
+                'title' => 'Pelatihan Kewirausahaan',
+                'content' => 'Desa Suci menyelenggarakan pelatihan kewirausahaan...',
+            ],
+        ];
 
-    // Hitung jumlah UMKM dari tabel
-    $jumlahUMKM = DB::table('UMKM')->count();
+        $jumlahUMKM = DB::table('UMKM')->count();
 
-    return view('dashboard', [
-        'username' => Session::get('user'),
-        'articles' => $articles,
-        'jumlahUMKM' => $jumlahUMKM
-    ]);
-}
+        return view('dashboard', [
+            'username' => Session::get('user'),
+            'articles' => $articles,
+            'jumlahUMKM' => $jumlahUMKM,
+        ]);
+    }
 
-
+    /* ====================== UMKM CRUD ====================== */
     public function pengelolaan()
     {
         if (!Session::has('user')) {
-        return redirect()->route('login')->withErrors(['auth' => 'Anda harus login terlebih dahulu']);
+            return redirect()->route('login')
+                   ->withErrors(['auth' => 'Anda harus login terlebih dahulu']);
         }
-        $umkm = DB::table('UMKM')->get();
-        return view('pengelolaan', ['umkm' => $umkm]);
+
+        $umkm = UMKM::withCount('products')->get();
+        return view('pengelolaan', compact('umkm'));
     }
 
     public function create()
@@ -109,82 +93,196 @@ public function dashboard(Request $request)
 
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'Nama_UMKM' => 'required|string|max:255',
             'Deskripsi' => 'required|string',
             'Harga_Minimum' => 'required|numeric',
             'Harga_Maximum' => 'required|numeric',
+            'Nomor_Telephone' => 'required|numeric',
+            'Alamat' => 'required|string',
             'Gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nama_produk' => 'required|array',
+            'nama_produk.*' => 'required|string|max:255',
+            'gambar_produk' => 'required|array',
+            'gambar_produk.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Proses unggah gambar
+        // Upload gambar UMKM
         $gambar = $request->file('Gambar');
         $gambarName = time() . '.' . $gambar->getClientOriginalExtension();
         $gambar->move(public_path('images'), $gambarName);
 
-        // Simpan ke database
-DB::table('UMKM')->insert([
-    'Nama_UMKM'     => $request->Nama_UMKM,
-    'Deskripsi'     => $request->Deskripsi,
-    'Harga_Minimum' => $request->Harga_Minimum,
-    'Harga_Maximum' => $request->Harga_Maximum,
-    'Gambar'        => $gambarName,
-    'user_id'       => auth()->id(), // jika kamu pakai Laravel Auth
-]);
+        // Simpan UMKM
+        $umkm = UMKM::create([
+            'Nama_UMKM' => $request->Nama_UMKM,
+            'Deskripsi' => $request->Deskripsi,
+            'Harga_Minimum' => $request->Harga_Minimum,
+            'Harga_Maximum' => $request->Harga_Maximum,
+            'Nomor_Telephone' => $request->Nomor_Telephone,
+            'Alamat' => $request->Alamat,
+            'Gambar' => $gambarName,
+        ]);
 
+        // Simpan produk
+        foreach ($request->nama_produk as $idx => $namaProduk) {
+            $gambarProduk = $request->file('gambar_produk')[$idx];
+            $gambarProdukName = time() . '_' . $idx . '.' . $gambarProduk->getClientOriginalExtension();
+            $gambarProduk->move(public_path('images/products'), $gambarProdukName);
 
+            Product::create([
+                'umkm_id' => $umkm->id,
+                'nama_produk' => $namaProduk,
+                'gambar_produk' => $gambarProdukName,
+            ]);
+        }
 
-        // Redirect kembali ke halaman pengelolaan
-        return redirect()->route('pengelolaan')->with('success', 'Data UMKM berhasil ditambahkan.');
+        return redirect()->route('pengelolaan')
+                         ->with('success', 'Data UMKM dan produk berhasil ditambahkan.');
     }
 
-public function edit($id)
-{
-    $umkm = DB::table('UMKM')->where('id', $id)->first();
-    return view('ubah-umkm', compact('umkm'));
-}
-
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'Nama_UMKM' => 'required|string|max:255',
-        'Deskripsi' => 'required|string',
-        'Harga_Minimum' => 'required|integer',
-        'Harga_Maximum' => 'required|integer',
-        'Gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
-
-    $data = [
-        'Nama_UMKM' => $request->Nama_UMKM,
-        'Deskripsi' => $request->Deskripsi,
-        'Harga_Minimum' => $request->Harga_Minimum,
-        'Harga_Maximum' => $request->Harga_Maximum,
-    ];
-
-    if ($request->hasFile('Gambar')) {
-        $gambar = $request->file('Gambar');
-        $gambarName = time() . '_' . $gambar->getClientOriginalName();
-        $gambar->move(public_path('images'), $gambarName);
-        $data['Gambar'] = $gambarName;
+    public function edit($id)
+    {
+        $umkm = UMKM::with('products')->findOrFail($id);
+        return view('ubah-umkm', compact('umkm'));
     }
 
-    DB::table('UMKM')->where('id', $id)->update($data);
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'Nama_UMKM' => 'required|string|max:255',
+            'Deskripsi' => 'required|string',
+            'Harga_Minimum' => 'required|numeric',
+            'Harga_Maximum' => 'required|numeric',
+            'Nomor_Telephone' => 'required|numeric',
+            'Alamat' => 'required|string',
+            'Gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nama_produk' => 'sometimes|array',
+            'nama_produk.*' => 'sometimes|string|max:255',
+            'gambar_produk' => 'sometimes|array',
+            'gambar_produk.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'existing_products' => 'sometimes|array',
+            'existing_products.*.id' => 'sometimes|exists:products,id',
+            'existing_products.*.nama_produk' => 'sometimes|string|max:255',
+            'existing_products.*.gambar_produk' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    return redirect()->route('pengelolaan')->with('success', 'Data UMKM berhasil diperbarui');
-}
+        // Update data UMKM
+        $umkm = UMKM::findOrFail($id);
+        $umkm->fill($request->only([
+            'Nama_UMKM',
+            'Deskripsi',
+            'Harga_Minimum',
+            'Harga_Maximum',
+            'Nomor_Telephone',
+            'Alamat',
+        ]));
+
+        // Update gambar UMKM jika ada
+        if ($request->hasFile('Gambar')) {
+            $gambar = $request->file('Gambar');
+            $gambarName = time() . '_' . $gambar->getClientOriginalName();
+            $gambar->move(public_path('images'), $gambarName);
+            $umkm->Gambar = $gambarName;
+        }
+        $umkm->save();
+
+        // Update produk yang sudah ada
+        if ($request->filled('existing_products')) {
+            foreach ($request->existing_products as $prod) {
+                $product = Product::find($prod['id']);
+                if (!$product) continue;
+
+                $product->nama_produk = $prod['nama_produk'];
+
+                if (isset($prod['gambar_produk']) && $prod['gambar_produk'] instanceof \Illuminate\Http\UploadedFile) {
+                    $gambarName = time() . '_' . $prod['gambar_produk']->getClientOriginalName();
+                    $prod['gambar_produk']->move(public_path('images/products'), $gambarName);
+                    $product->gambar_produk = $gambarName;
+                }
+                $product->save();
+            }
+        }
+
+        // Tambah produk baru
+        if ($request->filled('nama_produk')) {
+            foreach ($request->nama_produk as $idx => $namaProduk) {
+                if (empty($namaProduk)) continue;
+
+                if (!$request->hasFile('gambar_produk') || !isset($request->file('gambar_produk')[$idx])) {
+                    continue;
+                }
+
+                $gambarProduk = $request->file('gambar_produk')[$idx];
+                $gambarProdukName = time() . '_' . $idx . '.' . $gambarProduk->getClientOriginalExtension();
+                $gambarProduk->move(public_path('images/products'), $gambarProdukName);
+
+                Product::create([
+                    'umkm_id' => $umkm->id,
+                    'nama_produk' => $namaProduk,
+                    'gambar_produk' => $gambarProdukName,
+                ]);
+            }
+        }
+
+        return redirect()->route('pengelolaan')
+                         ->with('success', 'Data UMKM & produk berhasil diperbarui.');
+    }
+
+    public function show($id)
+    {
+        $umkm = UMKM::with('products')->findOrFail($id);
+        return view('umkm-detail', compact('umkm'));
+    }
 
 public function destroy($id)
 {
-    DB::table('UMKM')->where('id', $id)->delete();
-    return response()->json(['success' => true]);
-}
+    try {
+        $umkm = UMKM::findOrFail($id);
+        
+        // Hapus file gambar UMKM jika ada
+        if ($umkm->Gambar && file_exists(public_path('images/' . $umkm->Gambar))) {
+            unlink(public_path('images/' . $umkm->Gambar));
+        }
+        
+        // Hapus semua produk terkait beserta gambarnya
+        $products = Product::where('umkm_id', $id)->get();
+        foreach ($products as $product) {
+            if ($product->gambar_produk && file_exists(public_path('images/products/' . $product->gambar_produk))) {
+                unlink(public_path('images/products/' . $product->gambar_produk));
+            }
+            $product->delete();
+        }
+        
+        // Hapus UMKM
+        $umkm->delete();
 
+        if (request()->wantsJson() || request()->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'UMKM berhasil dihapus beserta semua produknya.'
+            ]);
+        }
 
+        return redirect()->route('pengelolaan')
+                         ->with('success', 'UMKM berhasil dihapus beserta semua produknya.');
 
-public function profile()
-{
-    $umkmList = DB::table('UMKM')->get(); // Ambil semua data UMKM
-    return view('profile', ['umkmList' => $umkmList]);
-}
+    } catch (\Exception $e) {
+        if (request()->wantsJson() || request()->ajax()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal menghapus UMKM: ' . $e->getMessage()
+            ], 500);
+        }
+
+        return redirect()->route('pengelolaan')
+                         ->with('error', 'Gagal menghapus UMKM: ' . $e->getMessage());
+    }
+
+    }
+
+    public function profile()
+    {
+        $umkmList = UMKM::with('products')->get();
+        return view('profile', compact('umkmList'));
+    }
 }
