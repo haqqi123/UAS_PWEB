@@ -10,13 +10,20 @@ return new class extends Migration
     {
         Schema::create('umkm', function (Blueprint $table) {
             $table->id();
-            $table->string('Nama_UMKM');
-            $table->text('Deskripsi');
-            $table->integer('Harga_Minimum');
-            $table->integer('Harga_Maximum');
-            $table->integer('Nomor_Telephone');
-            $table->text('Alamat');
-            $table->string('Gambar')->nullable();
+            $table->string('nama_pemilik');
+            $table->string('nik', 16);
+            $table->string('nama_usaha');
+            $table->string('jenis_produk');
+            $table->text('deskripsi');
+            $table->decimal('harga_minimum', 12, 2)->default(0);
+            $table->decimal('harga_maximum', 12, 2)->default(0);
+            $table->string('whatsapp')->nullable();
+            $table->string('email')->nullable();
+            $table->text('alamat');
+            $table->string('foto_usaha')->nullable();
+            $table->enum('status', ['menunggu', 'diterima', 'ditolak'])->default('menunggu');
+            $table->text('catatan_status')->nullable();
+            $table->string('kategori');
             $table->timestamps();
         });
     }

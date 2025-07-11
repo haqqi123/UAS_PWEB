@@ -10,50 +10,97 @@ class UMKM extends Model
 {
     use HasFactory;
 
-    // Nama tabel yang sesuai dengan migrasi
-    protected $table = 'UMKM';
-    
-    // Kolom yang dapat diisi secara massal
+    protected $table = 'umkm';
+
     protected $fillable = [
-        'Nama_UMKM',
-        'Deskripsi',
-        'Harga_Minimum',
-        'Harga_Maximum',
-        'Gambar',
-        'Nomor_Telephone',
-        'Alamat',
-        'user_id' // Jika menggunakan sistem autentikasi
+        'nama_pemilik',
+        'nik',
+        'nama_usaha',
+        'jenis_produk',
+        'deskripsi',
+        'harga_minimum',
+        'harga_maximum',
+        'whatsapp',
+        'email',
+        'alamat',
+        'foto_usaha',
+        'status',
+        'catatan_status',
+        'kategori'
     ];
 
-    // Relasi one-to-many dengan produk
-    public function products()
-    {
-        return $this->hasMany(Product::class, 'umkm_id');
-    }
+    protected $casts = [
+        'harga_minimum' => 'decimal:2',
+        'harga_maximum' => 'decimal:2',
+    ];
 
     // Accessor untuk format harga minimum
     public function getFormattedHargaMinimumAttribute(): string
     {
-        return 'Rp ' . number_format($this->Harga_Minimum, 0, ',', '.');
+        return 'Rp ' . number_format($this->harga_minimum, 0, ',', '.');
     }
 
     // Accessor untuk format harga maksimum
     public function getFormattedHargaMaximumAttribute(): string
     {
-        return 'Rp ' . number_format($this->Harga_Maximum, 0, ',', '.');
+        return 'Rp ' . number_format($this->harga_maximum, 0, ',', '.');
     }
 
-    // Accessor untuk URL gambar
-    public function getGambarUrlAttribute(): string
+    // Accessor untuk URL foto
+    public function getFotoUrlAttribute(): string
     {
-        return asset('images/' . $this->Gambar);
+        if ($this->foto_usaha) {
+            return asset('storage/umkm/' . $this->foto_usaha);
+        }
+        return asset('images/default-store.jpg');
+    }
+
+    // Accessor untuk status badge
+    public function getStatusBadgeAttribute(): string
+    {
+        $badges = [
+            'menunggu' => 'bg-yellow-100 text-yellow-800',
+            'diterima' => 'bg-green-100 text-green-800',
+            'ditolak' => 'bg-red-100 text-red-800'
+        ];
+
+        return $badges[$this->status] ?? 'bg-gray-100 text-gray-800';
+    }
+
+    // Accessor untuk format whatsapp
+    public function getWhatsappUrlAttribute(): string
+    {
+        if ($this->whatsapp) {
+            $number = preg_replace('/[^0-9]/', '', $this->whatsapp);
+            return "https://wa.me/{$number}";
+        }
+        return '#';
     }
 
     // Scope untuk pencarian
     public function scopeSearch($query, $term)
     {
-        return $query->where('Nama_UMKM', 'like', "%{$term}%")
-                    ->orWhere('Deskripsi', 'like', "%{$term}%")
-                    ->orWhere('Alamat', 'like', "%{$term}%");
+        return $query->where('nama_usaha', 'like', "%{$term}%")
+            ->orWhere('deskripsi', 'like', "%{$term}%")
+            ->orWhere('jenis_produk', 'like', "%{$term}%")
+            ->orWhere('alamat', 'like', "%{$term}%");
+    }
+
+    // Scope untuk filter berdasarkan kategori
+    public function scopeKategori($query, $kategori)
+    {
+        if ($kategori) {
+            return $query->where('kategori', $kategori);
+        }
+        return $query;
+    }
+
+    // Scope untuk filter berdasarkan status
+    public function scopeStatus($query, $status)
+    {
+        if ($status) {
+            return $query->where('status', $status);
+        }
+        return $query;
     }
 }
