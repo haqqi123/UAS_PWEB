@@ -47,11 +47,6 @@ $isDashboard = request()->routeIs('dashboard');
                     <i class="fas fa-store mr-2"></i>
                     <span>Katalog UMKM</span>
                 </a>
-                <a href="{{ route('pengelolaan') }}"
-                    class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('pengelolaan') : $isActive('pengelolaan') }}">
-                    <i class="fas fa-user-cog mr-2"></i>
-                    <span>Admin</span>
-                </a>
             </div>
         </div>
 
@@ -68,11 +63,6 @@ $isDashboard = request()->routeIs('dashboard');
                     class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('umkm.index') : $isActive('umkm.index') }}">
                     <i class="fas fa-store mr-2"></i>
                     <span>Katalog UMKM</span>
-                </a>
-                <a href="{{ route('pengelolaan') }}"
-                    class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('pengelolaan') : $isActive('pengelolaan') }}">
-                    <i class="fas fa-user-cog mr-2"></i>
-                    <span>Admin</span>
                 </a>
             </div>
         </div>

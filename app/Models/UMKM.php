@@ -68,7 +68,7 @@ class UMKM extends Model
     public function getFotoUrlAttribute(): string
     {
         if ($this->foto_usaha) {
-            return asset('storage/umkm/' . $this->foto_usaha);
+            return asset('images/umkm/' . $this->foto_usaha);
         }
         return asset('images/default-store.jpg');
     }

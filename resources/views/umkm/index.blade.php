@@ -26,7 +26,7 @@
 
             <!-- Register UMKM Button -->
             <div class="text-center mt-12">
-                <a href="#"
+                <a href="{{ route('umkm.create') }}"
                     class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:-translate-y-1">
                     <i class="fas fa-plus-circle mr-2"></i>
                     Daftarkan UMKM Anda

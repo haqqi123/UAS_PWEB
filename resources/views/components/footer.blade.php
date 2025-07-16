@@ -53,12 +53,6 @@
                             <span>UMKM Jember</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('pengelolaan') }}" class="text-gray-600 hover:text-primary flex items-center">
-                            <i class="fas fa-chevron-right text-accent text-xs mr-2"></i>
-                            <span>Admin</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
 
