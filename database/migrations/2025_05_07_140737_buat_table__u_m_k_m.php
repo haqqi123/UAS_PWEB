@@ -24,6 +24,7 @@ return new class extends Migration
             $table->enum('status', ['menunggu', 'diterima', 'ditolak'])->default('menunggu');
             $table->text('catatan_status')->nullable();
             $table->string('kategori');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

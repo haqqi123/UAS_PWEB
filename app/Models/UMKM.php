@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class UMKM extends Model
 {
@@ -26,8 +27,25 @@ class UMKM extends Model
         'foto_usaha',
         'status',
         'catatan_status',
-        'kategori'
+        'kategori',
+        'slug'
     ];
+
+    // Generate slug before saving
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($umkm) {
+            $umkm->slug = Str::slug($umkm->nama_usaha) . '-' . Str::random(6);
+        });
+    }
+
+    // Get route key name
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     protected $casts = [
         'harga_minimum' => 'decimal:2',

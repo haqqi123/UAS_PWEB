@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\UMKM;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class UMKMSeeder extends Seeder
 {
@@ -28,7 +29,8 @@ class UMKMSeeder extends Seeder
                 'foto_usaha' => 'sambal-busiti.jpg',
                 'status' => 'diterima',
                 'kategori' => 'Makanan',
-                'created_at' => Carbon::now()->subDays(30)
+                'created_at' => Carbon::now()->subDays(30),
+                'slug' => 'warung-sambal-bu-siti-' . Str::random(6)
             ],
             [
                 'nama_pemilik' => 'Ahmad Fauzi',
@@ -44,7 +46,8 @@ class UMKMSeeder extends Seeder
                 'foto_usaha' => 'bambu-asri.jpg',
                 'status' => 'diterima',
                 'kategori' => 'Kerajinan',
-                'created_at' => Carbon::now()->subDays(25)
+                'created_at' => Carbon::now()->subDays(25),
+                'slug' => 'kerajinan-bambu-asri-' . Str::random(6)
             ],
             [
                 'nama_pemilik' => 'Maya Sari',
@@ -60,7 +63,8 @@ class UMKMSeeder extends Seeder
                 'foto_usaha' => 'batik-maya.jpg',
                 'status' => 'diterima',
                 'kategori' => 'Fashion',
-                'created_at' => Carbon::now()->subDays(20)
+                'created_at' => Carbon::now()->subDays(20),
+                'slug' => 'batik-tulis-maya-' . Str::random(6)
             ],
             [
                 'nama_pemilik' => 'Budi Santoso',
@@ -76,7 +80,8 @@ class UMKMSeeder extends Seeder
                 'foto_usaha' => 'kue-manis.jpg',
                 'status' => 'diterima',
                 'kategori' => 'Makanan',
-                'created_at' => Carbon::now()->subDays(15)
+                'created_at' => Carbon::now()->subDays(15),
+                'slug' => 'toko-kue-manis-' . Str::random(6)
             ],
             [
                 'nama_pemilik' => 'Rudi Hartono',
@@ -92,7 +97,8 @@ class UMKMSeeder extends Seeder
                 'foto_usaha' => 'las-sejahtera.jpg',
                 'status' => 'diterima',
                 'kategori' => 'Jasa',
-                'created_at' => Carbon::now()->subDays(10)
+                'created_at' => Carbon::now()->subDays(10),
+                'slug' => 'bengkel-las-sejahtera-' . Str::random(6)
             ],
             [
                 'nama_pemilik' => 'Dewi Lestari',
@@ -108,7 +114,8 @@ class UMKMSeeder extends Seeder
                 'foto_usaha' => 'salon-cantik.jpg',
                 'status' => 'diterima',
                 'kategori' => 'Jasa',
-                'created_at' => Carbon::now()->subDays(5)
+                'created_at' => Carbon::now()->subDays(5),
+                'slug' => 'salon-cantik-' . Str::random(6)
             ],
             [
                 'nama_pemilik' => 'Hendra Wijaya',
@@ -124,7 +131,8 @@ class UMKMSeeder extends Seeder
                 'foto_usaha' => 'hidroponik-maju.jpg',
                 'status' => 'menunggu',
                 'kategori' => 'Makanan',
-                'created_at' => Carbon::now()->subDays(2)
+                'created_at' => Carbon::now()->subDays(2),
+                'slug' => 'tani-hidroponik-maju-' . Str::random(6)
             ],
             [
                 'nama_pemilik' => 'Rina Wati',
@@ -141,7 +149,8 @@ class UMKMSeeder extends Seeder
                 'status' => 'ditolak',
                 'catatan_status' => 'Foto produk kurang jelas dan deskripsi produk perlu dilengkapi',
                 'kategori' => 'Fashion',
-                'created_at' => Carbon::now()->subDays(1)
+                'created_at' => Carbon::now()->subDays(1),
+                'slug' => 'rajut-cantik-' . Str::random(6)
             ]
         ];
 

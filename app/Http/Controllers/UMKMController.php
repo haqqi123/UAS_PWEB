@@ -9,12 +9,13 @@ class UMKMController extends Controller
 {
     public function index()
     {
-        return view('umkm.index');
+        $umkm = UMKM::latest()->paginate(12);
+        return view('umkm.index', compact('umkm'));
     }
 
-    public function show($id)
+    public function show(UMKM $umkm)
     {
-        $umkm = UMKM::where('status', 'diterima')->findOrFail($id);
+        $umkm = UMKM::where('status', 'diterima')->findOrFail($umkm->id);
 
         // Get related UMKM (same category, excluding current)
         $related = UMKM::where('status', 'diterima')

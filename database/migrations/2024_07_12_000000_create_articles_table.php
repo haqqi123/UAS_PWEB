@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->text('isi');
-            $table->string('penulis')->default('Admin');
-            $table->integer('views')->default(0);
             $table->string('thumbnail')->nullable();
+            $table->string('penulis');
+            $table->integer('views')->default(0);
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

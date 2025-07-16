@@ -64,7 +64,7 @@
                             <i class="fab fa-whatsapp mr-2"></i>
                             Hubungi
                         </a>
-                        <a href="{{ route('umkm.show', $item->id) }}"
+                        <a href="{{ route('umkm.show', $item) }}"
                             class="text-primary hover:text-primary/80 font-medium text-sm">
                             Detail
                             <i class="fas fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i>

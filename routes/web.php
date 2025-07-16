@@ -18,7 +18,10 @@ Route::get('/profile', [PageController::class, 'profile'])->name('profile');
 
 // UMKM
 Route::get('/umkm', [UMKMController::class, 'index'])->name('umkm.index');
-Route::get('/umkm/{id}', [UMKMController::class, 'show'])->name('umkm.show');
+Route::get('/umkm/{umkm:slug}', [UMKMController::class, 'show'])->name('umkm.show');
+
+// Artikel
+Route::get('/artikel/{article:slug}', [App\Http\Controllers\ArticleController::class, 'show'])->name('artikel.show');
 
 
 Route::middleware(['check.auth'])->group(function () {

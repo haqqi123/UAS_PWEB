@@ -14,7 +14,7 @@ class DashboardController extends Controller
     {
         $statistik = PopulationStatistic::latest()->first();
         $organisations = Organisation::all();
-        $artikel = Article::latest()->take(4)->get();
+        $artikel = Article::latest()->get();
         $umkm = UMKM::where('status', 'diterima')
             ->latest()
             ->get();

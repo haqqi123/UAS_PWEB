@@ -23,6 +23,70 @@
             }
         }
     </script>
+    <style>
+        /* Custom Scrollbar */
+        .scrollbar-custom::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar-thumb {
+            background: rgba(91, 139, 184, 0.5);
+            border-radius: 4px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+            background: rgba(91, 139, 184, 0.8);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.6s ease-out forwards;
+        }
+
+        .animate-slide-up {
+            opacity: 0;
+            animation: fade-in-up 0.6s ease-out forwards;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        /* Carousel Navigation */
+        .carousel-dot {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .carousel-dot.active {
+            width: 2rem;
+        }
+    </style>
 </head>
 
 <body class="min-h-screen flex flex-col">

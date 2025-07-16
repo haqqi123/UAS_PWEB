@@ -2,23 +2,33 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Article extends Model
 {
-    use HasFactory;
-    protected $table = 'articles';
     protected $fillable = [
         'judul',
         'isi',
+        'thumbnail',
         'penulis',
         'views',
-        'thumbnail'
+        'slug'
     ];
 
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+    // Generate slug before saving
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($article) {
+            $article->slug = Str::slug($article->judul) . '-' . Str::random(6);
+        });
+    }
+
+    // Get route key name
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

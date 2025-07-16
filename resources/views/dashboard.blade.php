@@ -324,68 +324,71 @@
                 <h2 class="text-3xl font-bold text-[#5B8BB8]">Artikel Terbaru</h2>
                 <div class="w-12 h-1 bg-[#5B8BB8] mx-auto mt-4"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                @foreach ($artikel as $a)
-                    <div
-                        class="bg-white rounded-2xl shadow-md overflow-hidden group transform transition-all duration-300 hover:-translate-y-2">
-                        <!-- Article Thumbnail -->
-                        <div class="relative h-48 overflow-hidden">
-                            @if ($a->thumbnail)
-                                <img src="{{ asset($a->thumbnail) }}" alt="{{ $a->judul }}"
-                                    class="w-full h-full object-cover">
-                            @else
-                                <div class="w-full h-full bg-primary/10 flex items-center justify-center">
-                                    <i class="fas fa-newspaper text-primary text-4xl"></i>
-                                </div>
-                            @endif
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                            </div>
-                        </div>
 
-                        <!-- Article Content -->
-                        <div class="p-6">
-                            <div class="flex items-center text-sm text-gray-500 mb-3">
-                                <i class="far fa-calendar-alt mr-2"></i>
-                                <span>{{ $a->created_at->format('d M Y') }}</span>
-                                <div class="mx-2">•</div>
-                                <i class="far fa-eye mr-2"></i>
-                                <span>{{ number_format($a->views) }} views</span>
-                            </div>
-
-                            <h3
-                                class="text-xl font-bold text-gray-800 mb-3 line-clamp-2 group-hover:text-primary transition-colors">
-                                {{ $a->judul }}
-                            </h3>
-
-                            <p class="text-gray-600 mb-4 line-clamp-3">
-                                {{ $a->isi }}
-                            </p>
-
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-user text-primary"></i>
+            <!-- Horizontal Scroll Container -->
+            <div class="relative">
+                <div class="overflow-x-auto scroll-smooth scrollbar-custom">
+                    <div class="flex gap-6 pb-6" style="width: max-content;">
+                        @foreach ($artikel as $a)
+                            <div class="w-[350px]">
+                                <div
+                                    class="bg-white rounded-2xl shadow-md overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 h-[450px] flex flex-col">
+                                    <!-- Article Thumbnail -->
+                                    <div class="relative h-48 overflow-hidden">
+                                        @if ($a->thumbnail)
+                                            <img src="{{ asset($a->thumbnail) }}" alt="{{ $a->judul }}"
+                                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                        @else
+                                            <div
+                                                class="w-full h-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                                <i class="fas fa-newspaper text-primary text-4xl"></i>
+                                            </div>
+                                        @endif
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        </div>
                                     </div>
-                                    <span class="ml-2 text-sm text-gray-600">{{ $a->penulis }}</span>
-                                </div>
-                                <a href="#" class="text-primary hover:text-primary/80 font-medium text-sm">
-                                    Baca Selengkapnya
-                                    <i class="fas fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
 
-            <!-- View All Button -->
-            <div class="text-center mt-10">
-                <a href="#"
-                    class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:-translate-y-1">
-                    Lihat Semua Artikel
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                                    <!-- Article Content -->
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                                            <i class="far fa-calendar-alt mr-2"></i>
+                                            <span>{{ $a->created_at->format('d M Y') }}</span>
+                                            <div class="mx-2">•</div>
+                                            <i class="far fa-eye mr-2"></i>
+                                            <span>{{ number_format($a->views) }} views</span>
+                                        </div>
+
+                                        <h3
+                                            class="text-xl font-bold text-gray-800 mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                                            {{ $a->judul }}
+                                        </h3>
+
+                                        <p class="text-gray-600 mb-4 line-clamp-3 flex-grow">
+                                            {{ $a->isi }}
+                                        </p>
+
+                                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                                            <div class="flex items-center">
+                                                <div
+                                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                                                    <i class="fas fa-user text-primary"></i>
+                                                </div>
+                                                <span class="ml-2 text-sm text-gray-600">{{ $a->penulis }}</span>
+                                            </div>
+                                            <a href="{{ route('artikel.show', $a) }}"
+                                                class="text-primary hover:text-primary/80 font-medium text-sm group-hover:translate-x-1 transition-transform">
+                                                Baca Selengkapnya
+                                                <i
+                                                    class="fas fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -448,7 +451,7 @@
                                     <i class="fab fa-whatsapp mr-2"></i>
                                     Hubungi
                                 </a>
-                                <a href="{{ route('umkm.show', $item->id) }}"
+                                <a href="{{ route('umkm.show', $item) }}"
                                     class="text-primary hover:text-primary/80 font-medium text-sm">
                                     Detail
                                     <i class="fas fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i>
@@ -796,6 +799,25 @@
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        .scrollbar-custom::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
     </style>
 
