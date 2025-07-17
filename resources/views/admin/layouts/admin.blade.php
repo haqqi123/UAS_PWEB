@@ -13,18 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#5B8BB8',
-                    },
-                },
-            },
-        }
-    </script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -36,9 +25,9 @@
 </head>
 
 <body class="bg-gray-50">
-    <div class="min-h-screen flex">
+    <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <aside class="bg-white w-64 min-h-screen shadow-lg fixed left-0 z-50" x-data="{ open: true }">
+        <aside class="fixed left-0 z-50 w-64 min-h-screen bg-white shadow-lg" x-data="{ open: true }">
             <!-- Logo -->
             <div class="p-4 border-b">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-2">
@@ -53,35 +42,35 @@
                     <li>
                         <a href="{{ route('admin.dashboard') }}"
                             class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary {{ request()->routeIs('admin.dashboard') ? 'bg-primary/5 text-primary font-medium border-r-4 border-primary' : '' }}">
-                            <i class="fas fa-home w-5"></i>
+                            <i class="w-5 fas fa-home"></i>
                             <span class="ml-2">Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.umkm.index') }}"
                             class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary {{ request()->routeIs('admin.umkm.*') ? 'bg-primary/5 text-primary font-medium border-r-4 border-primary' : '' }}">
-                            <i class="fas fa-store w-5"></i>
+                            <i class="w-5 fas fa-store"></i>
                             <span class="ml-2">UMKM</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.articles.index') }}"
                             class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary {{ request()->routeIs('admin.articles.*') ? 'bg-primary/5 text-primary font-medium border-r-4 border-primary' : '' }}">
-                            <i class="fas fa-newspaper w-5"></i>
+                            <i class="w-5 fas fa-newspaper"></i>
                             <span class="ml-2">Artikel</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.population.index') }}"
                             class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary {{ request()->routeIs('admin.population.*') ? 'bg-primary/5 text-primary font-medium border-r-4 border-primary' : '' }}">
-                            <i class="fas fa-users w-5"></i>
+                            <i class="w-5 fas fa-users"></i>
                             <span class="ml-2">Data Penduduk</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.organization.index') }}"
                             class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary {{ request()->routeIs('admin.organization.*') ? 'bg-primary/5 text-primary font-medium border-r-4 border-primary' : '' }}">
-                            <i class="fas fa-sitemap w-5"></i>
+                            <i class="w-5 fas fa-sitemap"></i>
                             <span class="ml-2">Organisasi</span>
                         </a>
                     </li>
@@ -92,18 +81,18 @@
         <!-- Main Content -->
         <main class="flex-1 ml-64">
             <!-- Navbar -->
-            <nav class="bg-white shadow-md h-16 fixed right-0 left-64 top-0 z-40">
-                <div class="h-full px-4 flex justify-between items-center">
+            <nav class="fixed top-0 right-0 z-40 h-16 bg-white shadow-md left-64">
+                <div class="flex items-center justify-between h-full px-4">
                     <!-- Page Title -->
                     <h1 class="text-xl font-semibold text-gray-800">@yield('page-title', 'Dashboard')</h1>
 
                     <!-- Right Navigation -->
                     <div class="flex items-center space-x-4">
                         <!-- Notifications -->
-                        <button class="p-2 text-gray-600 hover:text-primary relative">
+                        <button class="relative p-2 text-gray-600 hover:text-primary">
                             <i class="fas fa-bell"></i>
                             <span
-                                class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full transform translate-x-1/2 -translate-y-1/2"></span>
+                                class="absolute top-0 right-0 w-2 h-2 transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full"></span>
                         </button>
 
                         <!-- Profile Dropdown -->
@@ -113,22 +102,22 @@
                                 <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}"
                                     class="w-8 h-8 rounded-full">
                                 <span class="font-medium">{{ auth()->user()->name }}</span>
-                                <i class="fas fa-chevron-down text-xs"></i>
+                                <i class="text-xs fas fa-chevron-down"></i>
                             </button>
 
                             <!-- Dropdown Menu -->
                             <div x-show="open" @click.away="open = false"
-                                class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                                class="absolute right-0 w-48 py-2 mt-2 bg-white rounded-lg shadow-lg">
                                 <a href="#"
                                     class="block px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary">
-                                    <i class="fas fa-user-circle mr-2"></i>
+                                    <i class="mr-2 fas fa-user-circle"></i>
                                     Profile
                                 </a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button type="submit"
-                                        class="w-full text-left px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary">
-                                        <i class="fas fa-sign-out-alt mr-2"></i>
+                                        class="w-full px-4 py-2 text-left text-gray-700 hover:bg-primary/5 hover:text-primary">
+                                        <i class="mr-2 fas fa-sign-out-alt"></i>
                                         Logout
                                     </button>
                                 </form>

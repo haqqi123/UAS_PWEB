@@ -6,23 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMKM Desa Suci - @yield('title')</title>
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#5B8BB8',
-                        primaryLight: '#8AB9E0',
-                        accent: '#D4AB07',
-                        secondary: '#6E7E2A',
-                    }
-                }
-            }
-        }
-    </script>
+
     <style>
         /* Custom Scrollbar */
         .scrollbar-custom::-webkit-scrollbar {
@@ -89,7 +78,7 @@
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="flex flex-col min-h-screen">
     @include('components.navbar')
 
     <main class="flex-grow">

@@ -8,7 +8,7 @@ $isDashboard = request()->routeIs('dashboard');
 
 <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 {{ !$isDashboard ? 'bg-white shadow-lg' : '' }}"
     id="mainNav">
-    <div class="container mx-auto px-4">
+    <div class="container px-4 mx-auto">
         <div class="flex items-center justify-between h-20">
             <!-- Brand -->
             <a href="{{ route('dashboard') }}" class="flex items-center space-x-2">
@@ -26,7 +26,7 @@ $isDashboard = request()->routeIs('dashboard');
 
             <!-- Mobile menu button -->
             <div class="md:hidden">
-                <button type="button" class="mobile-menu-button p-2 focus:outline-none" onclick="toggleMobileMenu()">
+                <button type="button" class="p-2 mobile-menu-button focus:outline-none" onclick="toggleMobileMenu()">
                     <svg class="h-6 w-6 {{ !$isDashboard ? 'text-primary' : 'text-white' }} transition-colors duration-300"
                         id="menuIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -39,29 +39,29 @@ $isDashboard = request()->routeIs('dashboard');
             <div class="hidden md:flex md:items-center md:space-x-6">
                 <a href="{{ route('dashboard') }}"
                     class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('dashboard') : $isActive('dashboard') }}">
-                    <i class="fas fa-home mr-2"></i>
+                    <i class="mr-2 fas fa-home"></i>
                     <span>Beranda</span>
                 </a>
                 <a href="{{ route('umkm.index') }}"
                     class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('umkm.index') : $isActive('umkm.index') }}">
-                    <i class="fas fa-store mr-2"></i>
+                    <i class="mr-2 fas fa-store"></i>
                     <span>Katalog UMKM</span>
                 </a>
             </div>
         </div>
 
         <!-- Mobile Navigation -->
-        <div class="mobile-menu hidden md:hidden">
+        <div class="hidden mobile-menu md:hidden">
             <div
                 class="flex flex-col space-y-2 px-2 pt-2 pb-3 {{ $isDashboard ? 'bg-white/10 backdrop-blur-lg' : 'bg-white' }} rounded-lg mt-2">
                 <a href="{{ route('dashboard') }}"
                     class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('dashboard') : $isActive('dashboard') }}">
-                    <i class="fas fa-home mr-2"></i>
+                    <i class="mr-2 fas fa-home"></i>
                     <span>Beranda</span>
                 </a>
                 <a href="{{ route('umkm.index') }}"
                     class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('umkm.index') : $isActive('umkm.index') }}">
-                    <i class="fas fa-store mr-2"></i>
+                    <i class="mr-2 fas fa-store"></i>
                     <span>Katalog UMKM</span>
                 </a>
             </div>
@@ -97,10 +97,17 @@ $isDashboard = request()->routeIs('dashboard');
             menuIcon.classList.remove('text-white');
             menuIcon.classList.add('text-primary');
 
-            // Update nav links
+            // Update nav links - Fixed: Use correct classes for active and inactive states
             navLinks.forEach(link => {
-                link.classList.remove('text-white/90', 'hover:text-white');
-                link.classList.add('text-gray-700', 'hover:text-primary');
+                if (link.classList.contains('text-white')) {
+                    // Active link
+                    link.classList.remove('text-white');
+                    link.classList.add('text-primary');
+                } else {
+                    // Inactive link
+                    link.classList.remove('text-white/90', 'hover:text-white');
+                    link.classList.add('text-gray-700', 'hover:text-primary');
+                }
             });
         } else {
             // Top state
@@ -113,10 +120,17 @@ $isDashboard = request()->routeIs('dashboard');
             menuIcon.classList.add('text-white');
             menuIcon.classList.remove('text-primary');
 
-            // Update nav links
+            // Update nav links - Fixed: Use correct classes for active and inactive states
             navLinks.forEach(link => {
-                link.classList.add('text-white/90', 'hover:text-white');
-                link.classList.remove('text-gray-700', 'hover:text-primary');
+                if (link.classList.contains('text-primary')) {
+                    // Active link
+                    link.classList.remove('text-primary');
+                    link.classList.add('text-white');
+                } else {
+                    // Inactive link
+                    link.classList.remove('text-gray-700', 'hover:text-primary');
+                    link.classList.add('text-white/90', 'hover:text-white');
+                }
             });
         }
     });
