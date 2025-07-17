@@ -5,28 +5,28 @@
 
 @section('content')
     <!-- Stats Overview -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="grid grid-cols-1 gap-6 mb-8 md:grid-cols-2 lg:grid-cols-4">
         <!-- Total UMKM -->
-        <x-admin.stats-card title="Total UMKM" :value="number_format($totalUMKM)" icon="fas fa-store" color="primary"
-            :percentage="$umkmGrowth" :isIncrease="$umkmGrowth >= 0" />
+        <x-admin.stats-card title="Total UMKM" :value="number_format($totalUMKM)" icon="fas fa-store" color="primary" :percentage="$umkmGrowth"
+            :isIncrease="$umkmGrowth >= 0" />
 
         <!-- Pending UMKM -->
-        <x-admin.stats-card title="UMKM Menunggu" :value="number_format($pendingUMKM)" icon="fas fa-clock" color="warning" />
+        <x-admin.stats-card title="UMKM Menunggu" :value="number_format($pendingUMKM)" icon="fas fa-clock" color="primary" />
 
         <!-- Total Articles -->
-        <x-admin.stats-card title="Total Artikel" :value="number_format($totalArticles)" icon="fas fa-newspaper" color="success" />
+        <x-admin.stats-card title="Total Artikel" :value="number_format($totalArticles)" icon="fas fa-newspaper" color="primary" />
 
         <!-- Total Population -->
-        <x-admin.stats-card title="Total Penduduk" :value="number_format($totalPopulation)" icon="fas fa-users" color="info" />
+        <x-admin.stats-card title="Total Penduduk" :value="number_format($totalPopulation)" icon="fas fa-users" color="primary" />
     </div>
 
     <!-- Charts & Tables -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <!-- UMKM Growth Chart -->
         <x-admin.chart-card title="Pertumbuhan UMKM" chartId="umkmGrowthChart" height="300px">
             @slot('actions')
                 <div class="flex items-center space-x-2">
-                    <select id="umkmChartYear" class="form-select text-sm">
+                    <select id="umkmChartYear" class="text-sm form-select">
                         <option value="2024">2024</option>
                         <option value="2025" selected>2025</option>
                     </select>
@@ -35,8 +35,8 @@
         </x-admin.chart-card>
 
         <!-- Latest Pending UMKM -->
-        <div class="bg-white rounded-2xl shadow-md p-6">
-            <div class="flex justify-between items-center mb-6">
+        <div class="p-6 bg-white shadow-md rounded-2xl">
+            <div class="flex items-center justify-between mb-6">
                 <h4 class="text-xl font-semibold text-gray-800">UMKM Menunggu Persetujuan</h4>
                 <a href="{{ route('admin.umkm.index') }}?status=menunggu" class="text-primary hover:text-primary/80">
                     Lihat Semua
@@ -46,7 +46,7 @@
             <div class="overflow-x-auto">
                 <table class="w-full">
                     <thead>
-                        <tr class="text-left text-sm font-medium text-gray-500 border-b">
+                        <tr class="text-sm font-medium text-left text-gray-500 border-b">
                             <th class="pb-3 pr-4">Nama Usaha</th>
                             <th class="pb-3 pr-4">Pemilik</th>
                             <th class="pb-3 pr-4">Tanggal Daftar</th>
@@ -59,7 +59,7 @@
                                 <td class="py-3 pr-4">
                                     <div class="flex items-center">
                                         <img src="{{ asset($umkm->foto_url) }}" alt="{{ $umkm->nama_usaha }}"
-                                            class="w-8 h-8 rounded-full object-cover mr-3">
+                                            class="object-cover w-8 h-8 mr-3 rounded-full">
                                         <span class="font-medium text-gray-800">{{ $umkm->nama_usaha }}</span>
                                     </div>
                                 </td>
@@ -85,8 +85,8 @@
         </div>
 
         <!-- Latest Articles -->
-        <div class="bg-white rounded-2xl shadow-md p-6 lg:col-span-2">
-            <div class="flex justify-between items-center mb-6">
+        <div class="p-6 bg-white shadow-md rounded-2xl lg:col-span-2">
+            <div class="flex items-center justify-between mb-6">
                 <h4 class="text-xl font-semibold text-gray-800">Artikel Terbaru</h4>
                 <a href="{{ route('admin.articles.index') }}" class="text-primary hover:text-primary/80">
                     Lihat Semua
@@ -96,7 +96,7 @@
             <div class="overflow-x-auto">
                 <table class="w-full">
                     <thead>
-                        <tr class="text-left text-sm font-medium text-gray-500 border-b">
+                        <tr class="text-sm font-medium text-left text-gray-500 border-b">
                             <th class="pb-3 pr-4">Judul</th>
                             <th class="pb-3 pr-4">Penulis</th>
                             <th class="pb-3 pr-4">Views</th>
@@ -111,10 +111,10 @@
                                     <div class="flex items-center">
                                         @if ($article->thumbnail)
                                             <img src="{{ asset($article->thumbnail) }}" alt="{{ $article->judul }}"
-                                                class="w-8 h-8 rounded object-cover mr-3">
+                                                class="object-cover w-8 h-8 mr-3 rounded">
                                         @else
                                             <div
-                                                class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center mr-3">
+                                                class="flex items-center justify-center w-8 h-8 mr-3 rounded bg-primary/10">
                                                 <i class="fas fa-newspaper text-primary"></i>
                                             </div>
                                         @endif
