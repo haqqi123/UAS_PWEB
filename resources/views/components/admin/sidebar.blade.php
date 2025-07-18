@@ -31,8 +31,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.articles.index') }}" @click="sidebarOpen = false"
-                    class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary {{ request()->routeIs('admin.articles.*') ? 'bg-primary/5 text-primary font-medium border-r-4 border-primary' : '' }}">
+                <a href="{{ route('admin.article.index') }}" @click="sidebarOpen = false"
+                    class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary {{ request()->routeIs('admin.article.*') ? 'bg-primary/5 text-primary font-medium border-r-4 border-primary' : '' }}">
                     <i class="w-5 fas fa-newspaper"></i>
                     <span class="ml-2">Artikel</span>
                 </a>

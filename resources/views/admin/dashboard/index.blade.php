@@ -88,7 +88,7 @@
         <div class="p-6 bg-white shadow-md rounded-2xl lg:col-span-2">
             <div class="flex items-center justify-between mb-6">
                 <h4 class="text-xl font-semibold text-gray-800">Artikel Terbaru</h4>
-                <a href="{{ route('admin.articles.index') }}" class="text-primary hover:text-primary/80">
+                <a href="{{ route('admin.article.index') }}" class="text-primary hover:text-primary/80">
                     Lihat Semua
                 </a>
             </div>
@@ -125,7 +125,7 @@
                                 <td class="py-3 pr-4">{{ number_format($article->views) }}</td>
                                 <td class="py-3 pr-4">{{ $article->created_at->format('d M Y') }}</td>
                                 <td class="py-3">
-                                    <a href="{{ route('admin.articles.edit', $article) }}"
+                                    <a href="{{ route('admin.article.edit', $article) }}"
                                         class="text-primary hover:text-primary/80">
                                         Edit
                                     </a>

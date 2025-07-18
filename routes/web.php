@@ -7,6 +7,7 @@ use App\Http\Controllers\UMKMController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminUMKMController;
+use App\Http\Controllers\Admin\AdminArticleController;
 
 // Authentication Routes
 Route::middleware('guest')->group(function () {
@@ -17,11 +18,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 // Dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
-// Dashboard & Profile
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [PageController::class, 'profile'])->name('profile');
-});
 
 // UMKM
 Route::get('/umkm', [UMKMController::class, 'index'])->name('umkm.index');
@@ -45,11 +41,9 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::put('/umkm/{umkm}/update-status', [AdminUMKMController::class, 'updateStatus'])->name('umkm.update-status');
     Route::delete('/umkm/{id}', [AdminUMKMController::class, 'destroy'])->name('umkm.destroy');
 
-
-
     // Article Management
-    Route::get('/articles', [App\Http\Controllers\Admin\AdminArticleController::class, 'index'])->name('articles.index');
-    Route::get('/articles/{article}/edit', [App\Http\Controllers\Admin\AdminArticleController::class, 'edit'])->name('articles.edit');
+    Route::resource('article', AdminArticleController::class);
+
 
     // Population Statistics
     Route::get('/population', [App\Http\Controllers\Admin\AdminPopulationController::class, 'index'])->name('population.index');
