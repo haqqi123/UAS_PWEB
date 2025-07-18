@@ -11,12 +11,6 @@
 
         <!-- Right Navigation -->
         <div class="flex items-center space-x-4">
-            <!-- Notifications -->
-            <button class="relative p-2 text-gray-600 hover:text-primary">
-                <i class="fas fa-bell"></i>
-                <span
-                    class="absolute top-0 right-0 w-2 h-2 transform bg-red-500 rounded-full translate-x-1/3 -translate-y-1/5"></span>
-            </button>
 
             <!-- Profile Dropdown -->
             <div class="relative" x-data="{ open: false }">

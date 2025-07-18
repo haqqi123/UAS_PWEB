@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UMKMController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminUMKMController;
 
 // Authentication Routes
 Route::middleware('guest')->group(function () {
@@ -28,6 +29,7 @@ Route::get('/umkm/create', [UMKMController::class, 'create'])->name('umkm.create
 Route::post('/umkm', [UMKMController::class, 'store'])->name('umkm.store');
 Route::get('/umkm/{umkm:slug}', [UMKMController::class, 'show'])->name('umkm.show');
 
+
 // Artikel
 Route::get('/artikel/{article:slug}', [App\Http\Controllers\ArticleController::class, 'show'])->name('artikel.show');
 
@@ -36,8 +38,12 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
     // UMKM Management
-    Route::get('/umkm', [App\Http\Controllers\Admin\AdminUMKMController::class, 'index'])->name('umkm.index');
-    Route::get('/umkm/{umkm}', [App\Http\Controllers\Admin\AdminUMKMController::class, 'show'])->name('umkm.show');
+    Route::get('/umkm', [AdminUMKMController::class, 'index'])->name('umkm.index');
+    Route::get('/umkm/{umkm}', [AdminUMKMController::class, 'show'])->name('umkm.show');
+    Route::put('/umkm/{umkm}/approve', [AdminUMKMController::class, 'approve'])->name('umkm.approve');
+    Route::put('/umkm/{umkm}/reject', [AdminUMKMController::class, 'reject'])->name('umkm.reject');
+    Route::put('/umkm/{umkm}/update-status', [AdminUMKMController::class, 'updateStatus'])->name('umkm.update-status');
+
 
     // Article Management
     Route::get('/articles', [App\Http\Controllers\Admin\AdminArticleController::class, 'index'])->name('articles.index');
