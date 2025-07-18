@@ -107,4 +107,18 @@ class AdminUMKMController extends Controller
 
         return redirect()->back()->with('success', 'Status UMKM berhasil diperbarui');
     }
+
+    public function destroy(String $id)
+    {
+        $umkm = UMKM::findOrFail($id);
+
+        // Delete foto if exists
+        if ($umkm->foto_url && file_exists(public_path($umkm->foto_url))) {
+            unlink(public_path($umkm->foto_url));
+        }
+
+        $umkm->delete();
+
+        return redirect()->route('admin.umkm.index')->with('success', 'UMKM berhasil dihapus');
+    }
 }

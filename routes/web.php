@@ -43,6 +43,8 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::put('/umkm/{umkm}/approve', [AdminUMKMController::class, 'approve'])->name('umkm.approve');
     Route::put('/umkm/{umkm}/reject', [AdminUMKMController::class, 'reject'])->name('umkm.reject');
     Route::put('/umkm/{umkm}/update-status', [AdminUMKMController::class, 'updateStatus'])->name('umkm.update-status');
+    Route::delete('/umkm/{id}', [AdminUMKMController::class, 'destroy'])->name('umkm.destroy');
+
 
 
     // Article Management

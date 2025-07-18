@@ -39,6 +39,10 @@
                                 <i class="mr-2 fas fa-edit"></i>
                                 Ubah Status
                             </button>
+                            <button type="button" onclick="confirmDelete('{{ $umkm->id }}')" class="btn-danger">
+                                <i class="mr-2 fas fa-trash"></i>
+                                Hapus
+                            </button>
                         @endif
                     </div>
                 </div>
@@ -183,7 +187,24 @@
             });
         }
 
-        function submitAction(action, extraData = {}) {
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Hapus UMKM?',
+                text: 'Data yang dihapus tidak dapat dikembalikan!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    submitAction(`{{ url('admin/umkm') }}/${id}`, {}, 'DELETE');
+                }
+            });
+        }
+
+        function submitAction(action, extraData = {}, method = 'PUT') {
             // Show loading state
             Swal.fire({
                 title: 'Memproses...',
@@ -208,7 +229,7 @@
             const methodInput = document.createElement('input');
             methodInput.type = 'hidden';
             methodInput.name = '_method';
-            methodInput.value = 'PUT';
+            methodInput.value = method;
             form.appendChild(methodInput);
 
             // Extra data
@@ -225,6 +246,8 @@
         }
 
         function confirmUpdateStatus(id) {
+            const currentStatus = '{{ $umkm->status }}';
+
             Swal.fire({
                 title: 'Ubah Status UMKM',
                 input: 'select',
@@ -233,14 +256,18 @@
                     'diterima': 'Diterima',
                     'ditolak': 'Ditolak'
                 },
-                inputValue: '{{ $umkm->status }}',
+                inputValue: currentStatus,
                 inputLabel: 'Status Baru',
                 showCancelButton: true,
                 confirmButtonText: 'Simpan',
                 cancelButtonText: 'Batal',
                 inputValidator: (value) => {
                     if (!value) {
-                        return 'Status harus dipilih!'
+                        return 'Status harus dipilih!';
+                    }
+                    // Cek jika status yang dipilih sama dengan status saat ini
+                    if (value === currentStatus) {
+                        return `UMKM sudah berstatus ${value}`;
                     }
                 },
                 preConfirm: (status) => {
@@ -256,7 +283,7 @@
                             showCancelButton: true,
                             inputValidator: (value) => {
                                 if (!value) {
-                                    return 'Catatan penolakan wajib diisi!'
+                                    return 'Catatan penolakan wajib diisi!';
                                 }
                             }
                         }).then(result => {
@@ -264,14 +291,15 @@
                                 return {
                                     status: status,
                                     catatan_status: result.value
-                                }
+                                };
                             }
-                        })
+                        });
                     }
                     return {
                         status: status,
-                        catatan_status: status === 'diterima' ? 'UMKM telah disetujui' : null
-                    }
+                        catatan_status: status === 'diterima' ? 'UMKM telah disetujui' :
+                            'UMKM dikembalikan ke status menunggu'
+                    };
                 }
             }).then((result) => {
                 if (result.isConfirmed && result.value) {
