@@ -69,4 +69,60 @@ class AdminArticleController extends Controller
     {
         return view('admin.article.show', compact('article'));
     }
+
+    public function edit(Article $article)
+    {
+        return view('admin.article.edit', compact('article'));
+    }
+
+    public function update(Request $request, Article $article)
+    {
+        // Validate request
+        $validated = $request->validate([
+            'judul' => 'required|string|max:255',
+            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
+            'isi' => 'required|string|min:100', // Minimal 100 karakter
+        ]);
+
+        // Handle thumbnail upload
+        if ($request->hasFile('thumbnail')) {
+            // Delete old thumbnail
+            if ($article->thumbnail && file_exists(public_path($article->thumbnail))) {
+                unlink(public_path($article->thumbnail));
+            }
+
+            $file = $request->file('thumbnail');
+            $filename = time() . '_' . Str::slug($request->judul) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/articles'), $filename);
+            $validated['thumbnail'] = 'images/articles/' . $filename;
+        }
+
+        // Update article
+        $article->update($validated);
+
+        return redirect()
+            ->route('admin.article.index')
+            ->with('success', 'Artikel berhasil diperbarui');
+    }
+
+    public function destroy(Article $article)
+    {
+        try {
+            // Delete thumbnail if exists
+            if ($article->thumbnail && file_exists(public_path($article->thumbnail))) {
+                unlink(public_path($article->thumbnail));
+            }
+
+            // Delete article
+            $article->delete();
+
+            return redirect()
+                ->route('admin.article.index')
+                ->with('success', 'Artikel berhasil dihapus');
+        } catch (\Exception $e) {
+            return redirect()
+                ->route('admin.article.index')
+                ->with('error', 'Gagal menghapus artikel');
+        }
+    }
 }

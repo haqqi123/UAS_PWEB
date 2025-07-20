@@ -8,6 +8,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminUMKMController;
 use App\Http\Controllers\Admin\AdminArticleController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Admin\AdminPopulationController;
+use App\Http\Controllers\Admin\AdminOrganizationController;
 
 // Authentication Routes
 Route::middleware('guest')->group(function () {
@@ -27,7 +30,7 @@ Route::get('/umkm/{umkm:slug}', [UMKMController::class, 'show'])->name('umkm.sho
 
 
 // Artikel
-Route::get('/artikel/{article:slug}', [App\Http\Controllers\ArticleController::class, 'show'])->name('artikel.show');
+Route::get('/artikel/{article:slug}', [ArticleController::class, 'show'])->name('artikel.show');
 
 // Admin Routes
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -46,8 +49,8 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
 
 
     // Population Statistics
-    Route::get('/population', [App\Http\Controllers\Admin\AdminPopulationController::class, 'index'])->name('population.index');
+    Route::resource('population', AdminPopulationController::class);
 
     // Organization Management
-    Route::get('/organization', [App\Http\Controllers\Admin\AdminOrganizationController::class, 'index'])->name('organization.index');
+    Route::resource('organization', AdminOrganizationController::class);
 });

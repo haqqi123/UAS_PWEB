@@ -177,5 +177,16 @@
                 showConfirmButton: false
             });
         @endif
+
+        // Show error message if exists
+        @if (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: '{{ session('error') }}',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        @endif
     </script>
 @endpush
