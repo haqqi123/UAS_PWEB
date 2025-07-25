@@ -58,39 +58,298 @@
     </section>
 
     <!-- Profil Section -->
-    <section id="profile" class="py-16 bg-primary/5">
-        <div class="container px-4 mx-auto">
-            <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold text-[#5B8BB8]">Profil Desa</h2>
-                <div class="w-12 h-1 bg-[#5B8BB8] mx-auto mt-4"></div>
+    <section id="profile" class="relative py-20 overflow-hidden nature-bg leaf-pattern topographic-lines">
+
+        <!-- Floating Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Organic shapes -->
+            <div
+                class="absolute w-64 h-64 opacity-5 bg-gradient-to-br from-green-400 to-blue-400 organic-shape top-20 -left-32 float-animation">
             </div>
-            <div class="flex justify-center">
-                <div class="w-full lg:w-2/3">
-                    <div class="p-8 bg-white shadow-md rounded-2xl">
-                        <div class="mb-12">
-                            <h3 class="mb-6 text-2xl font-semibold">Sejarah</h3>
-                            <p class="text-gray-600">{{ $profil['sejarah'] }}</p>
-                        </div>
-                        <div class="mb-12">
-                            <h3 class="mb-6 text-2xl font-semibold">Visi</h3>
-                            <div class="bg-[#5B8BB8]/10 rounded-lg p-6">
-                                <p class="font-medium">{{ $profil['visi'] }}</p>
+            <div
+                class="absolute w-48 h-48 opacity-5 bg-gradient-to-br from-yellow-400 to-green-400 organic-shape-2 top-1/3 -right-24 float-animation-delayed">
+            </div>
+            <div
+                class="absolute w-32 h-32 opacity-10 bg-gradient-to-br from-blue-400 to-indigo-400 organic-shape bottom-32 left-1/4 float-animation">
+            </div>
+
+            <!-- Decorative dots -->
+            <div class="absolute top-40 left-20">
+                <div class="flex space-x-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full opacity-20"></div>
+                    <div class="w-1 h-1 bg-blue-400 rounded-full opacity-30"></div>
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full opacity-15"></div>
+                </div>
+            </div>
+            <div class="absolute bottom-40 right-20">
+                <div class="flex space-x-2">
+                    <div class="w-1 h-1 bg-green-400 rounded-full opacity-25"></div>
+                    <div class="w-2 h-2 bg-blue-400 rounded-full opacity-20"></div>
+                    <div class="w-1 h-1 bg-yellow-400 rounded-full opacity-30"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container relative z-10 px-4 mx-auto">
+            <!-- Section Header -->
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-4xl font-bold section-title">Profil Desa Kalibaru Manis</h2>
+                <div class="w-20 h-1 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400 via-green-400 to-yellow-400">
+                </div>
+                <p class="max-w-2xl mx-auto text-lg text-gray-600">
+                    Mengenal lebih dekat sejarah, visi, dan misi desa yang terus berkembang menuju kemajuan
+                </p>
+            </div>
+
+            <!-- Dynamic Layout Content -->
+            <div class="space-y-16">
+
+                <!-- Sejarah Section with Image Integration -->
+                <div class="grid items-center gap-12 lg:grid-cols-2">
+                    <!-- Text Content -->
+                    <div class="order-2 lg:order-1">
+                        <div class="p-8 transition-all duration-500 nature-card rounded-3xl">
+                            <div class="flex items-center mb-6">
+                                <div
+                                    class="flex items-center justify-center w-12 h-12 mr-4 text-white bg-gradient-to-br from-blue-500 to-green-500 rounded-2xl">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Sejarah Desa</h3>
+                            </div>
+                            <p class="leading-relaxed text-gray-600">
+                                <!-- Placeholder untuk konten sejarah -->
+                                Desa Kalibaru Manis memiliki sejarah panjang yang dimulai sejak zaman kolonial. Nama
+                                "Kalibaru Manis" berasal dari kata "kali" yang berarti sungai dan "baru manis" yang
+                                menggambarkan kesegaran air sungai yang mengalir di desa ini. Desa ini didirikan oleh para
+                                perintis yang mencari lahan pertanian subur di kawasan Banyuwangi. Seiring berjalannya
+                                waktu, desa ini berkembang menjadi komunitas yang harmonis dengan kearifan lokal yang masih
+                                terjaga hingga saat ini.
+                            </p>
+                            <!-- Decorative element -->
+                            <div class="flex items-center mt-6">
+                                <div class="w-8 h-1 mr-4 rounded-full bg-gradient-to-r from-blue-400 to-green-400"></div>
+                                <span class="text-sm font-medium text-gray-500">Warisan Budaya Nusantara</span>
                             </div>
                         </div>
-                        <div>
-                            <h3 class="mb-6 text-2xl font-semibold">Misi</h3>
-                            <div class="space-y-4">
-                                @foreach ($profil['misi'] as $index => $misi)
-                                    <div class="flex items-start">
-                                        <span
-                                            class="flex-shrink-0 w-8 h-8 bg-[#6E7E2A] text-white rounded-full flex items-center justify-center font-bold">
-                                            {{ $index + 1 }}
-                                        </span>
-                                        <p class="ml-4">{{ $misi }}</p>
+                    </div>
+
+                    <!-- Image Content -->
+                    <div class="order-1 lg:order-2">
+                        <div class="relative group">
+                            <!-- Main image -->
+                            <div class="overflow-hidden shadow-2xl rounded-3xl">
+                                <img src="images/desa1.jpeg" alt="Sejarah Desa Kalibaru Manis"
+                                    class="object-cover w-full transition-transform duration-700 h-80 group-hover:scale-110">
+                            </div>
+                            <!-- Floating card overlay -->
+                            <div
+                                class="absolute p-4 transition-all duration-300 transform nature-card -bottom-6 -left-6 rounded-2xl group-hover:translate-y(-2px)">
+                                <div class="flex items-center">
+                                    <i class="mr-3 text-2xl text-blue-500 fas fa-landmark"></i>
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-800">Est. 1945</div>
+                                        <div class="text-xs text-gray-500">Tahun Berdiri</div>
                                     </div>
-                                @endforeach
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Visi Section -->
+                <div class="grid items-center gap-12 lg:grid-cols-2">
+                    <!-- Image Content -->
+                    <div class="relative group">
+                        <div class="overflow-hidden shadow-2xl rounded-3xl">
+                            <img src="images/desa2.jpeg" alt="Visi Desa Kalibaru Manis"
+                                class="object-cover w-full transition-transform duration-700 h-80 group-hover:scale-110">
+                        </div>
+                        <!-- Decorative elements -->
+                        <div
+                            class="absolute w-20 h-20 opacity-20 bg-gradient-to-br from-yellow-400 to-orange-400 organic-shape -top-4 -right-4 float-animation">
+                        </div>
+                        <div
+                            class="absolute w-12 h-12 opacity-30 bg-gradient-to-br from-green-400 to-blue-400 organic-shape-2 -bottom-2 -left-2 float-animation-delayed">
+                        </div>
+                    </div>
+
+                    <!-- Text Content -->
+                    <div>
+                        <div
+                            class="p-8 transition-all duration-500 bg-gradient-to-br from-blue-50 to-green-50 nature-card rounded-3xl">
+                            <div class="flex items-center mb-6">
+                                <div
+                                    class="flex items-center justify-center w-12 h-12 mr-4 text-white bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Visi Desa</h3>
+                            </div>
+                            <div class="p-6 bg-white/60 rounded-2xl backdrop-blur-sm">
+                                <p class="text-lg font-medium leading-relaxed text-gray-800">
+                                    <!-- Placeholder untuk visi -->
+                                    "Terwujudnya Desa Kalibaru Manis sebagai desa mandiri, sejahtera, dan berbudaya yang
+                                    berbasis pada potensi lokal dan kearifan tradisional menuju masyarakat yang harmonis dan
+                                    berkelanjutan."
+                                </p>
+                            </div>
+                            <!-- Quote decoration -->
+                            <div class="flex justify-end mt-4">
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <i class="mr-2 fas fa-quote-right"></i>
+                                    <span>Visi 2024-2030</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Misi Section -->
+                <div class="grid gap-12 lg:grid-cols-3">
+                    <!-- Header -->
+                    <div class="lg:col-span-3">
+                        <div class="mb-8 text-center">
+                            <div class="flex items-center justify-center mb-4">
+                                <div
+                                    class="flex items-center justify-center w-16 h-16 text-white bg-gradient-to-br from-yellow-500 to-green-500 rounded-3xl">
+                                    <i class="text-2xl fas fa-bullseye"></i>
+                                </div>
+                            </div>
+                            <h3 class="mb-4 text-3xl font-bold text-gray-800">Misi Desa</h3>
+                            <p class="max-w-2xl mx-auto text-gray-600">
+                                Langkah konkret yang kami ambil untuk mewujudkan visi desa yang mandiri dan sejahtera
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Misi Items with Image Background -->
+                    <div class="relative lg:col-span-3">
+                        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                            <!-- Misi 1 -->
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa3.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">1</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Meningkatkan kualitas SDM melalui pendidikan dan pelatihan keterampilan untuk
+                                        mengembangkan potensi masyarakat desa.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Misi 2 -->
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa1.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">2</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Mengembangkan sektor pertanian dan UMKM sebagai tulang punggung ekonomi desa yang
+                                        berkelanjutan.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Misi 3 -->
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa2.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">3</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Melestarikan budaya lokal dan kearifan tradisional sebagai identitas dan kekuatan
+                                        masyarakat desa.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Additional Misi items jika ada -->
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa3.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">4</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Meningkatkan infrastruktur desa dan pelayanan publik untuk mendukung aktivitas
+                                        masyarakat.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa1.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">5</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Membangun tata kelola pemerintahan yang transparan, akuntabel, dan partisipatif.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa2.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-rose-500 to-red-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">6</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Menjaga kelestarian lingkungan hidup dan mengembangkan desa wisata yang ramah
+                                        lingkungan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="mt-16 text-center">
+                <div class="inline-block p-8 transition-all duration-500 nature-card rounded-3xl hover:shadow-2xl">
+                    <h4 class="mb-4 text-xl font-bold text-gray-800">Mari Bersama Membangun Desa</h4>
+                    <p class="mb-6 text-gray-600">Bergabunglah dengan kami dalam mewujudkan visi dan misi desa yang lebih
+                        baik</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#contact"
+                            class="inline-flex items-center px-6 py-3 text-white transition-all duration-300 transform rounded-full bg-gradient-to-r from-blue-500 to-green-500 hover:scale-105 hover:shadow-lg">
+                            <i class="mr-2 fas fa-phone"></i>
+                            Hubungi Kami
+                        </a>
+                        <a href="#"
+                            class="inline-flex items-center px-6 py-3 text-gray-700 transition-all duration-300 transform bg-white border-2 border-gray-300 rounded-full hover:scale-105 hover:border-blue-400">
+                            <i class="mr-2 fas fa-info-circle"></i>
+                            Pelajari Lebih Lanjut
+                        </a>
                     </div>
                 </div>
             </div>
@@ -660,6 +919,41 @@
                     }
                 });
             });
+
+            // Parallax effect untuk floating elements
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.parallax-element');
+
+                parallaxElements.forEach(element => {
+                    const speed = element.dataset.speed || 0.5;
+                    const yPos = -(scrolled * speed);
+                    element.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+
+            // Intersection Observer untuk animasi saat scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe semua card elements
+            document.querySelectorAll('.nature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
         </script>
 
         <!-- Hero Carousel with enhanced animations -->
@@ -818,6 +1112,81 @@
 
         .scrollbar-custom::-webkit-scrollbar-thumb:hover {
             background: #555;
+        }
+
+        /* Nature-inspired background patterns */
+        .nature-bg {
+            background-image:
+                radial-gradient(circle at 25% 25%, #5B8BB8 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #6E7E2A 0%, transparent 50%),
+                linear-gradient(135deg, rgba(91, 139, 184, 0.05) 0%, rgba(110, 126, 42, 0.05) 100%);
+        }
+
+        .leaf-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235B8BB8' fill-opacity='0.03'%3E%3Cpath d='M30 30c0-16.569 13.431-30 30-30v60c-16.569 0-30-13.431-30-30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .topographic-lines {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20c20 0 20 20 40 20s20-20 40-20 20 20 40 20 20-20 40-20' stroke='%236E7E2A' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3Cpath d='M20 40c20 0 20 20 40 20s20-20 40-20 20 20 40 20 20-20 40-20' stroke='%235B8BB8' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3Cpath d='M20 60c20 0 20 20 40 20s20-20 40-20 20 20 40 20 20-20 40-20' stroke='%23D4AB07' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3C/svg%3E");
+        }
+
+        .organic-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        .organic-shape-2 {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+
+            66% {
+                transform: translateY(5px) rotate(-1deg);
+            }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-animation-delayed {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        /* Parallax scroll effect */
+        .parallax-element {
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Custom card styling */
+        .nature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nature-card:hover {
+            background: rgba(255, 255, 255, 0.98);
+            transform: translateY(-5px);
+        }
+
+        /* Text styling */
+        .section-title {
+            background: linear-gradient(135deg, #5B8BB8, #6E7E2A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
     </style>
 

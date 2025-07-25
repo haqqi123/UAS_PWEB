@@ -1,13 +1,14 @@
 <footer class="mt-8 bg-white border-t-4 border-accent">
-    <div class="container px-4 py-12 mx-auto">
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <div class="container px-2 py-8 mx-auto">
+        <!-- Tambahkan justify-center untuk memusatkan grid -->
+        <div class="grid justify-center max-w-full grid-cols-1 gap-8 mx-auto md:grid-cols-3">
             <!-- About Section -->
-            <div>
+            <div class="md:px-4">
                 <div class="flex items-center mb-4">
                     <div class="flex items-center justify-center w-12 h-12 mr-3 rounded-full bg-primary/10 text-primary">
                         <i class="text-xl fas fa-store-alt"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-primary">UMKM<span class="text-accent">Jember</span></h4>
+                    <h4 class="text-xl font-bold text-primary">Kalibaru<span class="text-accent">Manis</span></h4>
                 </div>
                 <p class="mb-6 leading-relaxed text-gray-600">
                     Wadah bagi pelaku usaha mikro, kecil, dan menengah di Kabupaten Jember untuk berkembang bersama.
@@ -37,7 +38,7 @@
             </div>
 
             <!-- Quick Links -->
-            <div>
+            <div class="md:px-4">
                 <h5 class="inline-block pb-2 mb-4 text-lg font-semibold border-b-2 text-primary border-accent">Menu
                     Cepat</h5>
                 <ul class="space-y-2">
@@ -56,28 +57,8 @@
                 </ul>
             </div>
 
-            <!-- Developers -->
-            <div>
-                <h5 class="inline-block pb-2 mb-4 text-lg font-semibold border-b-2 text-primary border-accent">Tim
-                    Pengembang</h5>
-                <ul class="space-y-2">
-                    <li class="flex items-center text-gray-600">
-                        <i class="mr-2 fas fa-user text-accent"></i>
-                        <span>Haqqi</span>
-                    </li>
-                    <li class="flex items-center text-gray-600">
-                        <i class="mr-2 fas fa-user text-accent"></i>
-                        <span>Catherine</span>
-                    </li>
-                    <li class="flex items-center text-gray-600">
-                        <i class="mr-2 fas fa-user text-accent"></i>
-                        <span>Uni</span>
-                    </li>
-                </ul>
-            </div>
-
             <!-- Contact -->
-            <div>
+            <div class="md:px-4">
                 <h5 class="inline-block pb-2 mb-4 text-lg font-semibold border-b-2 text-primary border-accent">Hubungi
                     Kami</h5>
                 <ul class="space-y-4">
