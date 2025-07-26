@@ -1,4 +1,4 @@
-<footer class="mt-8 bg-white border-t-4 border-accent">
+<footer class="bg-white border-t-4  border-accent">
     <div class="container px-2 py-8 mx-auto">
         <!-- Tambahkan justify-center untuk memusatkan grid -->
         <div class="grid justify-center max-w-full grid-cols-1 gap-8 mx-auto md:grid-cols-3">

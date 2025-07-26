@@ -732,6 +732,203 @@
         </div>
     </section>
 
+    <!-- Enhanced Image Collage Section - Living Memories Garden -->
+    <section class="relative py-16 overflow-hidden memories-garden-bg">
+        <!-- Enhanced Floating Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Organic floating shapes -->
+            <div
+                class="absolute w-64 h-64 rounded-full opacity-5 bg-gradient-to-br from-white to-amber-200 top-10 left-16 blur-3xl animate-float-slow">
+            </div>
+            <div
+                class="absolute rounded-full w-80 h-80 opacity-4 bg-gradient-to-br from-emerald-200 to-teal-200 bottom-20 right-20 blur-3xl animate-float-delayed">
+            </div>
+            <div
+                class="absolute w-48 h-48 rounded-full opacity-6 bg-gradient-to-br from-yellow-200 to-orange-200 top-1/2 left-1/4 blur-2xl animate-float-reverse">
+            </div>
+
+            <!-- Nature pattern overlay -->
+            <div class="absolute inset-0 opacity-10 nature-pattern"></div>
+
+            <!-- Floating particles -->
+            <div class="floating-particles">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+            </div>
+        </div>
+
+        <div class="container relative z-10 px-4 mx-auto">
+            <!-- Centered Section Header -->
+            <div class="mb-12 text-center">
+                <div class="flex items-center justify-center mb-6">
+                    <div
+                        class="flex items-center justify-center w-16 h-16 transition-all duration-500 transform shadow-2xl md:w-20 md:h-20 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 rounded-3xl rotate-3 hover:rotate-6">
+                        <i class="text-2xl text-white md:text-3xl fas fa-heart animate-pulse"></i>
+                    </div>
+                </div>
+                <h2 class="pb-3 mb-4 text-4xl font-bold text-white md:text-5xl section-title-gradient">Kehangatan Masyarakat
+                    Desa</h2>
+                <div
+                    class="w-24 h-1 mx-auto mb-6 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400">
+                </div>
+                <p class="max-w-3xl mx-auto text-lg leading-relaxed md:text-xl text-white/90">
+                    Setiap sudut desa menyimpan cerita tentang kebersamaan, kekeluargaan, dan kehangatan yang tak ternilai
+                    harganya
+                </p>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="grid items-start grid-cols-1 gap-12 lg:grid-cols-5 lg:gap-16">
+                <!-- Photo Grid Column (60% - 3/5) -->
+                <div class="lg:col-span-3">
+                    <!-- Enhanced Photo Grid -->
+                    <div class="relative flex items-center justify-center h-[500px] md:h-[600px]">
+                        <!-- Background decorative elements (keep existing floating particles, etc.) -->
+                        <div class="absolute inset-0 pointer-events-none">
+                            <!-- Enhanced Sparkle Effects -->
+                            <div class="sparkle-constellation">
+                                <div class="sparkle sparkle-1"></div>
+                                <div class="sparkle sparkle-2"></div>
+                                <div class="sparkle sparkle-3"></div>
+                                <div class="sparkle sparkle-4"></div>
+                                <div class="sparkle sparkle-5"></div>
+                                <div class="sparkle sparkle-6"></div>
+                            </div>
+
+                            <!-- Orbital rings for decoration -->
+                            <div class="orbital-ring ring-inner"></div>
+                            <div class="orbital-ring ring-outer"></div>
+                        </div>
+
+                        <!-- Photo Grid -->
+                        <div class="relative z-10 photo-grid">
+                            <div class="photo-frame group">
+                                <img src="images/desa1.jpeg" alt="Kehangatan Masyarakat Desa Kalibaru Manis"
+                                    class="photo-image">
+                                <div class="photo-overlay">
+                                    <div class="photo-overlay-content">
+                                        <div class="photo-overlay-icon">
+                                            <i class="fas fa-heart"></i>
+                                        </div>
+                                        <p class="photo-overlay-text">Kebersamaan Warga</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="photo-frame group">
+                                <img src="images/desa2.jpeg" alt="Aktivitas Sehari-hari Warga" class="photo-image">
+                                <div class="photo-overlay">
+                                    <div class="photo-overlay-content">
+                                        <div class="photo-overlay-icon">
+                                            <i class="fas fa-hands-helping"></i>
+                                        </div>
+                                        <p class="photo-overlay-text">Gotong Royong</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="photo-frame group">
+                                <img src="images/desa3.jpeg" alt="Tradisi dan Budaya Desa" class="photo-image">
+                                <div class="photo-overlay">
+                                    <div class="photo-overlay-content">
+                                        <div class="photo-overlay-icon">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <p class="photo-overlay-text">Tradisi Terjaga</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="photo-frame group">
+                                <img src="images/desa1.jpeg" alt="Pemandangan Desa yang Asri" class="photo-image">
+                                <div class="photo-overlay">
+                                    <div class="photo-overlay-content">
+                                        <div class="photo-overlay-icon">
+                                            <i class="fas fa-leaf"></i>
+                                        </div>
+                                        <p class="photo-overlay-text">Alam Sejuk</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Column (40% - 2/5) -->
+                <div class="lg:col-span-2">
+                    <!-- Compact Testimonial Cards -->
+                    <div class="space-y-4">
+                        <!-- Testimonial 1 -->
+                        <div class="group testimonial-card-compact testimonial-primary">
+                            <div class="testimonial-icon-compact">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text-compact">
+                                "Di sini, tetangga bukan hanya tetangga, tapi keluarga besar yang saling menjaga dan
+                                mendukung dalam suka dan duka."
+                            </p>
+                            <div class="testimonial-author-compact">
+                                <div class="author-avatar-compact">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name-compact">Pak Suyanto</div>
+                                    <div class="author-role-compact">Ketua RT 03</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-decoration"></div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="group testimonial-card-compact testimonial-secondary">
+                            <div class="testimonial-icon-compact">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <p class="testimonial-text-compact">
+                                "Gotong royong bukan hanya tradisi, tapi jiwa yang mengalir dalam setiap aktivitas warga
+                                desa kami."
+                            </p>
+                            <div class="testimonial-author-compact">
+                                <div class="author-avatar-compact">
+                                    <i class="fas fa-female"></i>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name-compact">Bu Siti Aminah</div>
+                                    <div class="author-role-compact">Ketua PKK Desa</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-decoration"></div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="group testimonial-card-compact testimonial-tertiary">
+                            <div class="testimonial-icon-compact">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <p class="testimonial-text-compact">
+                                "Anak-anak tumbuh dengan nilai kebersamaan yang akan mereka bawa dan ajarkan pada generasi
+                                selanjutnya."
+                            </p>
+                            <div class="testimonial-author-compact">
+                                <div class="author-avatar-compact">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name-compact">Ibu Ratna</div>
+                                    <div class="author-role-compact">Guru SD Kalibaru Manis</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-decoration"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -1134,8 +1331,8 @@
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         }
 
-        .organic-shape-2 {
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         }
 
         /* Floating animation */
@@ -1187,6 +1384,822 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* Enhanced Background */
+        .memories-garden-bg {
+            background: linear-gradient(135deg,
+                    #5B8BB8 0%,
+                    #4A7C59 25%,
+                    #6E7E2A 50%,
+                    #5B8BB8 75%,
+                    #4A7C59 100%);
+            position: relative;
+        }
+
+        .nature-pattern {
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(212, 171, 7, 0.1) 0%, transparent 40%);
+        }
+
+        /* Floating Animations */
+        @keyframes float-slow {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px) translateX(10px) rotate(1deg);
+            }
+
+            66% {
+                transform: translateY(10px) translateX(-5px) rotate(-1deg);
+            }
+        }
+
+        @keyframes float-delayed {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) translateX(-8px) rotate(2deg);
+            }
+        }
+
+        @keyframes float-reverse {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(15px) translateX(-10px) rotate(-1deg);
+            }
+
+            66% {
+                transform: translateY(-8px) translateX(5px) rotate(1deg);
+            }
+        }
+
+        .animate-float-slow {
+            animation: float-slow 8s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float-delayed 10s ease-in-out infinite;
+        }
+
+        .animate-float-reverse {
+            animation: float-reverse 12s ease-in-out infinite;
+        }
+
+        /* Floating Particles */
+        .floating-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: particle-float 15s ease-in-out infinite;
+        }
+
+        .particle-1 {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .particle-2 {
+            top: 60%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+
+        .particle-3 {
+            bottom: 30%;
+            left: 30%;
+            animation-delay: 6s;
+        }
+
+        .particle-4 {
+            top: 40%;
+            right: 40%;
+            animation-delay: 9s;
+        }
+
+        .particle-5 {
+            bottom: 50%;
+            right: 15%;
+            animation-delay: 12s;
+        }
+
+        @keyframes particle-float {
+
+            0%,
+            100% {
+                transform: translateY(0px) opacity(0.6);
+            }
+
+            25% {
+                transform: translateY(-30px) opacity(1);
+            }
+
+            50% {
+                transform: translateY(-60px) opacity(0.8);
+            }
+
+            75% {
+                transform: translateY(-30px) opacity(1);
+            }
+        }
+
+        /* Sparkle Constellation */
+        .sparkle-constellation {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: sparkle-twinkle 3s ease-in-out infinite;
+        }
+
+        .sparkle-1 {
+            top: 15%;
+            right: 25%;
+            animation-delay: 0s;
+        }
+
+        .sparkle-2 {
+            top: 30%;
+            left: 20%;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle-3 {
+            bottom: 25%;
+            right: 30%;
+            animation-delay: 1s;
+        }
+
+        .sparkle-4 {
+            bottom: 40%;
+            left: 15%;
+            animation-delay: 1.5s;
+        }
+
+        .sparkle-5 {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .sparkle-6 {
+            top: 45%;
+            left: 75%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes sparkle-twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3) rotate(180deg);
+            }
+        }
+
+        /* Orbital Rings */
+        .orbital-ring {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .ring-inner {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate-slow 20s linear infinite;
+        }
+
+        .ring-outer {
+            width: 500px;
+            height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate-reverse 30s linear infinite;
+        }
+
+        @keyframes rotate-slow {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes rotate-reverse {
+            0% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+
+        /* Enhanced Typography */
+        .section-title-gradient {
+            background: linear-gradient(135deg, #FFF 0%, #F7D94C 50%, #FFB347 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Enhanced Testimonial Cards */
+        .testimonial-card {
+            position: relative;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1.5rem;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, var(--testimonial-color), var(--testimonial-color-alt));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-primary {
+            --testimonial-color: #FFD700;
+            --testimonial-color-alt: #FFA500;
+        }
+
+        .testimonial-secondary {
+            --testimonial-color: #10B981;
+            --testimonial-color-alt: #059669;
+        }
+
+        .testimonial-tertiary {
+            --testimonial-color: #3B82F6;
+            --testimonial-color-alt: #1D4ED8;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--testimonial-color);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--testimonial-color), var(--testimonial-color-alt));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .author-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .author-role {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonial-decoration {
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--testimonial-color), transparent);
+            opacity: 0.05;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+
+        .group:hover .testimonial-decoration {
+            transform: scale(1.5);
+            opacity: 0.1;
+        }
+
+        /* Enhanced CTA Section */
+        .cta-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF6B35);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1F2937;
+        }
+
+        .cta-primary:hover {
+            background: linear-gradient(135deg, #FFA500, #FF6B35);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 165, 0, 0.4);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Pulse Glow Animation */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .diamond-large {
+                width: 240px;
+                height: 240px;
+            }
+
+            .diamond-medium {
+                width: 160px;
+                height: 160px;
+            }
+
+            .ring-inner {
+                width: 350px;
+                height: 350px;
+            }
+
+            .ring-outer {
+                width: 450px;
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .diamond-universe {
+                height: 500px;
+            }
+
+            .diamond-large {
+                width: 200px;
+                height: 200px;
+            }
+
+            .diamond-medium {
+                width: 130px;
+                height: 130px;
+            }
+
+            .diamond-north {
+                top: 12%;
+            }
+
+            .diamond-south {
+                bottom: 12%;
+            }
+
+            .diamond-east {
+                right: 5%;
+            }
+
+            .diamond-west {
+                left: 5%;
+            }
+
+            .ring-inner {
+                width: 300px;
+                height: 300px;
+            }
+
+            .ring-outer {
+                width: 380px;
+                height: 380px;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 1rem;
+            }
+
+            .section-title-gradient {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .diamond-universe {
+                height: 400px;
+            }
+
+            .diamond-large {
+                width: 160px;
+                height: 160px;
+            }
+
+            .diamond-medium {
+                width: 100px;
+                height: 100px;
+            }
+
+            .diamond-north {
+                top: 8%;
+            }
+
+            .diamond-south {
+                bottom: 8%;
+            }
+
+            .diamond-east {
+                right: 2%;
+            }
+
+            .diamond-west {
+                left: 2%;
+            }
+
+            .ring-inner {
+                width: 250px;
+                height: 250px;
+            }
+
+            .ring-outer {
+                width: 320px;
+                height: 320px;
+            }
+
+            .connection-line {
+                display: none;
+            }
+
+            .sparkle {
+                width: 6px;
+                height: 6px;
+            }
+
+            .cta-button {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.9rem;
+            }
+
+            .testimonial-card {
+                padding: 1.25rem;
+            }
+
+            .cta-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+
+            .floating-particles,
+            .sparkle-constellation,
+            .orbital-ring,
+            .connection-line {
+                display: none;
+            }
+
+            .memories-garden-bg {
+                background: #f8f9fa;
+                color: #333;
+            }
+
+            .testimonial-card,
+            .cta-card {
+                background: #fff;
+                border: 1px solid #ddd;
+            }
+        }
+
+        /* Modern Photo Grid Styles */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .photo-frame {
+            position: relative;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .photo-frame:nth-child(1) {
+            transform: rotate(-2deg);
+        }
+
+        .photo-frame:nth-child(2) {
+            transform: rotate(1.5deg);
+            margin-top: 1.5rem;
+        }
+
+        .photo-frame:nth-child(3) {
+            transform: rotate(1deg);
+            margin-top: -1rem;
+        }
+
+        .photo-frame:nth-child(4) {
+            transform: rotate(-1.5deg);
+            margin-top: 0.5rem;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(0deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            z-index: 10;
+        }
+
+        .photo-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .photo-frame:hover .photo-image {
+            filter: brightness(1.1) contrast(1.05);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.9) 0%, rgba(255, 152, 0, 0.8) 100%);
+            border-radius: 4px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .photo-frame:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-overlay-content {
+            text-align: center;
+            color: white;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .photo-frame:hover .photo-overlay-content {
+            transform: translateY(0);
+        }
+
+        .photo-overlay-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-overlay-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                max-width: 100%;
+            }
+
+            .photo-image {
+                height: 180px;
+            }
+
+            .photo-frame:nth-child(2),
+            .photo-frame:nth-child(3),
+            .photo-frame:nth-child(4) {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .photo-image {
+                height: 200px;
+            }
+
+            .photo-frame:nth-child(1),
+            .photo-frame:nth-child(2),
+            .photo-frame:nth-child(3),
+            .photo-frame:nth-child(4) {
+                margin-top: 0;
+            }
+        }
+
+        /* Compact Testimonial Cards */
+        .testimonial-card-compact {
+            position: relative;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .testimonial-card-compact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--testimonial-color), var(--testimonial-color-alt));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-card-compact:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card-compact:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-icon-compact {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--testimonial-color);
+        }
+
+        .testimonial-text-compact {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author-compact {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .author-avatar-compact {
+            width: 2.25rem;
+            height: 2.25rem;
+            background: linear-gradient(135deg, var(--testimonial-color), var(--testimonial-color-alt));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .author-name-compact {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .author-role-compact {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
         }
     </style>
 

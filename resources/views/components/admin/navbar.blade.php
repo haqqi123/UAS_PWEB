@@ -24,10 +24,6 @@
                 <!-- Dropdown Menu -->
                 <div x-show="open" x-cloak @click.away="open = false"
                     class="absolute right-0 w-48 py-2 mt-2 bg-white rounded-lg shadow-lg">
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary">
-                        <i class="mr-2 fas fa-user-circle"></i>
-                        Profile
-                    </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"
