@@ -20,11 +20,19 @@ return new class extends Migration
             $table->integer('lansia');
             $table->integer('laki_laki');
             $table->integer('perempuan');
-            $table->integer('petani');
-            $table->integer('nelayan');
-            $table->integer('wiraswasta');
-            $table->integer('pekerjaan_lain');
             $table->integer('jumlah_kk');
+            $table->integer('petani');
+            $table->integer('perkebunan');
+            $table->integer('perdagangan');
+            $table->integer('pegawai_negeri_sipil');
+            $table->integer('pegawai_swasta');
+            $table->integer('buruh_tani');
+            $table->integer('pengrajin');
+            $table->integer('tukang_kayu');
+            $table->integer('batu');
+            $table->integer('polri');
+            $table->integer('tni');
+            $table->integer('jasa');
             $table->timestamps();
         });
     }

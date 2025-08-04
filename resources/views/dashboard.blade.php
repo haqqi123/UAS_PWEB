@@ -118,12 +118,16 @@
                             </div>
                             <p class="leading-relaxed text-gray-600">
                                 <!-- Placeholder untuk konten sejarah -->
-                                Desa Kalibaru Manis memiliki sejarah panjang yang dimulai sejak zaman kolonial. Nama
-                                "Kalibaru Manis" berasal dari kata "kali" yang berarti sungai dan "baru manis" yang
-                                menggambarkan kesegaran air sungai yang mengalir di desa ini. Desa ini didirikan oleh para
-                                perintis yang mencari lahan pertanian subur di kawasan Banyuwangi. Seiring berjalannya
-                                waktu, desa ini berkembang menjadi komunitas yang harmonis dengan kearifan lokal yang masih
-                                terjaga hingga saat ini.
+                                Sejarah Desa kalibarumanis tidak terlepas dari sejarah Masyarakat di Kabupaten Bayuwangi.
+                                Desa Kalibarumanis di wilayah Kecamatan Kalibaru, Kabupaten Banyuwangi,Provinsi Jawa Timur,
+                                Indoesia yang letaknya diujung paling barat dari Kecamatan Kalibaru sekaligus Pemeritahan
+                                Kabupaten Banyuwangi yang perbatasan dengan Kabupaten Jember. Desa kalibarumanis terletak
+                                tepat dikaki Gunung Gumitir sehingga suasananya sejuk. Desa ini memiliki nilai sejarah
+                                Belanda, yakni terowongan Mrawan. Terowongan ini dibangun sekitar tahun 1901-1902 dan mulai
+                                beroperasi pada tahun 1910. Pada mulanya Desa Kalibarumanis dan Desa Banyuanyar menjadi
+                                satu, dan pada tahun 1992 Desa Kalibarumanis dipecah menjadi 2 (dua) yaitu : Desa Banyuanyar
+                                menjadi desa persiapan dan sebagai induk Desa kalibarumanis. Selanjutnya pada tahun 1995
+                                Desa Banyuanyar disahkan menjadi Desa difinitif (berdiri sendiri).
                             </p>
                             <!-- Decorative element -->
                             <div class="flex items-center mt-6">
@@ -147,7 +151,7 @@
                                 <div class="flex items-center">
                                     <i class="mr-3 text-2xl text-blue-500 fas fa-landmark"></i>
                                     <div>
-                                        <div class="text-sm font-semibold text-gray-800">Est. 1945</div>
+                                        <div class="text-sm font-semibold text-gray-800">Est. 1900</div>
                                         <div class="text-xs text-gray-500">Tahun Berdiri</div>
                                     </div>
                                 </div>
@@ -187,16 +191,17 @@
                             <div class="p-6 bg-white/60 rounded-2xl backdrop-blur-sm">
                                 <p class="text-lg font-medium leading-relaxed text-gray-800">
                                     <!-- Placeholder untuk visi -->
-                                    "Terwujudnya Desa Kalibaru Manis sebagai desa mandiri, sejahtera, dan berbudaya yang
-                                    berbasis pada potensi lokal dan kearifan tradisional menuju masyarakat yang harmonis dan
-                                    berkelanjutan."
+                                    "Terwujudnya Desa Kalibarumanis yang lebih maju dan Berkualitas Demi Membangkitkan
+                                    Sumber Daya Manusia Yang Lebih baik Dengan Dasar Semangat Gotong royong membangun desa
+                                    Semangat Bersama,Semangat Bermasyarakat dan Semangat Berprestasi untuk Menuju Masyarakat
+                                    Yang Mandiri dan Sejahtera "
                                 </p>
                             </div>
                             <!-- Quote decoration -->
                             <div class="flex justify-end mt-4">
                                 <div class="flex items-center text-sm text-gray-500">
                                     <i class="mr-2 fas fa-quote-right"></i>
-                                    <span>Visi 2024-2030</span>
+                                    <span>Visi 2020-2027</span>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +228,7 @@
 
                     <!-- Misi Items with Image Background -->
                     <div class="relative lg:col-span-3">
-                        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="grid justify-center gap-6 md:grid-cols-2 lg:grid-cols-3">
                             <!-- Misi 1 -->
                             <div
                                 class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
@@ -236,8 +241,8 @@
                                         <span class="font-bold">1</span>
                                     </div>
                                     <p class="leading-relaxed text-gray-700">
-                                        Meningkatkan kualitas SDM melalui pendidikan dan pelatihan keterampilan untuk
-                                        mengembangkan potensi masyarakat desa.
+                                        Mewujudkan dan mengembangkan kegiatan keagamaan untuk menambah keimanan dan
+                                        ketaqwaan kepada Tuhan Yang Maha Esa.
                                     </p>
                                 </div>
                             </div>
@@ -254,8 +259,9 @@
                                         <span class="font-bold">2</span>
                                     </div>
                                     <p class="leading-relaxed text-gray-700">
-                                        Mengembangkan sektor pertanian dan UMKM sebagai tulang punggung ekonomi desa yang
-                                        berkelanjutan.
+                                        Mewujudkan dan mendorong terjadinya usaha-usaha kerukunan antar dan internal warga
+                                        masyarakat yang disebabkan karena adanya perbedaan agama, keyakinan, organisasi, dan
+                                        lainnya dalam suasana saling menghargai dan menghormati.
                                     </p>
                                 </div>
                             </div>
@@ -272,13 +278,13 @@
                                         <span class="font-bold">3</span>
                                     </div>
                                     <p class="leading-relaxed text-gray-700">
-                                        Melestarikan budaya lokal dan kearifan tradisional sebagai identitas dan kekuatan
-                                        masyarakat desa.
+                                        Membangun dan meningkatkan hasil pertanian dengan jalan penataan pengairan,
+                                        perbaikan jalan sawah / jalan usaha tani, pemupukan, dan polatanam yang baik.
                                     </p>
                                 </div>
                             </div>
 
-                            <!-- Additional Misi items jika ada -->
+                            <!-- Misi 4 -->
                             <div
                                 class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
                                 <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
@@ -290,12 +296,13 @@
                                         <span class="font-bold">4</span>
                                     </div>
                                     <p class="leading-relaxed text-gray-700">
-                                        Meningkatkan infrastruktur desa dan pelayanan publik untuk mendukung aktivitas
-                                        masyarakat.
+                                        Mewujudkan Pemerintahan Desa Demokratif & Responsif yang selaras dan bertanggung
+                                        jawab dalam mengemban amanat masyarakat.
                                     </p>
                                 </div>
                             </div>
 
+                            <!-- Misi 5 -->
                             <div
                                 class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
                                 <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
@@ -307,11 +314,12 @@
                                         <span class="font-bold">5</span>
                                     </div>
                                     <p class="leading-relaxed text-gray-700">
-                                        Membangun tata kelola pemerintahan yang transparan, akuntabel, dan partisipatif.
+                                        Meningkatkan pelayanan masyarakat secara terpadu dan serius.
                                     </p>
                                 </div>
                             </div>
 
+                            <!-- Misi 6 -->
                             <div
                                 class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
                                 <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
@@ -323,8 +331,78 @@
                                         <span class="font-bold">6</span>
                                     </div>
                                     <p class="leading-relaxed text-gray-700">
-                                        Menjaga kelestarian lingkungan hidup dan mengembangkan desa wisata yang ramah
-                                        lingkungan.
+                                        Mendorong terbentuknya Badan Usaha Milik Desa (BUMDes) beserta unit usahanya.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Misi 7 -->
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa2.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-emerald-500 to-lime-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">7</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Menumbuhkembangkan usaha kecil dan menengah.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Misi 8 -->
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa2.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-cyan-500 to-sky-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">8</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Bekerjasama dengan Dinas Kehutanan dan Perkebunan didalam Melestarikan Lingkungan
+                                        Hidup.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Misi 9 -->
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa2.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">9</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Membangun dan mendorong majunya bidang pendidikan baik formal maupun informal yang
+                                        mudah diakses dan dinikmati seluruh warga masyarakat tanpa terkecuali yang mampu
+                                        menghasilkan insan intelektual, inovatif dan enterpreneur (wirausahawan).
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Misi 10 -->
+                            <div
+                                class="relative p-6 transition-all duration-500 group nature-card rounded-3xl hover:shadow-2xl">
+                                <div class="absolute inset-0 overflow-hidden rounded-3xl opacity-5">
+                                    <img src="images/desa2.jpeg" alt="Background" class="object-cover w-full h-full">
+                                </div>
+                                <div class="relative z-10">
+                                    <div
+                                        class="flex items-center justify-center w-12 h-12 mb-4 text-white transition-transform duration-300 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl group-hover:scale-110">
+                                        <span class="font-bold">10</span>
+                                    </div>
+                                    <p class="leading-relaxed text-gray-700">
+                                        Melestarikan budaya, adat istiadat dan kearifan lokal.
                                     </p>
                                 </div>
                             </div>
@@ -332,27 +410,28 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Call to Action -->
-            <div class="mt-16 text-center">
-                <div class="inline-block p-8 transition-all duration-500 nature-card rounded-3xl hover:shadow-2xl">
-                    <h4 class="mb-4 text-xl font-bold text-gray-800">Mari Bersama Membangun Desa</h4>
-                    <p class="mb-6 text-gray-600">Bergabunglah dengan kami dalam mewujudkan visi dan misi desa yang lebih
-                        baik</p>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <a href="#contact"
-                            class="inline-flex items-center px-6 py-3 text-white transition-all duration-300 transform rounded-full bg-gradient-to-r from-blue-500 to-green-500 hover:scale-105 hover:shadow-lg">
-                            <i class="mr-2 fas fa-phone"></i>
-                            Hubungi Kami
-                        </a>
-                        <a href="#"
-                            class="inline-flex items-center px-6 py-3 text-gray-700 transition-all duration-300 transform bg-white border-2 border-gray-300 rounded-full hover:scale-105 hover:border-blue-400">
-                            <i class="mr-2 fas fa-info-circle"></i>
-                            Pelajari Lebih Lanjut
-                        </a>
-                    </div>
+        <!-- Call to Action -->
+        <div class="mt-16 text-center">
+            <div class="inline-block p-8 transition-all duration-500 nature-card rounded-3xl hover:shadow-2xl">
+                <h4 class="mb-4 text-xl font-bold text-gray-800">Mari Bersama Membangun Desa</h4>
+                <p class="mb-6 text-gray-600">Bergabunglah dengan kami dalam mewujudkan visi dan misi desa yang lebih
+                    baik</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact"
+                        class="inline-flex items-center px-6 py-3 text-white transition-all duration-300 transform rounded-full bg-gradient-to-r from-blue-500 to-green-500 hover:scale-105 hover:shadow-lg">
+                        <i class="mr-2 fas fa-phone"></i>
+                        Hubungi Kami
+                    </a>
+                    <a href="#"
+                        class="inline-flex items-center px-6 py-3 text-gray-700 transition-all duration-300 transform bg-white border-2 border-gray-300 rounded-full hover:scale-105 hover:border-blue-400">
+                        <i class="mr-2 fas fa-info-circle"></i>
+                        Pelajari Lebih Lanjut
+                    </a>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -435,7 +514,7 @@
                     <div class="relative h-[300px] mb-4">
                         <canvas id="ageChart"></canvas>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 mt-6">
+                    <div class="flex flex-col h-full gap-4 mt-6">
                         <div class="p-3 rounded-lg bg-primary/5">
                             <div class="text-sm text-gray-600">Anak (0-14 th)</div>
                             <div class="mt-1 font-semibold">{{ number_format($statistik->anak ?? 0) }} jiwa</div>
@@ -473,6 +552,43 @@
                         <div class="p-3 rounded-lg bg-primary/5">
                             <div class="text-sm text-gray-600">Wiraswasta</div>
                             <div class="mt-1 font-semibold">{{ number_format($statistik->wiraswasta ?? 0) }} jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
+                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
+                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
+                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-gray-600">Petani</div>
+                            <div class="mt-1 font-semibold">{{ number_format($statistik->petani ?? 0) }} jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-gray-600">Nelayan</div>
+                            <div class="mt-1 font-semibold">{{ number_format($statistik->nelayan ?? 0) }} jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-gray-600">Wiraswasta</div>
+                            <div class="mt-1 font-semibold">{{ number_format($statistik->wiraswasta ?? 0) }} jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
+                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
+                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
                             <div class="text-sm text-gray-600">Pekerjaan Lain</div>
@@ -769,7 +885,8 @@
                         <i class="text-2xl text-white md:text-3xl fas fa-heart animate-pulse"></i>
                     </div>
                 </div>
-                <h2 class="pb-3 mb-4 text-4xl font-bold text-white md:text-5xl section-title-gradient">Kehangatan Masyarakat
+                <h2 class="pb-3 mb-4 text-4xl font-bold text-white md:text-5xl section-title-gradient">Kehangatan
+                    Masyarakat
                     Desa</h2>
                 <div
                     class="w-24 h-1 mx-auto mb-6 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400">
@@ -940,7 +1057,20 @@
                     tertiary: '#4B5563',
                     quaternary: '#9CA3AF',
                     success: '#059669',
-                    danger: '#DC2626'
+                    danger: '#DC2626',
+                    warning: '#F59E0B', // kuning orange
+                    info: '#3B82F6', // biru terang
+                    lightGreen: '#10B981', // hijau cerah
+                    deepPurple: '#7C3AED', // ungu gelap
+                    pink: '#EC4899', // pink
+                    brown: '#A16207', // coklat emas
+                    blueGray: '#64748B', // abu kebiruan
+                    lime: '#84CC16', // hijau limau
+                    sky: '#0EA5E9', // biru langit
+                    rose: '#F43F5E', // merah rose
+                    indigo: '#6366F1', // indigo
+                    amber: '#FBBF24', // kuning amber
+                    emerald: '#34D399' // hijau emerald
                 };
 
                 // Fungsi untuk format angka
@@ -960,12 +1090,22 @@
                 };
 
                 const jobData = {
-                    labels: ['Petani', 'Nelayan', 'Wiraswasta', 'Lainnya'],
+                    labels: ['Petani', 'Perkebunan', 'Perdagangan', 'PNS', 'Pegawai Swasta', 'Buruh Tani',
+                        'Pengrajin', 'Tukang Kayu', 'Tukang Batu', 'Polri', 'TNI', 'Jasa'
+                    ],
                     data: [
                         {{ $statistik->petani ?? 0 }},
-                        {{ $statistik->nelayan ?? 0 }},
-                        {{ $statistik->wiraswasta ?? 0 }},
-                        {{ $statistik->pekerjaan_lain ?? 0 }}
+                        {{ $statistik->perkebunan ?? 0 }},
+                        {{ $statistik->perdagangan ?? 0 }},
+                        {{ $statistik->pegawai_negeri_sipil ?? 0 }},
+                        {{ $statistik->pegawai_swasta ?? 0 }},
+                        {{ $statistik->buruh_tani ?? 0 }},
+                        {{ $statistik->pengrajin ?? 0 }},
+                        {{ $statistik->tukang_kayu ?? 0 }},
+                        {{ $statistik->batu ?? 0 }},
+                        {{ $statistik->polri ?? 0 }},
+                        {{ $statistik->tni ?? 0 }},
+                        {{ $statistik->jasa ?? 0 }}
                     ]
                 };
 
@@ -988,7 +1128,7 @@
                                 chartColors.primary,
                                 chartColors.primaryLight,
                                 chartColors.accent,
-                                chartColors.secondary
+                                chartColors.secondary,
                             ],
                             borderRadius: 6,
                             borderWidth: 0
@@ -1036,7 +1176,16 @@
                                 chartColors.primary,
                                 chartColors.accent,
                                 chartColors.secondary,
-                                chartColors.tertiary
+                                chartColors.tertiary,
+                                chartColors.info,
+                                chartColors.lightGreen,
+                                chartColors.deepPurple,
+                                chartColors.pink,
+                                chartColors.brown,
+                                chartColors.blueGray,
+                                chartColors.lime,
+                                chartColors.sky,
+                                chartColors.rose
                             ],
                             borderWidth: 0
                         }]

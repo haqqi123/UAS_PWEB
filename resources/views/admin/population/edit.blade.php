@@ -196,42 +196,131 @@
                         <div>
                             <label class="block mb-2 text-sm font-medium text-gray-700">Petani</label>
                             <input type="number" name="petani" id="petani" required min="0"
-                                value="{{ old('petani', $population->petani) }}"
+                                value="{{ old('petani', $population?->petani) }}"
                                 class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
                             @error('petani')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <!-- Nelayan -->
+                        <!-- Perkebunan -->
                         <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-700">Nelayan</label>
-                            <input type="number" name="nelayan" id="nelayan" required min="0"
-                                value="{{ old('nelayan', $population->nelayan) }}"
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Perkebunan</label>
+                            <input type="number" name="perkebunan" id="perkebunan" required min="0"
+                                value="{{ old('perkebunan', $population?->perkebunan) }}"
                                 class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
-                            @error('nelayan')
+                            @error('perkebunan')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <!-- Wiraswasta -->
+                        <!-- Perdagangan -->
                         <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-700">Wiraswasta</label>
-                            <input type="number" name="wiraswasta" id="wiraswasta" required min="0"
-                                value="{{ old('wiraswasta', $population->wiraswasta) }}"
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Perdagangan</label>
+                            <input type="number" name="perdagangan" id="perdagangan" required min="0"
+                                value="{{ old('perdagangan', $population?->perdagangan) }}"
                                 class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
-                            @error('wiraswasta')
+                            @error('perdagangan')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <!-- Pekerjaan Lain -->
+                        <!-- Pegawai Negeri Sipil -->
                         <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-700">Pekerjaan Lain</label>
-                            <input type="number" name="pekerjaan_lain" id="pekerjaan_lain" required min="0"
-                                value="{{ old('pekerjaan_lain', $population->pekerjaan_lain) }}"
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Pegawai Negeri Sipil</label>
+                            <input type="number" name="pegawai_negeri_sipil" id="pegawai_negeri_sipil" required
+                                min="0"
+                                value="{{ old('pegawai_negeri_sipil', $population?->pegawai_negeri_sipil) }}"
                                 class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
-                            @error('pekerjaan_lain')
+                            @error('pegawai_negeri_sipil')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Pegawai Swasta -->
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Pegawai Swasta</label>
+                            <input type="number" name="pegawai_swasta" id="pegawai_swasta" required min="0"
+                                value="{{ old('pegawai_swasta', $population?->pegawai_swasta) }}"
+                                class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
+                            @error('pegawai_swasta')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Buruh Tani -->
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Buruh Tani</label>
+                            <input type="number" name="buruh_tani" id="buruh_tani" required min="0"
+                                value="{{ old('buruh_tani', $population?->buruh_tani) }}"
+                                class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
+                            @error('buruh_tani')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Pengrajin -->
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Pengrajin</label>
+                            <input type="number" name="pengrajin" id="pengrajin" required min="0"
+                                value="{{ old('pengrajin', $population?->pengrajin) }}"
+                                class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
+                            @error('pengrajin')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Tukang Kayu -->
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Tukang Kayu</label>
+                            <input type="number" name="tukang_kayu" id="tukang_kayu" required min="0"
+                                value="{{ old('tukang_kayu', $population?->tukang_kayu) }}"
+                                class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
+                            @error('tukang_kayu')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Batu -->
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Pengrajin Batu</label>
+                            <input type="number" name="batu" id="batu" required min="0"
+                                value="{{ old('batu', $population?->batu) }}"
+                                class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
+                            @error('batu')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Polri -->
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Polri</label>
+                            <input type="number" name="polri" id="polri" required min="0"
+                                value="{{ old('polri', $population?->polri) }}"
+                                class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
+                            @error('polri')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- TNI -->
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-700">TNI</label>
+                            <input type="number" name="tni" id="tni" required min="0"
+                                value="{{ old('tni', $population?->tni) }}"
+                                class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
+                            @error('tni')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Jasa -->
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-700">Jasa</label>
+                            <input type="number" name="jasa" id="jasa" required min="0"
+                                value="{{ old('jasa', $population?->jasa) }}"
+                                class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:ring focus:ring-primary/20">
+                            @error('jasa')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
                         </div>

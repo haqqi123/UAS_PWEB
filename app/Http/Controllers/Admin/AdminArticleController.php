@@ -80,8 +80,8 @@ class AdminArticleController extends Controller
         // Validate request
         $validated = $request->validate([
             'judul' => 'required|string|max:255',
-            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
-            'isi' => 'required|string|min:100', // Minimal 100 karakter
+            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', 
+            'isi' => 'required|string|min:100',
         ]);
 
         // Handle thumbnail upload

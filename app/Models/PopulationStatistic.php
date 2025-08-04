@@ -17,10 +17,18 @@ class PopulationStatistic extends Model
         'lansia',
         'laki_laki',
         'perempuan',
-        'petani',
-        'nelayan',
-        'wiraswasta',
-        'pekerjaan_lain',
         'jumlah_kk',
+        'petani',
+        'perkebunan',
+        'perdagangan',
+        'pegawai_negeri_sipil',
+        'pegawai_swasta',
+        'buruh_tani',
+        'pengrajin',
+        'tukang_kayu',
+        'batu',
+        'polri',
+        'tni',
+        'jasa'
     ];
 }
