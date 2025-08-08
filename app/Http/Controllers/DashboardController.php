@@ -30,7 +30,7 @@ class DashboardController extends Controller
             ],
         ];
         $kontak = [
-            'alamat' => 'Jl. Raya Suci No. 1, Jember',
+            'alamat' => 'Kalibaru Manis, Kecamatan Kalibaru, Kabupaten Banyuwangi',
             'telepon' => '0331-123456',
             'email' => 'info@desasuci.id',
             'maps' => 'https://maps.google.com/?q=-8.172,113.700',

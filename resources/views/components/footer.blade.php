@@ -11,8 +11,8 @@
                     <h4 class="text-xl font-bold text-primary">Kalibaru<span class="text-accent">Manis</span></h4>
                 </div>
                 <p class="mb-6 leading-relaxed text-gray-600">
-                    Wadah bagi pelaku usaha mikro, kecil, dan menengah di Kabupaten Jember untuk berkembang bersama.
-                    Kami mempromosikan produk lokal khas Jember yang berkualitas.
+                    Portal resmi Desa Kalibaru Manis yang menyajikan informasi lengkap tentang profil desa,
+                    statistik penduduk, dan potensi UMKM lokal yang berkembang di wilayah kami.
                 </p>
                 <div>
                     <h6 class="mb-3 text-sm font-semibold">Ikuti Kami:</h6>
@@ -51,7 +51,7 @@
                     <li>
                         <a href="#" class="flex items-center text-gray-600 hover:text-primary">
                             <i class="mr-2 text-xs fas fa-chevron-right text-accent"></i>
-                            <span>UMKM Jember</span>
+                            <span>UMKM Kalibaru</span>
                         </a>
                     </li>
                 </ul>
@@ -65,8 +65,9 @@
                     <li class="flex">
                         <i class="mt-1 mr-3 text-xl fas fa-map-marker-alt text-primary"></i>
                         <div>
-                            <h6 class="font-semibold text-primary">Kantor UMKM Jember</h6>
-                            <p class="text-sm text-gray-600">Jl. Kalimantan No. 37, Kec. Patrang, Kabupaten Jember 68121
+                            <h6 class="font-semibold text-primary">Kantor Kecamatan Kalibaru</h6>
+                            <p class="text-sm text-gray-600">Jl. Jember No.157, Dusun Tegal Pakis, Kalibaruwetan, Kec.
+                                Kalibaru, Kabupaten Banyuwangi, Jawa Timur 68467
                             </p>
                         </div>
                     </li>

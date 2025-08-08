@@ -507,101 +507,113 @@
             </div>
 
             <!-- Detailed Statistics -->
-            <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
                 <!-- Kelompok Usia -->
                 <div class="p-6 bg-white shadow-md rounded-2xl">
-                    <h4 class="mb-6 text-xl font-semibold">Berdasarkan Kelompok Usia</h4>
-                    <div class="relative h-[300px] mb-4">
+                    <h4 class="mb-6 text-xl font-semibold text-primary">Berdasarkan Kelompok Usia</h4>
+                    <div class="relative h-[280px] mb-4">
                         <canvas id="ageChart"></canvas>
                     </div>
-                    <div class="flex flex-col h-full gap-4 mt-6">
+                    <div class="grid grid-cols-2 gap-3 mt-6">
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Anak (0-14 th)</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->anak ?? 0) }} jiwa</div>
+                            <div class="text-sm text-black/70">Anak (0-14 th)</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->anak ?? 0) }} jiwa
+                            </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Remaja (15-24 th)</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->remaja ?? 0) }} jiwa</div>
+                            <div class="text-sm text-black/70">Remaja (15-24 th)</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->remaja ?? 0) }} jiwa
+                            </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Dewasa (25-54 th)</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->dewasa ?? 0) }} jiwa</div>
+                            <div class="text-sm text-black/70">Dewasa (25-54 th)</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->dewasa ?? 0) }} jiwa
+                            </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Lansia (>55 th)</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->lansia ?? 0) }} jiwa</div>
+                            <div class="text-sm text-black/70">Lansia (>55 th)</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->lansia ?? 0) }} jiwa
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Pekerjaan -->
-                <div class="p-6 bg-white shadow-md rounded-2xl">
-                    <h4 class="mb-6 text-xl font-semibold">Berdasarkan Pekerjaan</h4>
-                    <div class="relative h-[300px] mb-4">
+                <div class="p-6 bg-white shadow-md rounded-2xl xl:col-span-2">
+                    <h4 class="mb-6 text-xl font-semibold text-primary">Berdasarkan Pekerjaan</h4>
+                    <div class="relative h-[280px] mb-4">
                         <canvas id="jobChart"></canvas>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 mt-6">
+                    <div class="grid grid-cols-2 gap-3 mt-6 md:grid-cols-3 lg:grid-cols-4">
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Petani</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->petani ?? 0) }} jiwa</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Nelayan</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->nelayan ?? 0) }} jiwa</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Wiraswasta</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->wiraswasta ?? 0) }} jiwa</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            <div class="text-sm text-black/70">Petani</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->petani ?? 0) }} jiwa
                             </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            <div class="text-sm text-black/70">Perkebunan</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->perkebunan ?? 0) }}
+                                jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-black/70">Perdagangan</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->perdagangan ?? 0) }}
+                                jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-black/70">PNS</div>
+                            <div class="mt-1 font-semibold text-primary">
+                                {{ number_format($statistik->pegawai_negeri_sipil ?? 0) }}
+                                jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-black/70">Pegawai Swasta</div>
+                            <div class="mt-1 font-semibold text-primary">
+                                {{ number_format($statistik->pegawai_swasta ?? 0) }} jiwa
                             </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            <div class="text-sm text-black/70">Buruh Tani</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->buruh_tani ?? 0) }}
+                                jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-black/70">Pengrajin</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->pengrajin ?? 0) }}
+                                jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-black/70">Tukang Kayu</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->tukang_kayu ?? 0) }}
+                                jiwa</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary/5">
+                            <div class="text-sm text-black/70">Tukang Batu</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->batu ?? 0) }} jiwa
                             </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Petani</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->petani ?? 0) }} jiwa</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Nelayan</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->nelayan ?? 0) }} jiwa</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Wiraswasta</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->wiraswasta ?? 0) }} jiwa</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            <div class="text-sm text-black/70">POLRI</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->polri ?? 0) }} jiwa
                             </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            <div class="text-sm text-black/70">TNI</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->tni ?? 0) }} jiwa
                             </div>
                         </div>
                         <div class="p-3 rounded-lg bg-primary/5">
-                            <div class="text-sm text-gray-600">Pekerjaan Lain</div>
-                            <div class="mt-1 font-semibold">{{ number_format($statistik->pekerjaan_lain ?? 0) }} jiwa
+                            <div class="text-sm text-black/70">Jasa</div>
+                            <div class="mt-1 font-semibold text-primary">{{ number_format($statistik->jasa ?? 0) }} jiwa
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Gender Distribution -->
-                <div class="p-6 bg-white shadow-md rounded-2xl lg:col-span-2">
-                    <h4 class="mb-6 text-xl font-semibold">Distribusi Gender</h4>
-                    <div class="relative h-[200px]">
+                <div class="p-6 bg-white shadow-md rounded-2xl xl:col-span-3">
+                    <h4 class="mb-6 text-xl font-semibold text-primary">Distribusi Gender</h4>
+                    <div class="relative h-[250px]">
                         <canvas id="genderChart"></canvas>
                     </div>
                 </div>
