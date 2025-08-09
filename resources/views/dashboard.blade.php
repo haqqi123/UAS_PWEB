@@ -94,7 +94,7 @@
             <!-- Section Header -->
             <div class="mb-16 text-center">
                 <h2 class="mb-4 text-4xl font-bold section-title">Profil Desa Kalibaru Manis</h2>
-                <div class="w-20 h-1 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400 via-green-400 to-yellow-400">
+                <div class="w-20 h-1 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-800 via-green-600 to-green-800">
                 </div>
                 <p class="max-w-2xl mx-auto text-lg text-gray-600">
                     Mengenal lebih dekat sejarah, visi, dan misi desa yang terus berkembang menuju kemajuan
