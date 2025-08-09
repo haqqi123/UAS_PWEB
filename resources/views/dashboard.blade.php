@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard Desa Suci')
+@section('title', 'Desa Kalibaru Manis')
 
 @section('content')
     <!-- Hero Section -->
@@ -439,7 +439,9 @@
     <section class="py-12">
         <div class="container px-4 mx-auto">
             <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold text-primary">Statistik Penduduk</h2>
+                <h2 class="text-3xl font-bold text-primary">Statistik Penduduk <span
+                        class="text-xl italic font-light text-gray-600">(Data Tahun 2019)</span>
+                </h2>
                 <div class="w-12 h-1 mx-auto mt-4 bg-primary"></div>
             </div>
 
@@ -698,6 +700,205 @@
                             <h6 class="mb-1 font-bold text-gray-800">Email</h6>
                             <p class="text-gray-600">{{ $kontak['email'] }}</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sarana dan Prasarana Section -->
+    <section class="py-12 bg-white">
+        <div class="container px-4 mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-bold text-[#5B8BB8]">Sarana & Prasarana</h2>
+                <div class="w-12 h-1 bg-[#5B8BB8] mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-3">
+                <!-- Sarana Pemerintahan -->
+                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
+                    <i class="fas fa-landmark text-[#5B8BB8] text-3xl mb-4"></i>
+                    <h3 class="mb-2 text-xl font-semibold">Sarana Pemerintahan</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Desa Kalibarumanis memiliki <strong>1 Kantor Desa</strong> yang berfungsi sebagai pusat pelayanan
+                        administrasi,
+                        pengelolaan kegiatan pemerintahan, serta wadah koordinasi masyarakat dalam berbagai program desa.
+                    </p>
+                </div>
+
+                <!-- Sarana Jalan -->
+                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
+                    <i class="fas fa-road text-[#5B8BB8] text-3xl mb-4"></i>
+                    <h3 class="mb-2 text-xl font-semibold">Sarana Jalan</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Jaringan jalan desa meliputi <strong>4 dusun</strong> dengan jalur penghubung berupa jalan desa,
+                        jalan kampung,
+                        dan jalan lingkungan RT yang memudahkan mobilitas warga serta mendukung kegiatan ekonomi dan sosial.
+                    </p>
+                </div>
+
+                <!-- Sarana Listrik -->
+                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
+                    <i class="fas fa-bolt text-[#5B8BB8] text-3xl mb-4"></i>
+                    <h3 class="mb-2 text-xl font-semibold">Sarana Listrik</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Seluruh dusun di Desa Kalibarumanis telah terjangkau layanan listrik, dengan mayoritas rumah tangga
+                        menggunakan penerangan listrik. Jaringan ini juga mendukung kegiatan masyarakat dan fasilitas umum.
+                    </p>
+                </div>
+
+                <!-- Sarana Ekonomi -->
+                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
+                    <i class="fas fa-store text-[#5B8BB8] text-3xl mb-4"></i>
+                    <h3 class="mb-2 text-xl font-semibold">Sarana Ekonomi</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Desa didukung oleh berbagai sarana ekonomi seperti <strong>toko</strong> dan <strong>warung</strong>
+                        yang menyediakan
+                        kebutuhan pokok warga. Kegiatan pertanian seperti padi, cabe, dan tomat menjadi sumber pendapatan
+                        utama masyarakat.
+                    </p>
+                </div>
+
+                <!-- Sarana Pendidikan -->
+                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
+                    <i class="fas fa-school text-[#5B8BB8] text-3xl mb-4"></i>
+                    <h3 class="mb-2 text-xl font-semibold">Sarana Pendidikan</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Fasilitas pendidikan meliputi <strong>7 TK/PAUD</strong>, <strong>8 SD/MI</strong>, dan <strong>1
+                            SLTP</strong>,
+                        yang menjadi pusat pembelajaran bagi generasi muda desa dengan dukungan tenaga pendidik yang
+                        berdedikasi.
+                    </p>
+                </div>
+
+                <!-- Sarana Kesehatan -->
+                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
+                    <i class="fas fa-clinic-medical text-[#5B8BB8] text-3xl mb-4"></i>
+                    <h3 class="mb-2 text-xl font-semibold">Sarana Kesehatan</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Pelayanan kesehatan desa mencakup <strong>1 Ponkesdes</strong>, <strong>13 Posyandu</strong>,
+                        <strong>2 Bidan</strong>,
+                        <strong>1 Mantri</strong>, dan <strong>84 kader posyandu</strong> yang aktif membantu kesehatan
+                        masyarakat.
+                    </p>
+                </div>
+
+                <!-- Sarana Ibadah -->
+                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition md:col-span-3">
+                    <i class="fas fa-mosque text-[#5B8BB8] text-3xl mb-4"></i>
+                    <h3 class="mb-2 text-xl font-semibold">Sarana Ibadah</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Desa memiliki <strong>19 Masjid</strong> dan <strong>32 Musholla</strong> yang menjadi pusat
+                        kegiatan keagamaan
+                        dan pembinaan umat, menunjang kehidupan religius masyarakat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Potensi Desa Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container px-4 mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-bold text-[#5B8BB8]">Potensi Desa</h2>
+                <p class="max-w-2xl mx-auto mt-3 text-gray-600">
+                    Potensi alam dan sumber daya Desa Kalibarumanis membuka peluang di sektor pertanian, perkebunan,
+                    peternakan, dan agro-industri — khususnya kopi.
+                </p>
+                <div class="w-16 h-1 bg-[#5B8BB8] mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Lahan Pertanian (sawah) -->
+                <div class="p-6 bg-white shadow rounded-xl">
+                    <i class="fas fa-seedling text-3xl text-[#5B8BB8] mb-4"></i>
+                    <h3 class="mb-2 text-lg font-semibold">Lahan Pertanian (Sawah)</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Tersedia <strong>155,4 Ha</strong> lahan sawah yang berpotensi ditingkatkan produktivitasnya untuk
+                        mendukung ketahanan pangan dan pengolahan pangan skala desa.
+                    </p>
+                </div>
+
+                <!-- Perkebunan & Pekarangan -->
+                <div class="p-6 bg-white shadow rounded-xl">
+                    <i class="fas fa-tree text-3xl text-[#5B8BB8] mb-4"></i>
+                    <h3 class="mb-2 text-lg font-semibold">Perkebunan & Pekarangan</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Luas area perkebunan dan pekarangan mencapai <strong>1.474,7 Ha</strong>, dikelola secara maksimal
+                        dan mendukung produksi komoditas lokal.
+                    </p>
+                </div>
+
+                <!-- Kawasan Hutan -->
+                <div class="p-6 bg-white shadow rounded-xl">
+                    <i class="fas fa-mountain text-3xl text-[#5B8BB8] mb-4"></i>
+                    <h3 class="mb-2 text-lg font-semibold">Kawasan Hutan</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Ada kawasan hutan negara yang dapat dikembangkan bersama masyarakat untuk konservasi terintegrasi
+                        dan kegiatan agroforestry yang berkelanjutan.
+                    </p>
+                </div>
+
+                <!-- Peternakan & Pakan -->
+                <div class="p-6 bg-white shadow rounded-xl">
+                    <i class="fas fa-tractor text-3xl text-[#5B8BB8] mb-4"></i>
+                    <h3 class="mb-2 text-lg font-semibold">Peternakan & Pakan</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Ketersediaan pakan ternak mendukung pengembangan usaha ternak (sapi, kambing), dengan peluang tambah
+                        nilai dari pengolahan kotoran menjadi pupuk organik.
+                    </p>
+                </div>
+
+                <!-- Pupuk Organik -->
+                <div class="p-6 bg-white shadow rounded-xl">
+                    <i class="fas fa-recycle text-3xl text-[#5B8BB8] mb-4"></i>
+                    <h3 class="mb-2 text-lg font-semibold">Pupuk Organik</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Melimpahnya sisa kotoran ternak membuka peluang usaha pupuk organik skala lokal yang dapat
+                        meningkatkan produktivitas lahan.
+                    </p>
+                </div>
+
+                <!-- Hasil Tanaman Lain -->
+                <div class="p-6 bg-white shadow rounded-xl">
+                    <i class="fas fa-warehouse text-3xl text-[#5B8BB8] mb-4"></i>
+                    <h3 class="mb-2 text-lg font-semibold">Hasil Tanaman</h3>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        Produksi kacang tanah, jagung, ubi, dan tanaman lainnya cukup melimpah — fondasi yang kuat untuk
+                        pengembangan agro-industri lokal.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Spesial: Potensi Kopi -->
+            <div class="mt-12">
+                <div class="p-6 bg-white shadow-lg rounded-xl lg:flex lg:items-center lg:gap-8">
+                    <div class="lg:w-1/3">
+                        <img src="{{ asset('images/potensi-kopi.jpg') }}" alt="Kopi Kalibarumanis"
+                            class="object-cover w-full h-48 rounded-lg">
+                    </div>
+                    <div class="mt-6 lg:mt-0 lg:w-2/3">
+                        <h3 class="text-2xl font-semibold text-[#5B8BB8]">Potensi Kopi Kalibarumanis</h3>
+                        <p class="mt-3 leading-relaxed text-gray-700">
+                            Desa Kalibarumanis termasuk kawasan penghasil kopi (khususnya Robusta) di wilayah Kalibaru —
+                            aktivitas kopi menjadi salah satu sumber penghidupan penting bagi warga.
+                            Pengembangan kopi meliputi budidaya, panen, hingga pengolahan pasca-panen dan pemanggangan
+                            (roasting) yang kini turut menjadi produk UMKM lokal.
+                        </p>
+
+                        <p class="mt-3 text-sm leading-relaxed text-gray-600">
+                            Kalibarumanis juga menjadi salah satu lokasi kegiatan festival dan promosi kopi lokal yang
+                            mengangkat produk petani setempat, membuka peluang pasar dan kolaborasi agribisnis.
+                            <!-- Sumber: artikel lokal & pemberitaan terkait festival kopi Kalibaru. -->
+                        </p>
+
+                        <div class="flex items-center gap-4 mt-4">
+                        </div>
+
+                        <p class="mt-4 text-xs text-gray-500">
+                            Sumber: publikasi lokal dan pemberitaan festival kopi Kalibaru.
+                        </p>
                     </div>
                 </div>
             </div>
