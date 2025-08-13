@@ -7,6 +7,7 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+
 class AdminArticleController extends Controller
 {
     public function index(Request $request)
@@ -80,7 +81,7 @@ class AdminArticleController extends Controller
         // Validate request
         $validated = $request->validate([
             'judul' => 'required|string|max:255',
-            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', 
+            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'isi' => 'required|string|min:100',
         ]);
 

@@ -59,10 +59,6 @@
                             <div class="relative aspect-square">
                                 <img id="preview" src="{{ asset('images/placeholder.png') }}"
                                     class="object-cover w-full h-full border-2 border-gray-300 rounded-lg" alt="Preview">
-                                <div id="overlay"
-                                    class="absolute inset-0 flex items-center justify-center transition-opacity bg-black rounded-lg opacity-0 hover:opacity-50">
-                                    <i class="text-2xl text-white fas fa-camera"></i>
-                                </div>
                             </div>
 
                             <!-- File Input -->

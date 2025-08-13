@@ -1,9 +1,9 @@
 <footer class="bg-white border-t-4 border-accent">
-    <div class="container px-2 py-8 mx-auto">
+    <div class="container px-4 py-8 mx-auto sm:px-6 lg:px-8">
         <!-- Tambahkan justify-center untuk memusatkan grid -->
         <div class="grid justify-center max-w-full grid-cols-1 gap-8 mx-auto md:grid-cols-3">
             <!-- About Section -->
-            <div class="md:px-4">
+            <div class="px-2 md:px-4">
                 <div class="flex items-center mb-4">
                     <div class="flex items-center justify-center w-12 h-12 mr-3 rounded-full bg-primary/10 text-primary">
                         <i class="text-xl fas fa-store-alt"></i>
@@ -38,7 +38,7 @@
             </div>
 
             <!-- Quick Links -->
-            <div class="md:px-4">
+            <div class="px-2 md:px-4">
                 <h5 class="inline-block pb-2 mb-4 text-lg font-semibold border-b-2 text-primary border-accent">Menu
                     Cepat</h5>
                 <ul class="space-y-2">
@@ -58,7 +58,7 @@
             </div>
 
             <!-- Contact -->
-            <div class="md:px-4">
+            <div class="px-2 md:px-4">
                 <h5 class="inline-block pb-2 mb-4 text-lg font-semibold border-b-2 text-primary border-accent">Hubungi
                     Kami</h5>
                 <ul class="space-y-4">
@@ -75,14 +75,14 @@
                         <i class="mt-1 mr-3 text-xl fas fa-phone-alt text-primary"></i>
                         <div>
                             <h6 class="font-semibold text-primary">Telepon</h6>
-                            <p class="text-sm text-gray-600">(0331) 1234567</p>
+                            <p class="text-sm text-gray-600">0822-2817-5411</p>
                         </div>
                     </li>
                     <li class="flex">
-                        <i class="mt-1 mr-3 text-xl fas fa-envelope text-primary"></i>
+                        <i class="mt-1 mr-3 text-xl fab fa-instagram text-primary"></i>
                         <div>
-                            <h6 class="font-semibold text-primary">Email</h6>
-                            <p class="text-sm text-gray-600">info@umkmjember.id</p>
+                            <h6 class="font-semibold text-primary">Instagram</h6>
+                            <p class="text-sm text-gray-600">@pemdes_kalibarumanis</p>
                         </div>
                     </li>
                 </ul>

@@ -26,19 +26,19 @@
         <div class="absolute inset-0 flex items-center">
             <div class="container px-4 mx-auto">
                 <div class="max-w-2xl animate-fade-in-up">
-                    <h1 class="mb-4 text-5xl font-bold text-white opacity-0 md:text-6xl animate-slide-up">
-                        Selamat Datang di Kalibaru Manis
+                    <h1 class="mb-4 text-5xl font-bold text-white opacity-0 md:text-6xl animate-slide-up"
+                        style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+                        Selamat Datang di <span class="text-primary"
+                            style="-webkit-text-stroke: 1px white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Kalibaru</span>
+                        <span class="text-accent"
+                            style="-webkit-text-stroke: 1px white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Manis</span>
                     </h1>
                     <p class="mb-8 text-xl text-gray-200 delay-200 opacity-0 md:text-2xl animate-slide-up">
                         Membangun desa yang mandiri, sejahtera, dan berbudaya.
                     </p>
                     <div class="space-x-4 opacity-0 animate-slide-up delay-400">
-                        <a href="#profile"
+                        <a href="https://wa.me/6282228175411" target="_blank"
                             class="inline-block px-6 py-3 text-white transition-all duration-300 transform rounded-lg bg-primary hover:bg-primary/90 hover:-translate-y-1">
-                            Jelajahi
-                        </a>
-                        <a href="#contact"
-                            class="inline-block px-6 py-3 text-white transition-all duration-300 transform rounded-lg bg-white/10 hover:bg-white/20 backdrop-blur-sm hover:-translate-y-1">
                             Hubungi Kami
                         </a>
                     </div>
@@ -419,15 +419,10 @@
                 <p class="mb-6 text-gray-600">Bergabunglah dengan kami dalam mewujudkan visi dan misi desa yang lebih
                     baik</p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#contact"
+                    <a href="https://wa.me/6282228175411" target="_blank"
                         class="inline-flex items-center px-6 py-3 text-white transition-all duration-300 transform rounded-full bg-gradient-to-r from-blue-500 to-green-500 hover:scale-105 hover:shadow-lg">
                         <i class="mr-2 fas fa-phone"></i>
                         Hubungi Kami
-                    </a>
-                    <a href="#"
-                        class="inline-flex items-center px-6 py-3 text-gray-700 transition-all duration-300 transform bg-white border-2 border-gray-300 rounded-full hover:scale-105 hover:border-blue-400">
-                        <i class="mr-2 fas fa-info-circle"></i>
-                        Pelajari Lebih Lanjut
                     </a>
                 </div>
             </div>
@@ -694,10 +689,10 @@
                 <div class="p-6 transition-all duration-300 transform bg-white shadow-md rounded-2xl hover:-translate-y-1">
                     <div class="flex items-center">
                         <div class="flex items-center justify-center w-12 h-12 mr-4 rounded-full bg-primary/10">
-                            <i class="text-2xl fas fa-envelope text-primary"></i>
+                            <i class="text-2xl fab fa-instagram text-primary"></i>
                         </div>
                         <div>
-                            <h6 class="mb-1 font-bold text-gray-800">Email</h6>
+                            <h6 class="mb-1 font-bold text-gray-800">Instagram</h6>
                             <p class="text-gray-600">{{ $kontak['email'] }}</p>
                         </div>
                     </div>

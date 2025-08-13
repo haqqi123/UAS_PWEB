@@ -31,8 +31,8 @@ class DashboardController extends Controller
         ];
         $kontak = [
             'alamat' => 'Kalibaru Manis, Kecamatan Kalibaru, Kabupaten Banyuwangi',
-            'telepon' => '0331-123456',
-            'email' => 'info@desasuci.id',
+            'telepon' => '0822-2817-5411',
+            'email' => '@pemdes_kalibarumanis',
             'maps' => 'https://maps.google.com/?q=-8.172,113.700',
         ];
 
