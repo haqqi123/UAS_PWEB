@@ -641,18 +641,39 @@
                 <h2 class="text-3xl font-bold text-[#5B8BB8]">Struktur Organisasi</h2>
                 <div class="w-12 h-1 bg-[#5B8BB8] mx-auto mt-4"></div>
             </div>
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 md:gap-5 lg:grid-cols-4 lg:gap-6">
                 @foreach ($organisations as $org)
-                    <div class="group">
-                        <div
-                            class="p-6 text-center transition-all duration-300 border bg-white/70 backdrop-blur-sm border-white/20 rounded-3xl hover:bg-white hover:shadow-xl hover:scale-105">
-                            <div class="mb-6">
-                                <img src="{{ $org->foto_url ?? asset('images/default-avatar.png') }}"
-                                    alt="{{ $org->nama }}"
-                                    class="w-40 h-40 rounded-2xl mx-auto object-cover border-2 border-[#5B8BB8]/20 group-hover:border-[#5B8BB8]/40 transition-all duration-300">
+                    <div class="relative animate-fade-in-up" style="animation-delay: {{ $loop->index * 100 }}ms;">
+                        <div class="org-vertical-card group">
+                            <div class="org-card-backdrop"></div>
+                            <div class="org-card-content">
+                                <!-- Avatar Section -->
+                                <div class="org-avatar-section">
+                                    <div class="org-avatar-frame">
+                                        <img src="{{ $org->foto_url ?? asset('images/default-avatar.png') }}"
+                                            alt="{{ $org->nama }}" class="org-avatar-img">
+                                        <div class="org-avatar-overlay"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Info Section -->
+                                <div class="org-info-section">
+                                    <div class="org-main-content">
+                                        <h5 class="org-member-name">{{ $org->nama }}</h5>
+                                        <div class="org-position-tag">
+                                            <i class="fas fa-user-tie org-position-icon"></i>
+                                            <span>{{ $org->jabatan }}</span>
+                                        </div>
+                                        <!-- Decorative Elements -->
+                                        <div class="org-decorative-line"></div>
+                                    </div>
+
+                                    <div class="org-status-indicator">
+                                        <span class="org-status-dot"></span>
+                                        <span class="org-status-text">Aktif</span>
+                                    </div>
+                                </div>
                             </div>
-                            <h5 class="mb-2 text-lg font-semibold text-gray-800">{{ $org->nama }}</h5>
-                            <p class="text-sm font-medium text-gray-500">{{ $org->jabatan }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -2678,6 +2699,346 @@
         .author-role-compact {
             font-size: 0.75rem;
             color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Organisation Vertical Cards */
+        .org-vertical-card {
+            position: relative;
+            height: 450px;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 40px -10px rgba(91, 139, 184, 0.3);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+        }
+
+        .org-vertical-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 60px -15px rgba(91, 139, 184, 0.4);
+        }
+
+        .org-card-backdrop {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(91, 139, 184, 0.1), rgba(110, 126, 42, 0.08));
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .org-vertical-card:hover .org-card-backdrop {
+            opacity: 1;
+        }
+
+        .org-card-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+        }
+
+        .org-avatar-section {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .org-avatar-frame {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 1rem;
+            padding: 4px;
+            background: linear-gradient(135deg, #5B8BB8, #6E7E2A, #D4AB07);
+            background-size: 200% 200%;
+            animation: gradient-shift 6s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .org-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.4s ease;
+        }
+
+        .org-vertical-card:hover .org-avatar-img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .org-avatar-overlay {
+            position: absolute;
+            inset: 4px;
+            border-radius: 0.75rem;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .org-vertical-card:hover .org-avatar-overlay {
+            opacity: 1;
+        }
+
+        .org-info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            gap: 1rem;
+            padding-top: 0.5rem;
+        }
+
+        .org-main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .org-member-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0;
+            letter-spacing: 0.025em;
+            line-height: 1.3;
+        }
+
+        .org-position-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: linear-gradient(135deg, #5B8BB8, #4A7A9A);
+            color: white;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(91, 139, 184, 0.3);
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .org-vertical-card:hover .org-position-tag {
+            background: linear-gradient(135deg, #4A7A9A, #6E7E2A);
+            box-shadow: 0 6px 20px rgba(91, 139, 184, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .org-position-icon {
+            font-size: 0.875rem;
+        }
+
+        .org-decorative-line {
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #5B8BB8, transparent);
+            margin: 0.5rem auto;
+            border-radius: 1px;
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        .org-vertical-card:hover .org-decorative-line {
+            width: 80%;
+            opacity: 1;
+        }
+
+        .org-status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .org-status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10B981, #059669);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+            animation: status-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes status-pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.1);
+            }
+        }
+
+        .org-status-text {
+            font-size: 0.75rem;
+            color: #6B7280;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .org-vertical-card {
+                height: 410px;
+            }
+
+            .org-avatar-frame {
+                width: 130px;
+                height: 130px;
+            }
+
+            .org-member-name {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .org-vertical-card {
+                height: 350px;
+                max-width: 180px;
+                margin: 0 auto;
+            }
+
+            .org-avatar-frame {
+                width: 90px;
+                height: 90px;
+            }
+
+            .org-card-content {
+                padding: 1.25rem 0.75rem;
+            }
+
+            .org-member-name {
+                font-size: 0.875rem;
+                line-height: 1.2;
+            }
+
+            .org-position-tag {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.7rem;
+            }
+
+            .org-status-text {
+                font-size: 0.65rem;
+            }
+
+            .org-status-dot {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            .org-vertical-card {
+                height: 320px;
+                max-width: 160px;
+            }
+
+            .org-avatar-frame {
+                width: 80px;
+                height: 80px;
+            }
+
+            .org-card-content {
+                padding: 1rem 0.5rem;
+            }
+
+            .org-member-name {
+                font-size: 0.8rem;
+            }
+
+            .org-position-tag {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.65rem;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .org-vertical-card {
+                transition: none;
+            }
+
+            .org-vertical-card:hover {
+                transform: none;
+            }
+
+            .gradient-shift,
+            .status-pulse {
+                animation: none;
+            }
+        }
+
+        .org-card-wrapper:before,
+        .org-card-wrapper:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: conic-gradient(from 0deg, rgba(91, 139, 184, 0.35), rgba(212, 171, 7, 0.35), rgba(91, 139, 184, 0.35));
+            opacity: 0;
+            transition: opacity .6s ease;
+            pointer-events: none;
+        }
+
+        .org-card-wrapper:hover:before {
+            opacity: .35;
+            animation: rotate-gradient 6s linear infinite;
+        }
+
+        @keyframes rotate-gradient {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .org-card-sheen {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 130%;
+            height: 100%;
+            background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0.05) 60%, transparent 80%);
+            transform: skewX(-15deg);
+            transition: .75s;
+            opacity: 0;
+        }
+
+        .org-card-wrapper:hover .org-card-sheen {
+            left: -10%;
+            opacity: 1;
         }
     </style>
 
