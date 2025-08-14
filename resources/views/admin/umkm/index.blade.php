@@ -53,7 +53,7 @@
                                 <tr class="text-sm text-gray-600">
                                     <td class="p-6">
                                         <div class="flex items-center">
-                                            <img src="{{ asset($item->foto_url) }}" alt="{{ $item->nama_usaha }}"
+                                            <img src="{{ $item->foto_url }}" alt="{{ $item->nama_usaha }}"
                                                 class="object-cover w-10 h-10 mr-3 rounded-lg">
                                             <span class="font-medium text-gray-800">{{ $item->nama_usaha }}</span>
                                         </div>
@@ -145,7 +145,7 @@
                                 <tr class="text-sm text-gray-600">
                                     <td class="p-6">
                                         <div class="flex items-center">
-                                            <img src="{{ asset($item->foto_url) }}" alt="{{ $item->nama_usaha }}"
+                                            <img src="{{ $item->foto_url }}" alt="{{ $item->nama_usaha }}"
                                                 class="object-cover w-10 h-10 mr-3 rounded-lg">
                                             <span class="font-medium text-gray-800">{{ $item->nama_usaha }}</span>
                                         </div>

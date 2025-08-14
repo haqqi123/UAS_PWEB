@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\UMKM;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminUMKMController extends Controller
 {
@@ -113,8 +114,8 @@ class AdminUMKMController extends Controller
         $umkm = UMKM::findOrFail($id);
 
         // Delete foto if exists
-        if ($umkm->foto_url && file_exists(public_path($umkm->foto_url))) {
-            unlink(public_path($umkm->foto_url));
+        if ($umkm->foto_usaha && Storage::disk('public')->exists($umkm->foto_usaha)) {
+            Storage::disk('public')->delete($umkm->foto_usaha);
         }
 
         $umkm->delete();

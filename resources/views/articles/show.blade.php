@@ -17,8 +17,8 @@
                 <div class="grid grid-cols-1 gap-8 lg:grid-cols-5">
                     <!-- Image Section - 2 columns -->
                     <div class="lg:col-span-2 relative h-[400px] lg:h-full">
-                        @if ($article->thumbnail)
-                            <img src="{{ asset($article->thumbnail) }}" alt="{{ $article->judul }}"
+                        @if ($article->hasThumbnail())
+                            <img src="{{ $article->thumbnail_url }}" alt="{{ $article->judul }}"
                                 class="object-cover w-full h-full">
                         @else
                             <div class="flex items-center justify-center w-full h-full bg-primary/10">
@@ -110,8 +110,8 @@
                                 class="overflow-hidden transition-all duration-300 transform bg-white shadow-md rounded-2xl group hover:-translate-y-2">
                                 <!-- Article Thumbnail -->
                                 <div class="relative h-48 overflow-hidden">
-                                    @if ($item->thumbnail)
-                                        <img src="{{ asset($item->thumbnail) }}" alt="{{ $item->judul }}"
+                                    @if ($item->hasThumbnail())
+                                        <img src="{{ $item->thumbnail_url }}" alt="{{ $item->judul }}"
                                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110">
                                     @else
                                         <div

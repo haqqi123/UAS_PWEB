@@ -20,7 +20,7 @@
                     <!-- Image -->
                     <div class="relative aspect-[4/3]">
                         @if ($organization->foto)
-                            <img src="{{ asset($organization->foto) }}" alt="{{ $organization->nama }}"
+                            <img src="{{ $organization->foto_url }}" alt="{{ $organization->nama }}"
                                 class="object-cover w-full h-full">
                         @else
                             <div class="flex items-center justify-center w-full h-full bg-gray-100">

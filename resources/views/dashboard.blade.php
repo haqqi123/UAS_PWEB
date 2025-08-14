@@ -441,63 +441,79 @@
             </div>
 
             <!-- Overview Cards -->
-            <div class="grid grid-cols-1 gap-6 mb-8 md:grid-cols-2 lg:grid-cols-4">
+            <div class="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2 lg:grid-cols-4">
                 <!-- Total Penduduk -->
-                <div class="p-6 transition-all duration-300 transform bg-white shadow-md rounded-2xl hover:-translate-y-1">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h4 class="text-gray-600">Total Penduduk</h4>
-                            <p class="mt-2 text-3xl font-bold text-primary">
-                                {{ number_format($statistik->total_penduduk ?? 0) }}
-                            </p>
-                        </div>
-                        <div class="flex items-center justify-center rounded-full w-14 h-14 bg-primary/10">
-                            <i class="text-2xl fas fa-users text-primary"></i>
+                <div class="group">
+                    <div
+                        class="p-5 transition-all duration-300 border border-gray-100 bg-white/80 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-lg hover:border-primary/20">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Total Penduduk</h4>
+                                <p class="mt-1 text-2xl font-bold text-primary">
+                                    {{ number_format($statistik->total_penduduk ?? 0) }}
+                                </p>
+                            </div>
+                            <div
+                                class="flex items-center justify-center w-12 h-12 transition-colors bg-primary/10 rounded-xl group-hover:bg-primary/20">
+                                <i class="text-lg fas fa-users text-primary"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Jumlah KK -->
-                <div class="p-6 transition-all duration-300 transform bg-white shadow-md rounded-2xl hover:-translate-y-1">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h4 class="text-gray-600">Jumlah KK</h4>
-                            <p class="mt-2 text-3xl font-bold text-primary">
-                                {{ number_format($statistik->jumlah_kk ?? 0) }}
-                            </p>
-                        </div>
-                        <div class="flex items-center justify-center rounded-full w-14 h-14 bg-primary/10">
-                            <i class="text-2xl fas fa-home text-primary"></i>
+                <div class="group">
+                    <div
+                        class="p-5 transition-all duration-300 border border-gray-100 bg-white/80 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-lg hover:border-primary/20">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Jumlah KK</h4>
+                                <p class="mt-1 text-2xl font-bold text-primary">
+                                    {{ number_format($statistik->jumlah_kk ?? 0) }}
+                                </p>
+                            </div>
+                            <div
+                                class="flex items-center justify-center w-12 h-12 transition-colors bg-primary/10 rounded-xl group-hover:bg-primary/20">
+                                <i class="text-lg fas fa-home text-primary"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Laki-laki -->
-                <div class="p-6 transition-all duration-300 transform bg-white shadow-md rounded-2xl hover:-translate-y-1">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h4 class="text-gray-600">Laki-laki</h4>
-                            <p class="mt-2 text-3xl font-bold text-primary">
-                                {{ number_format($statistik->laki_laki ?? 0) }}
-                            </p>
-                        </div>
-                        <div class="flex items-center justify-center rounded-full w-14 h-14 bg-primary/10">
-                            <i class="text-2xl fas fa-male text-primary"></i>
+                <div class="group">
+                    <div
+                        class="p-5 transition-all duration-300 border border-gray-100 bg-white/80 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-lg hover:border-primary/20">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Laki-laki</h4>
+                                <p class="mt-1 text-2xl font-bold text-primary">
+                                    {{ number_format($statistik->laki_laki ?? 0) }}
+                                </p>
+                            </div>
+                            <div
+                                class="flex items-center justify-center w-12 h-12 transition-colors bg-primary/10 rounded-xl group-hover:bg-primary/20">
+                                <i class="text-lg fas fa-male text-primary"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Perempuan -->
-                <div class="p-6 transition-all duration-300 transform bg-white shadow-md rounded-2xl hover:-translate-y-1">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h4 class="text-gray-600">Perempuan</h4>
-                            <p class="mt-2 text-3xl font-bold text-primary">
-                                {{ number_format($statistik->perempuan ?? 0) }}
-                            </p>
-                        </div>
-                        <div class="flex items-center justify-center rounded-full w-14 h-14 bg-primary/10">
-                            <i class="text-2xl fas fa-female text-primary"></i>
+                <div class="group">
+                    <div
+                        class="p-5 transition-all duration-300 border border-gray-100 bg-white/80 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-lg hover:border-primary/20">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-500">Perempuan</h4>
+                                <p class="mt-1 text-2xl font-bold text-primary">
+                                    {{ number_format($statistik->perempuan ?? 0) }}
+                                </p>
+                            </div>
+                            <div
+                                class="flex items-center justify-center w-12 h-12 transition-colors bg-primary/10 rounded-xl group-hover:bg-primary/20">
+                                <i class="text-lg fas fa-female text-primary"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -625,16 +641,19 @@
                 <h2 class="text-3xl font-bold text-[#5B8BB8]">Struktur Organisasi</h2>
                 <div class="w-12 h-1 bg-[#5B8BB8] mx-auto mt-4"></div>
             </div>
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($organisations as $org)
-                    <div
-                        class="p-6 text-center transition-transform transform bg-white shadow-md rounded-2xl hover:-translate-y-2">
-                        <div class="mb-6">
-                            <img src="{{ asset($org->foto) }}" alt="{{ $org->nama }}"
-                                class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-[#8AB9E0]">
+                    <div class="group">
+                        <div
+                            class="p-6 text-center transition-all duration-300 border bg-white/70 backdrop-blur-sm border-white/20 rounded-3xl hover:bg-white hover:shadow-xl hover:scale-105">
+                            <div class="mb-6">
+                                <img src="{{ $org->foto_url ?? asset('images/default-avatar.png') }}"
+                                    alt="{{ $org->nama }}"
+                                    class="w-40 h-40 rounded-2xl mx-auto object-cover border-2 border-[#5B8BB8]/20 group-hover:border-[#5B8BB8]/40 transition-all duration-300">
+                            </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-800">{{ $org->nama }}</h5>
+                            <p class="text-sm font-medium text-gray-500">{{ $org->jabatan }}</p>
                         </div>
-                        <h5 class="mb-2 font-bold">{{ $org->nama }}</h5>
-                        <p class="text-gray-600">{{ $org->jabatan }}</p>
                     </div>
                 @endforeach
             </div>
@@ -661,39 +680,51 @@
             </div>
 
             <!-- Contact Info -->
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-                <div class="p-6 transition-all duration-300 transform bg-white shadow-md rounded-2xl hover:-translate-y-1">
-                    <div class="flex items-center">
-                        <div class="flex items-center justify-center w-12 h-12 mr-4 rounded-full bg-primary/10">
-                            <i class="text-2xl fas fa-map-marker-alt text-primary"></i>
-                        </div>
-                        <div>
-                            <h6 class="mb-1 font-bold text-gray-800">Alamat</h6>
-                            <p class="text-gray-600">{{ $kontak['alamat'] }}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 transition-all duration-300 transform bg-white shadow-md rounded-2xl hover:-translate-y-1">
-                    <div class="flex items-center">
-                        <div class="flex items-center justify-center w-12 h-12 mr-4 rounded-full bg-primary/10">
-                            <i class="text-2xl fas fa-phone text-primary"></i>
-                        </div>
-                        <div>
-                            <h6 class="mb-1 font-bold text-gray-800">Telepon</h6>
-                            <p class="text-gray-600">{{ $kontak['telepon'] }}</p>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+                <div class="group">
+                    <div
+                        class="p-5 transition-all duration-300 border border-gray-100 bg-white/80 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-lg hover:border-primary/20">
+                        <div class="flex items-center">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 mr-4 transition-colors bg-primary/10 rounded-xl group-hover:bg-primary/20">
+                                <i class="text-lg fas fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 font-semibold text-gray-800">Alamat</h6>
+                                <p class="text-sm text-gray-500">{{ $kontak['alamat'] }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-6 transition-all duration-300 transform bg-white shadow-md rounded-2xl hover:-translate-y-1">
-                    <div class="flex items-center">
-                        <div class="flex items-center justify-center w-12 h-12 mr-4 rounded-full bg-primary/10">
-                            <i class="text-2xl fab fa-instagram text-primary"></i>
+                <div class="group">
+                    <div
+                        class="p-5 transition-all duration-300 border border-gray-100 bg-white/80 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-lg hover:border-primary/20">
+                        <div class="flex items-center">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 mr-4 transition-colors bg-primary/10 rounded-xl group-hover:bg-primary/20">
+                                <i class="text-lg fas fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 font-semibold text-gray-800">Telepon</h6>
+                                <p class="text-sm text-gray-500">{{ $kontak['telepon'] }}</p>
+                            </div>
                         </div>
-                        <div>
-                            <h6 class="mb-1 font-bold text-gray-800">Instagram</h6>
-                            <p class="text-gray-600">{{ $kontak['email'] }}</p>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div
+                        class="p-5 transition-all duration-300 border border-gray-100 bg-white/80 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-lg hover:border-primary/20">
+                        <div class="flex items-center">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 mr-4 transition-colors bg-primary/10 rounded-xl group-hover:bg-primary/20">
+                                <i class="text-lg fab fa-instagram text-primary"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 font-semibold text-gray-800">Instagram</h6>
+                                <p class="text-sm text-gray-500">{{ $kontak['email'] }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -709,84 +740,134 @@
                 <div class="w-12 h-1 bg-[#5B8BB8] mx-auto mt-4"></div>
             </div>
 
-            <div class="grid gap-8 md:grid-cols-3">
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 <!-- Sarana Pemerintahan -->
-                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
-                    <i class="fas fa-landmark text-[#5B8BB8] text-3xl mb-4"></i>
-                    <h3 class="mb-2 text-xl font-semibold">Sarana Pemerintahan</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Desa Kalibarumanis memiliki <strong>1 Kantor Desa</strong> yang berfungsi sebagai pusat pelayanan
-                        administrasi,
-                        pengelolaan kegiatan pemerintahan, serta wadah koordinasi masyarakat dalam berbagai program desa.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-landmark text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Sarana Pemerintahan</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Desa Kalibarumanis memiliki <strong>1 Kantor Desa</strong> yang berfungsi sebagai pusat
+                            pelayanan
+                            administrasi,
+                            pengelolaan kegiatan pemerintahan, serta wadah koordinasi masyarakat dalam berbagai program
+                            desa.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Sarana Jalan -->
-                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
-                    <i class="fas fa-road text-[#5B8BB8] text-3xl mb-4"></i>
-                    <h3 class="mb-2 text-xl font-semibold">Sarana Jalan</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Jaringan jalan desa meliputi <strong>4 dusun</strong> dengan jalur penghubung berupa jalan desa,
-                        jalan kampung,
-                        dan jalan lingkungan RT yang memudahkan mobilitas warga serta mendukung kegiatan ekonomi dan sosial.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-road text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Sarana Jalan</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Jaringan jalan desa meliputi <strong>4 dusun</strong> dengan jalur penghubung berupa jalan desa,
+                            jalan kampung,
+                            dan jalan lingkungan RT yang memudahkan mobilitas warga serta mendukung kegiatan ekonomi dan
+                            sosial.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Sarana Listrik -->
-                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
-                    <i class="fas fa-bolt text-[#5B8BB8] text-3xl mb-4"></i>
-                    <h3 class="mb-2 text-xl font-semibold">Sarana Listrik</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Seluruh dusun di Desa Kalibarumanis telah terjangkau layanan listrik, dengan mayoritas rumah tangga
-                        menggunakan penerangan listrik. Jaringan ini juga mendukung kegiatan masyarakat dan fasilitas umum.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-bolt text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Sarana Listrik</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Seluruh dusun di Desa Kalibarumanis telah terjangkau layanan listrik, dengan mayoritas rumah
+                            tangga
+                            menggunakan penerangan listrik. Jaringan ini juga mendukung kegiatan masyarakat dan fasilitas
+                            umum.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Sarana Ekonomi -->
-                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
-                    <i class="fas fa-store text-[#5B8BB8] text-3xl mb-4"></i>
-                    <h3 class="mb-2 text-xl font-semibold">Sarana Ekonomi</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Desa didukung oleh berbagai sarana ekonomi seperti <strong>toko</strong> dan <strong>warung</strong>
-                        yang menyediakan
-                        kebutuhan pokok warga. Kegiatan pertanian seperti padi, cabe, dan tomat menjadi sumber pendapatan
-                        utama masyarakat.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-store text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Sarana Ekonomi</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Desa didukung oleh berbagai sarana ekonomi seperti <strong>toko</strong> dan
+                            <strong>warung</strong>
+                            yang menyediakan
+                            kebutuhan pokok warga. Kegiatan pertanian seperti padi, cabe, dan tomat menjadi sumber
+                            pendapatan
+                            utama masyarakat.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Sarana Pendidikan -->
-                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
-                    <i class="fas fa-school text-[#5B8BB8] text-3xl mb-4"></i>
-                    <h3 class="mb-2 text-xl font-semibold">Sarana Pendidikan</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Fasilitas pendidikan meliputi <strong>7 TK/PAUD</strong>, <strong>8 SD/MI</strong>, dan <strong>1
-                            SLTP</strong>,
-                        yang menjadi pusat pembelajaran bagi generasi muda desa dengan dukungan tenaga pendidik yang
-                        berdedikasi.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-school text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Sarana Pendidikan</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Fasilitas pendidikan meliputi <strong>7 TK/PAUD</strong>, <strong>8 SD/MI</strong>, dan
+                            <strong>1
+                                SLTP</strong>,
+                            yang menjadi pusat pembelajaran bagi generasi muda desa dengan dukungan tenaga pendidik yang
+                            berdedikasi.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Sarana Kesehatan -->
-                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition">
-                    <i class="fas fa-clinic-medical text-[#5B8BB8] text-3xl mb-4"></i>
-                    <h3 class="mb-2 text-xl font-semibold">Sarana Kesehatan</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Pelayanan kesehatan desa mencakup <strong>1 Ponkesdes</strong>, <strong>13 Posyandu</strong>,
-                        <strong>2 Bidan</strong>,
-                        <strong>1 Mantri</strong>, dan <strong>84 kader posyandu</strong> yang aktif membantu kesehatan
-                        masyarakat.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-clinic-medical text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Sarana Kesehatan</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Pelayanan kesehatan desa mencakup <strong>1 Ponkesdes</strong>, <strong>13 Posyandu</strong>,
+                            <strong>2 Bidan</strong>,
+                            <strong>1 Mantri</strong>, dan <strong>84 kader posyandu</strong> yang aktif membantu kesehatan
+                            masyarakat.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Sarana Ibadah -->
-                <div class="bg-[#5B8BB8]/5 rounded-xl p-6 shadow hover:shadow-lg transition md:col-span-3">
-                    <i class="fas fa-mosque text-[#5B8BB8] text-3xl mb-4"></i>
-                    <h3 class="mb-2 text-xl font-semibold">Sarana Ibadah</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Desa memiliki <strong>19 Masjid</strong> dan <strong>32 Musholla</strong> yang menjadi pusat
-                        kegiatan keagamaan
-                        dan pembinaan umat, menunjang kehidupan religius masyarakat.
-                    </p>
+                <div class="group md:col-span-2 lg:col-span-3">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-mosque text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Sarana Ibadah</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Desa memiliki <strong>19 Masjid</strong> dan <strong>32 Musholla</strong> yang menjadi pusat
+                            kegiatan keagamaan
+                            dan pembinaan umat, menunjang kehidupan religius masyarakat.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -804,65 +885,105 @@
                 <div class="w-16 h-1 bg-[#5B8BB8] mx-auto mt-6"></div>
             </div>
 
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 <!-- Lahan Pertanian (sawah) -->
-                <div class="p-6 bg-white shadow rounded-xl">
-                    <i class="fas fa-seedling text-3xl text-[#5B8BB8] mb-4"></i>
-                    <h3 class="mb-2 text-lg font-semibold">Lahan Pertanian (Sawah)</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Tersedia <strong>155,4 Ha</strong> lahan sawah yang berpotensi ditingkatkan produktivitasnya untuk
-                        mendukung ketahanan pangan dan pengolahan pangan skala desa.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-seedling text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Lahan Pertanian (Sawah)</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Tersedia <strong>155,4 Ha</strong> lahan sawah yang berpotensi ditingkatkan produktivitasnya
+                            untuk
+                            mendukung ketahanan pangan dan pengolahan pangan skala desa.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Perkebunan & Pekarangan -->
-                <div class="p-6 bg-white shadow rounded-xl">
-                    <i class="fas fa-tree text-3xl text-[#5B8BB8] mb-4"></i>
-                    <h3 class="mb-2 text-lg font-semibold">Perkebunan & Pekarangan</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Luas area perkebunan dan pekarangan mencapai <strong>1.474,7 Ha</strong>, dikelola secara maksimal
-                        dan mendukung produksi komoditas lokal.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-tree text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Perkebunan & Pekarangan</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Luas area perkebunan dan pekarangan mencapai <strong>1.474,7 Ha</strong>, dikelola secara
+                            maksimal
+                            dan mendukung produksi komoditas lokal.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Kawasan Hutan -->
-                <div class="p-6 bg-white shadow rounded-xl">
-                    <i class="fas fa-mountain text-3xl text-[#5B8BB8] mb-4"></i>
-                    <h3 class="mb-2 text-lg font-semibold">Kawasan Hutan</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Ada kawasan hutan negara yang dapat dikembangkan bersama masyarakat untuk konservasi terintegrasi
-                        dan kegiatan agroforestry yang berkelanjutan.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-mountain text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Kawasan Hutan</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Ada kawasan hutan negara yang dapat dikembangkan bersama masyarakat untuk konservasi
+                            terintegrasi
+                            dan kegiatan agroforestry yang berkelanjutan.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Peternakan & Pakan -->
-                <div class="p-6 bg-white shadow rounded-xl">
-                    <i class="fas fa-tractor text-3xl text-[#5B8BB8] mb-4"></i>
-                    <h3 class="mb-2 text-lg font-semibold">Peternakan & Pakan</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Ketersediaan pakan ternak mendukung pengembangan usaha ternak (sapi, kambing), dengan peluang tambah
-                        nilai dari pengolahan kotoran menjadi pupuk organik.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-tractor text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Peternakan & Pakan</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Ketersediaan pakan ternak mendukung pengembangan usaha ternak (sapi, kambing), dengan peluang
+                            tambah
+                            nilai dari pengolahan kotoran menjadi pupuk organik.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Pupuk Organik -->
-                <div class="p-6 bg-white shadow rounded-xl">
-                    <i class="fas fa-recycle text-3xl text-[#5B8BB8] mb-4"></i>
-                    <h3 class="mb-2 text-lg font-semibold">Pupuk Organik</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Melimpahnya sisa kotoran ternak membuka peluang usaha pupuk organik skala lokal yang dapat
-                        meningkatkan produktivitas lahan.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-recycle text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Pupuk Organik</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Melimpahnya sisa kotoran ternak membuka peluang usaha pupuk organik skala lokal yang dapat
+                            meningkatkan produktivitas lahan.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Hasil Tanaman Lain -->
-                <div class="p-6 bg-white shadow rounded-xl">
-                    <i class="fas fa-warehouse text-3xl text-[#5B8BB8] mb-4"></i>
-                    <h3 class="mb-2 text-lg font-semibold">Hasil Tanaman</h3>
-                    <p class="text-sm leading-relaxed text-gray-600">
-                        Produksi kacang tanah, jagung, ubi, dan tanaman lainnya cukup melimpah — fondasi yang kuat untuk
-                        pengembangan agro-industri lokal.
-                    </p>
+                <div class="group">
+                    <div
+                        class="p-6 transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl hover:bg-white hover:shadow-lg hover:border-[#5B8BB8]/20">
+                        <div
+                            class="w-12 h-12 bg-[#5B8BB8]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#5B8BB8]/20 transition-colors">
+                            <i class="fas fa-warehouse text-[#5B8BB8] text-lg"></i>
+                        </div>
+                        <h3 class="mb-3 text-lg font-semibold text-gray-800">Hasil Tanaman</h3>
+                        <p class="text-sm leading-relaxed text-gray-500">
+                            Produksi kacang tanah, jagung, ubi, dan tanaman lainnya cukup melimpah — fondasi yang kuat untuk
+                            pengembangan agro-industri lokal.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -918,8 +1039,8 @@
                                     class="bg-white rounded-2xl shadow-md overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 h-[450px] flex flex-col">
                                     <!-- Article Thumbnail -->
                                     <div class="relative h-48 overflow-hidden">
-                                        @if ($a->thumbnail)
-                                            <img src="{{ asset($a->thumbnail) }}" alt="{{ $a->judul }}"
+                                        @if ($a->hasThumbnail())
+                                            <img src="{{ $a->thumbnail_url }}" alt="{{ $a->judul }}"
                                                 class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
                                         @else
                                             <div

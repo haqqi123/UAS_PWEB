@@ -75,7 +75,7 @@
                             <tr class="text-sm text-gray-600">
                                 <td class="p-6">
                                     <div class="flex items-center gap-4">
-                                        <img src="{{ asset($article->thumbnail) }}" alt="{{ $article->judul }}"
+                                        <img src="{{ $article->thumbnail_url }}" alt="{{ $article->judul }}"
                                             class="object-cover w-16 h-16 rounded-lg">
                                         <div>
                                             <h3 class="font-medium text-gray-900">{{ $article->judul }}</h3>

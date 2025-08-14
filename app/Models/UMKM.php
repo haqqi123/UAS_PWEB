@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class UMKM extends Model
@@ -68,9 +69,15 @@ class UMKM extends Model
     public function getFotoUrlAttribute(): string
     {
         if ($this->foto_usaha) {
-            return asset('images/umkm/' . $this->foto_usaha);
+            return asset('storage/' . $this->foto_usaha);
         }
         return asset('images/default-store.jpg');
+    }
+
+    // Check if UMKM has foto
+    public function hasFoto()
+    {
+        return $this->foto_usaha && Storage::disk('public')->exists($this->foto_usaha);
     }
 
     // Accessor untuk status badge

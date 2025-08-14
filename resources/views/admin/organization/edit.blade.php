@@ -63,7 +63,7 @@
                                 <p class="mb-2 text-sm font-medium text-gray-700">Foto Saat Ini:</p>
                                 <div class="relative aspect-square">
                                     @if ($organization->foto)
-                                        <img src="{{ asset($organization->foto) }}" alt="{{ $organization->nama }}"
+                                        <img src="{{ $organization->foto_url }}" alt="{{ $organization->nama }}"
                                             class="object-cover w-full h-full rounded-lg">
                                     @else
                                         <div class="flex items-center justify-center w-full h-full bg-gray-100 rounded-lg">

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Article extends Model
@@ -30,5 +31,20 @@ class Article extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    // Accessor for thumbnail URL
+    public function getThumbnailUrlAttribute()
+    {
+        if ($this->thumbnail) {
+            return asset('storage/' . $this->thumbnail);
+        }
+        return asset('images/default-article.jpg'); // Default image if no thumbnail
+    }
+
+    // Check if article has thumbnail
+    public function hasThumbnail()
+    {
+        return $this->thumbnail && Storage::disk('public')->exists($this->thumbnail);
     }
 }

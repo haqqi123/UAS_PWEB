@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 
 class AdminArticleController extends Controller
@@ -50,8 +52,20 @@ class AdminArticleController extends Controller
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $filename = time() . '_' . Str::slug($request->judul) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images/articles'), $filename);
-            $validated['thumbnail'] = 'images/articles/' . $filename;
+
+            // Store file using Laravel Storage
+            $path = $file->storeAs('articles', $filename, 'public');
+
+            // Resize image using Intervention Image
+            $fullPath = storage_path('app/public/' . $path);
+            $image = Image::make($fullPath);
+            $image->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $image->save($fullPath, 90);
+
+            $validated['thumbnail'] = $path;
         }
 
         // Set default values
@@ -88,14 +102,26 @@ class AdminArticleController extends Controller
         // Handle thumbnail upload
         if ($request->hasFile('thumbnail')) {
             // Delete old thumbnail
-            if ($article->thumbnail && file_exists(public_path($article->thumbnail))) {
-                unlink(public_path($article->thumbnail));
+            if ($article->thumbnail && Storage::disk('public')->exists($article->thumbnail)) {
+                Storage::disk('public')->delete($article->thumbnail);
             }
 
             $file = $request->file('thumbnail');
             $filename = time() . '_' . Str::slug($request->judul) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images/articles'), $filename);
-            $validated['thumbnail'] = 'images/articles/' . $filename;
+
+            // Store file using Laravel Storage
+            $path = $file->storeAs('articles', $filename, 'public');
+
+            // Resize image using Intervention Image
+            $fullPath = storage_path('app/public/' . $path);
+            $image = Image::make($fullPath);
+            $image->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $image->save($fullPath, 90);
+
+            $validated['thumbnail'] = $path;
         }
 
         // Update article
@@ -110,8 +136,8 @@ class AdminArticleController extends Controller
     {
         try {
             // Delete thumbnail if exists
-            if ($article->thumbnail && file_exists(public_path($article->thumbnail))) {
-                unlink(public_path($article->thumbnail));
+            if ($article->thumbnail && Storage::disk('public')->exists($article->thumbnail)) {
+                Storage::disk('public')->delete($article->thumbnail);
             }
 
             // Delete article

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Organisation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class AdminOrganizationController extends Controller
@@ -54,14 +55,11 @@ class AdminOrganizationController extends Controller
                 $img->crop($img->width(), $img->width());
             }
 
-            // Save image
-            $path = public_path('images/organizations');
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
-            $img->save($path . '/' . $filename);
+            // Save image to storage
+            $storagePath = 'organizations/' . $filename;
+            Storage::disk('public')->put($storagePath, (string) $img->encode());
 
-            $validated['foto'] = 'images/organizations/' . $filename;
+            $validated['foto'] = $storagePath;
         }
 
         // Create organization
@@ -111,18 +109,15 @@ class AdminOrganizationController extends Controller
             }
 
             // Delete old image if exists
-            if ($organization->foto && file_exists(public_path($organization->foto))) {
-                unlink(public_path($organization->foto));
+            if ($organization->foto && Storage::disk('public')->exists($organization->foto)) {
+                Storage::disk('public')->delete($organization->foto);
             }
 
-            // Save new image
-            $path = public_path('images/organizations');
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
-            $img->save($path . '/' . $filename);
+            // Save new image to storage
+            $storagePath = 'organizations/' . $filename;
+            Storage::disk('public')->put($storagePath, (string) $img->encode());
 
-            $validated['foto'] = 'images/organizations/' . $filename;
+            $validated['foto'] = $storagePath;
         }
 
         // Update organization
@@ -137,8 +132,8 @@ class AdminOrganizationController extends Controller
     {
         try {
             // Delete photo if exists
-            if ($organization->foto && file_exists(public_path($organization->foto))) {
-                unlink(public_path($organization->foto));
+            if ($organization->foto && Storage::disk('public')->exists($organization->foto)) {
+                Storage::disk('public')->delete($organization->foto);
             }
 
             // Delete organization

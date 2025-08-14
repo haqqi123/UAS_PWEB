@@ -63,7 +63,7 @@
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-700">Thumbnail</label>
                         <div class="flex items-start gap-4">
-                            <img id="thumbnail-preview" src="{{ asset($article->thumbnail) }}"
+                            <img id="thumbnail-preview" src="{{ $article->thumbnail_url }}"
                                 class="object-cover w-48 h-48 border border-gray-300 rounded-lg">
                             <div class="flex-1">
                                 <input type="file" name="thumbnail" id="thumbnail" accept="image/*"

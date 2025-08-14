@@ -58,7 +58,7 @@
                             <tr class="text-sm text-gray-600">
                                 <td class="py-3 pr-4">
                                     <div class="flex items-center">
-                                        <img src="{{ asset($umkm->foto_url) }}" alt="{{ $umkm->nama_usaha }}"
+                                        <img src="{{ $umkm->foto_url }}" alt="{{ $umkm->nama_usaha }}"
                                             class="object-cover w-8 h-8 mr-3 rounded-full">
                                         <span class="font-medium text-gray-800">{{ $umkm->nama_usaha }}</span>
                                     </div>
@@ -109,8 +109,8 @@
                             <tr class="text-sm text-gray-600">
                                 <td class="py-3 pr-4">
                                     <div class="flex items-center">
-                                        @if ($article->thumbnail)
-                                            <img src="{{ asset($article->thumbnail) }}" alt="{{ $article->judul }}"
+                                        @if ($article->hasThumbnail())
+                                            <img src="{{ $article->thumbnail_url }}" alt="{{ $article->judul }}"
                                                 class="object-cover w-8 h-8 mr-3 rounded">
                                         @else
                                             <div

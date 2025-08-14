@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\UMKM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class UMKMController extends Controller
 {
@@ -54,11 +56,21 @@ class UMKMController extends Controller
         // Handle file upload
         if ($request->hasFile('foto_usaha')) {
             $file = $request->file('foto_usaha');
-            $filename = time() . '_' . $file->getClientOriginalName();
+            $filename = time() . '_' . Str::slug($request->nama_usaha) . '.' . $file->getClientOriginalExtension();
 
-            // Move file to public/images/umkm directory
-            $file->move(public_path('images/umkm'), $filename);
-            $validated['foto_usaha'] = $filename;
+            // Store file using Laravel Storage
+            $path = $file->storeAs('umkm', $filename, 'public');
+
+            // Resize image using Intervention Image
+            $fullPath = storage_path('app/public/' . $path);
+            $image = Image::make($fullPath);
+            $image->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $image->save($fullPath, 90);
+
+            $validated['foto_usaha'] = $path;
         }
 
         // Format nomor WhatsApp

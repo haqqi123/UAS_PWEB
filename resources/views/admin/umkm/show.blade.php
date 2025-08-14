@@ -54,9 +54,9 @@
             <!-- Left Column - Images -->
             <div class="space-y-6 lg:col-span-1">
                 <div class="overflow-hidden bg-white shadow-md rounded-2xl">
-                    <img src="{{ asset($umkm->foto_url) }}" alt="{{ $umkm->nama_usaha }}"
+                    <img src="{{ $umkm->foto_url }}" alt="{{ $umkm->nama_usaha }}"
                         class="object-cover w-full h-64 cursor-pointer"
-                        onclick="previewImage('{{ asset($umkm->foto_url) }}', '{{ $umkm->nama_usaha }}')">
+                        onclick="previewImage('{{ $umkm->foto_url }}', '{{ $umkm->nama_usaha }}')">
                 </div>
             </div>
 
