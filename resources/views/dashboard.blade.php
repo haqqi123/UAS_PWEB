@@ -638,7 +638,7 @@
     <section class="py-12 bg-[#5B8BB8]/5">
         <div class="container px-4 mx-auto">
             <div class="mb-12 text-center">
-                <h2 class="text-3xl font-bold text-[#5B8BB8]">Struktur Organisasi</h2>
+                <h2 class="text-3xl font-bold text-[#5B8BB8]">Struktur Pemerintahan</h2>
                 <div class="w-12 h-1 bg-[#5B8BB8] mx-auto mt-4"></div>
             </div>
             <div class="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 md:gap-5 lg:grid-cols-4 lg:gap-6">
