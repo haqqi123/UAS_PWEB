@@ -54,7 +54,7 @@
             <!-- Thumbnail -->
             <div class="lg:col-span-1">
                 <div class="overflow-hidden bg-white shadow-md rounded-2xl">
-                    <img src="{{ asset($article->thumbnail) }}" alt="{{ $article->judul }}"
+                    <img src="{{ $article->thumbnail_url }}" alt="{{ $article->judul }}"
                         class="object-cover w-full h-auto cursor-pointer"
                         onclick="previewImage('{{ asset($article->thumbnail) }}', '{{ $article->judul }}')">
                 </div>
