@@ -48,7 +48,7 @@
                 <a href="{{ route('admin.organization.index') }}" @click="sidebarOpen = false"
                     class="flex items-center px-4 py-2 text-gray-700 hover:bg-primary/5 hover:text-primary {{ request()->routeIs('admin.organization.*') ? 'bg-primary/5 text-primary font-medium border-r-4 border-primary' : '' }}">
                     <i class="w-5 fas fa-sitemap"></i>
-                    <span class="ml-2">Struktur Organisasi</span>
+                    <span class="ml-2">Struktur Pemerintahan</span>
                 </a>
             </li>
         </ul>
