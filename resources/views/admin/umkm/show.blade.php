@@ -17,29 +17,31 @@
         <!-- Main Info -->
         <div class="bg-white shadow-md rounded-2xl">
             <div class="p-6">
-                <div class="flex items-start justify-between">
+                <div class="flex flex-col space-y-4 md:flex-row md:items-start md:justify-between md:space-y-0">
                     <div class="space-y-1">
                         <h1 class="text-2xl font-bold text-gray-900">{{ $umkm->nama_usaha }}</h1>
                         <p class="text-sm text-gray-500">Terdaftar pada {{ $umkm->created_at->format('d M Y') }}</p>
                     </div>
-                    <div>
+                    <div class="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-3">
                         @if ($umkm->status === 'menunggu')
-                            <div class="flex items-center gap-2">
-                                <button type="button" onclick="confirmApprove('{{ $umkm->id }}')" class="btn-success">
-                                    <i class="mr-2 fas fa-check"></i>
-                                    Setujui
-                                </button>
-                                <button type="button" onclick="confirmReject('{{ $umkm->id }}')" class="btn-danger">
-                                    <i class="mr-2 fas fa-times"></i>
-                                    Tolak
-                                </button>
-                            </div>
+                            <button type="button" onclick="confirmApprove('{{ $umkm->id }}')"
+                                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition-all duration-200 bg-green-600 rounded-lg shadow-md hover:bg-green-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                                <i class="mr-2 fas fa-check"></i>
+                                Setujui
+                            </button>
+                            <button type="button" onclick="confirmReject('{{ $umkm->id }}')"
+                                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition-all duration-200 bg-red-600 rounded-lg shadow-md hover:bg-red-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                <i class="mr-2 fas fa-times"></i>
+                                Tolak
+                            </button>
                         @else
-                            <button type="button" onclick="confirmUpdateStatus('{{ $umkm->id }}')" class="btn-primary">
+                            <button type="button" onclick="confirmUpdateStatus('{{ $umkm->id }}')"
+                                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition-all duration-200 bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                                 <i class="mr-2 fas fa-edit"></i>
                                 Ubah Status
                             </button>
-                            <button type="button" onclick="confirmDelete('{{ $umkm->id }}')" class="btn-danger">
+                            <button type="button" onclick="confirmDelete('{{ $umkm->id }}')"
+                                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition-all duration-200 bg-red-600 rounded-lg shadow-md hover:bg-red-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
                                 <i class="mr-2 fas fa-trash"></i>
                                 Hapus
                             </button>

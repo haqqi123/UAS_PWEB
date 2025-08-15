@@ -26,7 +26,7 @@ class AdminOrganizationController extends Controller
     {
         // Validate request
         $validated = $request->validate([
-            'nama' => 'required|string|max:100|regex:/^[a-zA-Z\s]*$/',
+            'nama' => 'required|string|max:100',
             'jabatan' => 'required|string|max:50',
             'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048', // 2MB max
         ], [

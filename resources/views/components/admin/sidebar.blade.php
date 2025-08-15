@@ -4,7 +4,7 @@
     <!-- Logo -->
     <div class="flex items-center justify-between p-4 border-b">
         <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-2">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-8 h-8">
+            <img src="{{ asset('images/logo-banyuwangi.png') }}" alt="Logo" class="w-8 h-10">
             <span class="text-lg font-bold text-gray-800">Admin Panel</span>
         </a>
         <!-- Close button for mobile -->

@@ -9,13 +9,13 @@
         <div class="relative w-full h-full overflow-hidden hero-carousel">
             <!-- Carousel Items -->
             <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 carousel-item">
-                <img src="{{ asset('images/desa1.jpeg') }}" alt="Desa Suci 1" class="object-cover w-full h-full">
+                <img src="{{ asset('images/hero-1.jpg') }}" alt="Desa Suci 1" class="object-cover w-full h-full">
             </div>
             <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 carousel-item">
-                <img src="{{ asset('images/desa2.jpeg') }}" alt="Desa Suci 2" class="object-cover w-full h-full">
+                <img src="{{ asset('images/hero-2.jpg') }}" alt="Desa Suci 2" class="object-cover w-full h-full">
             </div>
             <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 carousel-item">
-                <img src="{{ asset('images/desa3.jpeg') }}" alt="Desa Suci 3" class="object-cover w-full h-full">
+                <img src="{{ asset('images/hero-3.jpg') }}" alt="Desa Suci 3" class="object-cover w-full h-full">
             </div>
 
             <!-- Overlay with gradient -->
@@ -142,7 +142,7 @@
                         <div class="relative group">
                             <!-- Main image -->
                             <div class="overflow-hidden shadow-2xl rounded-3xl">
-                                <img src="images/desa1.jpeg" alt="Sejarah Desa Kalibaru Manis"
+                                <img src="images/profil-1.jpg" alt="Sejarah Desa Kalibaru Manis"
                                     class="object-cover w-full transition-transform duration-700 h-80 group-hover:scale-110">
                             </div>
                             <!-- Floating card overlay -->
@@ -151,7 +151,7 @@
                                 <div class="flex items-center">
                                     <i class="mr-3 text-2xl text-blue-500 fas fa-landmark"></i>
                                     <div>
-                                        <div class="text-sm font-semibold text-gray-800">Est. 1900</div>
+                                        <div class="text-sm font-semibold text-gray-800">Est. 1901</div>
                                         <div class="text-xs text-gray-500">Tahun Berdiri</div>
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@
                     <!-- Image Content -->
                     <div class="relative group">
                         <div class="overflow-hidden shadow-2xl rounded-3xl">
-                            <img src="images/desa2.jpeg" alt="Visi Desa Kalibaru Manis"
+                            <img src="images/profil-2.jpg" alt="Visi Desa Kalibaru Manis"
                                 class="object-cover w-full transition-transform duration-700 h-80 group-hover:scale-110">
                         </div>
                         <!-- Decorative elements -->
@@ -1012,7 +1012,7 @@
             <div class="mt-12">
                 <div class="p-6 bg-white shadow-lg rounded-xl lg:flex lg:items-center lg:gap-8">
                     <div class="lg:w-1/3">
-                        <img src="{{ asset('images/potensi-kopi.jpg') }}" alt="Kopi Kalibarumanis"
+                        <img src="{{ asset('images/kopi.jpg') }}" alt="Kopi Kalibarumanis"
                             class="object-cover w-full h-48 rounded-lg">
                     </div>
                     <div class="mt-6 lg:mt-0 lg:w-2/3">
@@ -1273,7 +1273,7 @@
                         <!-- Photo Grid -->
                         <div class="relative z-10 photo-grid">
                             <div class="photo-frame group">
-                                <img src="images/desa1.jpeg" alt="Kehangatan Masyarakat Desa Kalibaru Manis"
+                                <img src="images/kehangatan-1.jpg" alt="Kehangatan Masyarakat Desa Kalibaru Manis"
                                     class="photo-image">
                                 <div class="photo-overlay">
                                     <div class="photo-overlay-content">
@@ -1286,7 +1286,7 @@
                             </div>
 
                             <div class="photo-frame group">
-                                <img src="images/desa2.jpeg" alt="Aktivitas Sehari-hari Warga" class="photo-image">
+                                <img src="images/kehangatan-2.jpg" alt="Aktivitas Sehari-hari Warga" class="photo-image">
                                 <div class="photo-overlay">
                                     <div class="photo-overlay-content">
                                         <div class="photo-overlay-icon">
@@ -1298,7 +1298,7 @@
                             </div>
 
                             <div class="photo-frame group">
-                                <img src="images/desa3.jpeg" alt="Tradisi dan Budaya Desa" class="photo-image">
+                                <img src="images/kehangatan-3.jpg" alt="Tradisi dan Budaya Desa" class="photo-image">
                                 <div class="photo-overlay">
                                     <div class="photo-overlay-content">
                                         <div class="photo-overlay-icon">
@@ -1310,7 +1310,7 @@
                             </div>
 
                             <div class="photo-frame group">
-                                <img src="images/desa1.jpeg" alt="Pemandangan Desa yang Asri" class="photo-image">
+                                <img src="images/kehangatan-4.jpg" alt="Pemandangan Desa yang Asri" class="photo-image">
                                 <div class="photo-overlay">
                                     <div class="photo-overlay-content">
                                         <div class="photo-overlay-icon">
@@ -2704,7 +2704,7 @@
         /* Organisation Vertical Cards */
         .org-vertical-card {
             position: relative;
-            height: 450px;
+            height: 520px;
             border-radius: 1.5rem;
             overflow: hidden;
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
@@ -2911,7 +2911,7 @@
         /* Responsive adjustments */
         @media (max-width: 1024px) {
             .org-vertical-card {
-                height: 410px;
+                height: 480px;
             }
 
             .org-avatar-frame {
@@ -2926,7 +2926,7 @@
 
         @media (max-width: 640px) {
             .org-vertical-card {
-                height: 350px;
+                height: 420px;
                 max-width: 180px;
                 margin: 0 auto;
             }
@@ -2963,7 +2963,7 @@
         /* Extra small mobile devices */
         @media (max-width: 480px) {
             .org-vertical-card {
-                height: 320px;
+                height: 380px;
                 max-width: 160px;
             }
 
