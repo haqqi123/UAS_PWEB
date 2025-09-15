@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <meta name="google-site-verification" content="wYJ4pZQNXGraIn-I-vwpEz1Qmssk2fQPb8x3ja-VoNU" />
     <!-- Tailwind CSS -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
