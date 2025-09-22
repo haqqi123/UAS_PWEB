@@ -10,7 +10,16 @@ class IsAdmin
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check() || Auth::user()->role !== 'admin') {
+        // Check if user is not authenticated
+        if (!Auth::check()) {
+            if ($request->ajax() || $request->wantsJson()) {
+                return response()->json(['error' => 'Unauthenticated. Please login first.'], 401);
+            }
+            return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu untuk mengakses halaman admin.');
+        }
+
+        // Check if user is not admin
+        if (Auth::user()->role !== 'admin') {
             if ($request->ajax() || $request->wantsJson()) {
                 return response()->json(['error' => 'Unauthorized. Admin access required.'], 403);
             }

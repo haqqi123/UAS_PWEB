@@ -218,6 +218,33 @@
                             </div>
                         @endif
 
+                        @if (session('error'))
+                            <div class="p-4 mb-6 border-l-4 border-red-500 rounded-lg bg-red-50">
+                                <div class="flex items-center text-red-800">
+                                    <i class="mr-2 fas fa-exclamation-circle"></i>
+                                    <div>{{ session('error') }}</div>
+                                </div>
+                            </div>
+                        @endif
+
+                        @if (session('info'))
+                            <div class="p-4 mb-6 border-l-4 border-blue-500 rounded-lg bg-blue-50">
+                                <div class="flex items-center text-blue-800">
+                                    <i class="mr-2 fas fa-info-circle"></i>
+                                    <div>{{ session('info') }}</div>
+                                </div>
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="p-4 mb-6 border-l-4 border-green-500 rounded-lg bg-green-50">
+                                <div class="flex items-center text-green-800">
+                                    <i class="mr-2 fas fa-check-circle"></i>
+                                    <div>{{ session('success') }}</div>
+                                </div>
+                            </div>
+                        @endif
+
                         <form method="POST" action="{{ route('login') }}" class="space-y-6">
                             @csrf
                             <!-- Email Field -->

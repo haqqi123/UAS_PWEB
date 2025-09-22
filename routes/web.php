@@ -16,6 +16,9 @@ use App\Http\Controllers\Admin\AdminOrganizationController;
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/admin', function () {
+        return redirect()->route('login');
+    })->name('admin.login.redirect');
 });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
@@ -54,3 +57,8 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     // Organization Management
     Route::resource('organization', AdminOrganizationController::class);
 });
+
+// Fallback for any /admin routes when not authenticated
+Route::get('/admin/{any?}', function () {
+    return redirect()->route('login')->with('info', 'Silakan login untuk mengakses halaman admin.');
+})->where('any', '.*')->name('admin.fallback');
