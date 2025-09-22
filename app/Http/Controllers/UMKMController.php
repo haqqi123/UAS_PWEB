@@ -58,19 +58,20 @@ class UMKMController extends Controller
             $file = $request->file('foto_usaha');
             $filename = time() . '_' . Str::slug($request->nama_usaha) . '.' . $file->getClientOriginalExtension();
 
-            // Store file using Laravel Storage
-            $path = $file->storeAs('umkm', $filename, 'public');
+            // Create image instance and resize
+            $img = Image::make($file->getRealPath());
 
-            // Resize image using Intervention Image
-            $fullPath = storage_path('app/public/' . $path);
-            $image = Image::make($fullPath);
-            $image->resize(800, null, function ($constraint) {
+            // Resize to maintain aspect ratio with maximum dimensions
+            $img->resize(800, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
-            $image->save($fullPath, 90);
 
-            $validated['foto_usaha'] = $path;
+            // Save image to storage
+            $storagePath = 'umkm/' . $filename;
+            Storage::disk('public')->put($storagePath, (string) $img->encode());
+
+            $validated['foto_usaha'] = $storagePath;
         }
 
         // Format nomor WhatsApp
