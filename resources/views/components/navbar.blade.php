@@ -47,6 +47,11 @@ $isDashboard = request()->routeIs('dashboard');
                     <i class="mr-2 fas fa-store"></i>
                     <span>Katalog UMKM</span>
                 </a>
+                <a href="{{ route('download.app') }}"
+                    class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('download.app') : $isActive('download.app') }}">
+                    <i class="mr-2 fas fa-mobile-alt"></i>
+                    <span>Paseban Kawis Apps</span>
+                </a>
             </div>
         </div>
 
@@ -63,6 +68,11 @@ $isDashboard = request()->routeIs('dashboard');
                     class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('umkm.index') : $isActive('umkm.index') }}">
                     <i class="mr-2 fas fa-store"></i>
                     <span>Katalog UMKM</span>
+                </a>
+                <a href="{{ route('download.app') }}"
+                    class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('download.app') : $isActive('download.app') }}">
+                    <i class="mr-2 fas fa-mobile-alt"></i>
+                    <span>Download App</span>
                 </a>
             </div>
         </div>

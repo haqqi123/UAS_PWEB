@@ -285,4 +285,55 @@ public function destroy($id)
         $umkmList = UMKM::with('products')->get();
         return view('profile', compact('umkmList'));
     }
+
+    public function downloadApp()
+    {
+        $appInfo = [
+            'name' => 'Paseban Kawis Apps',
+            'version' => 'v4.0',
+            'size' => $this->getFileSize(public_path('apk/Paseban Kawis Apps V4.apk')),
+            'updated_at' => $this->getFileDate(public_path('apk/Paseban Kawis Apps V4.apk')),
+            'download_url' => asset('apk/Paseban Kawis Apps V4.apk'),
+            'description' => 'Aplikasi mobile pembelajaran berbasis AI yang dirancang untuk UMKM dan masyarakat Desa Kalibaru Manis.',
+            'features' => [
+                'Modul pembelajaran untuk UMKM',
+                'Video pelatihan yang mudah dipahami',
+                'Kuis interaktif untuk mengukur pemahaman',
+                'Chatbot AI untuk konsultasi materi',
+                'Manajemen konten untuk admin desa',
+                'Akses pembelajaran untuk masyarakat',
+                'Interface yang user-friendly',
+                'Peningkatan literasi digital desa'
+            ],
+            'roles' => [
+                'admin' => 'Pemerintah Desa Kalibaru Manis - mengelola akun, modul, dan kuis',
+                'user' => 'Masyarakat dan UMKM - mengakses pembelajaran dan AI chatbot'
+            ]
+        ];
+
+        return view('download-app', compact('appInfo'));
+    }
+
+    private function getFileSize($filePath)
+    {
+        if (file_exists($filePath)) {
+            $bytes = filesize($filePath);
+            $units = ['B', 'KB', 'MB', 'GB'];
+            
+            for ($i = 0; $bytes > 1024 && $i < count($units) - 1; $i++) {
+                $bytes /= 1024;
+            }
+            
+            return round($bytes, 2) . ' ' . $units[$i];
+        }
+        return 'File tidak ditemukan';
+    }
+
+    private function getFileDate($filePath)
+    {
+        if (file_exists($filePath)) {
+            return date('d M Y', filemtime($filePath));
+        }
+        return 'Unknown';
+    }
 }
