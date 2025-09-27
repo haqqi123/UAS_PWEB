@@ -32,7 +32,9 @@ Route::post('/umkm', [UMKMController::class, 'store'])->name('umkm.store');
 Route::get('/umkm/{umkm:slug}', [UMKMController::class, 'show'])->name('umkm.show');
 
 // Download App
-Route::get('/download-app', [PageController::class, 'downloadApp'])->name('download.app');
+Route::get('/download-app', [PageController::class, 'appsSelection'])->name('download.app');
+Route::get('/download-app/paseban-kawis', [PageController::class, 'downloadApp'])->name('download.paseban-kawis');
+Route::get('/download-app/pasebankas', [PageController::class, 'downloadPasebankas'])->name('download.pasebankas');
 
 // Artikel
 Route::get('/artikel/{article:slug}', [ArticleController::class, 'show'])->name('artikel.show');

@@ -50,7 +50,7 @@ $isDashboard = request()->routeIs('dashboard');
                 <a href="{{ route('download.app') }}"
                     class="nav-link flex items-center px-3 py-2 rounded-md {{ !$isDashboard ? $isActiveScrolled('download.app') : $isActive('download.app') }}">
                     <i class="mr-2 fas fa-mobile-alt"></i>
-                    <span>Paseban Kawis Apps</span>
+                    <span>Aplikasi Kami</span>
                 </a>
             </div>
         </div>

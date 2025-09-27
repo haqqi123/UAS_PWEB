@@ -286,6 +286,11 @@ public function destroy($id)
         return view('profile', compact('umkmList'));
     }
 
+    public function appsSelection()
+    {
+        return view('apps-selection');
+    }
+
     public function downloadApp()
     {
         $appInfo = [
@@ -312,6 +317,34 @@ public function destroy($id)
         ];
 
         return view('download-app', compact('appInfo'));
+    }
+
+    public function downloadPasebankas()
+    {
+        $appInfo = [
+            'name' => 'PasebanKas Apps',
+            'version' => 'v2.0',
+            'size' => $this->getFileSize(public_path('apk/PasebanKas Apps V2.apk')),
+            'updated_at' => $this->getFileDate(public_path('apk/PasebanKas Apps V2.apk')),
+            'download_url' => asset('apk/PasebanKas Apps V2.apk'),
+            'description' => 'Pasebankas Apps adalah aplikasi pencatatan keuangan yang membantu pengelolaan transaksi UMKM di Desa Kalibaru Manis. Aplikasi ini memiliki dua peran, yaitu admin yang dikelola pemerintah desa untuk memantau perkembangan UMKM melalui laporan keuangan bulanan maupun tahunan, serta UMKM yang dapat mencatat transaksi harian berupa pemasukan dan pengeluaran. UMKM juga dapat melihat laporan dalam bentuk bulanan dan tahunan yang disajikan dengan diagram grafik, sehingga memudahkan perhitungan persentase pemasukan, pengeluaran, serta mengetahui keuntungan atau kerugian usaha.',
+            'features' => [
+                'Pencatatan transaksi harian',
+                'Laporan keuangan bulanan & tahunan',
+                'Diagram grafik interaktif',
+                'Perhitungan keuntungan otomatis',
+                'Monitoring UMKM untuk admin',
+                'Laporan bulanan dan tahunan',
+                'Interface yang mudah digunakan',
+                'Data tersimpan aman'
+            ],
+            'roles' => [
+                'admin' => 'Admin dikelola oleh Pemerintah Desa Kalibaru Manis dengan tugas memantau perkembangan UMKM melalui laporan keuangan bulanan dan tahunan, serta melihat daftar UMKM yang terdaftar. Admin dapat meninjau data pemasukan, pengeluaran, keuntungan, maupun kerugian untuk memastikan perkembangan usaha masyarakat berjalan optimal.',
+                'umkm' => 'UMKM berperan untuk mencatat transaksi harian berupa pemasukan dan pengeluaran. Selain itu, UMKM dapat melihat laporan keuangan dalam bentuk bulanan maupun tahunan yang disajikan dengan diagram grafik, sehingga memudahkan dalam memantau arus kas serta mengetahui persentase pemasukan, pengeluaran, keuntungan, maupun kerugian usaha.'
+            ]
+        ];
+
+        return view('download-pasebankas', compact('appInfo'));
     }
 
     private function getFileSize($filePath)
