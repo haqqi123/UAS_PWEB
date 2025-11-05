@@ -25,22 +25,121 @@
         <!-- Content -->
         <div class="absolute inset-0 flex items-center">
             <div class="container px-4 mx-auto">
-                <div class="max-w-2xl animate-fade-in-up">
-                    <h1 class="mb-4 text-5xl font-bold text-white opacity-0 md:text-6xl animate-slide-up"
-                        style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
-                        Selamat Datang di <span class="text-primary"
-                            style="-webkit-text-stroke: 1px white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Kalibaru</span>
-                        <span class="text-accent"
-                            style="-webkit-text-stroke: 1px white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Manis</span>
-                    </h1>
-                    <p class="mb-8 text-xl text-gray-200 delay-200 opacity-0 md:text-2xl animate-slide-up">
-                        Membangun desa yang mandiri, sejahtera, dan berbudaya.
-                    </p>
-                    <div class="space-x-4 opacity-0 animate-slide-up delay-400">
-                        <a href="https://wa.me/6282228175411" target="_blank"
-                            class="inline-block px-6 py-3 text-white transition-all duration-300 transform rounded-lg bg-primary hover:bg-primary/90 hover:-translate-y-1">
-                            Hubungi Kami
-                        </a>
+                <!-- Visitor Card - Positioned at Top Left (Desktop) -->
+                <div class="absolute hidden lg:block top-40 left-8 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="relative inline-block">
+                        <!-- Glass Card -->
+                        <div
+                            class="relative px-6 py-3 overflow-hidden border shadow-2xl backdrop-blur-md bg-white/10 rounded-2xl border-white/20">
+                            <!-- Animated Border -->
+                            <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-2xl">
+                                <div class="absolute w-full h-full border-2 rounded-2xl border-white/30 animate-pulse">
+                                </div>
+                            </div>
+
+                            <!-- Shine Effect -->
+                            <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-2xl">
+                                <div
+                                    class="absolute w-1/2 h-full transform rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent -left-full animate-shine">
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="relative flex items-center gap-4">
+                                <!-- Icon -->
+                                <div
+                                    class="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl backdrop-blur-sm">
+                                    <i class="text-2xl text-white fas fa-chart-line drop-shadow-lg"></i>
+                                </div>
+
+                                <!-- Divider -->
+                                <div class="w-px h-10 bg-white/30"></div>
+
+                                <!-- Counter & Text -->
+                                <div>
+                                    <p class="text-3xl font-black text-white counter-animate drop-shadow-lg"
+                                        data-target="{{ $weeklyVisitors }}"
+                                        style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
+                                        0
+                                    </p>
+                                    <p class="text-xs font-semibold tracking-wide text-white/80 uppercase drop-shadow-md">
+                                        Pengunjung Minggu Ini
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Floating Dots Decoration -->
+                            <div class="absolute w-2 h-2 bg-white rounded-full top-2 right-2 opacity-60 animate-pulse">
+                            </div>
+                            <div class="absolute w-1 h-1 bg-white rounded-full bottom-2 left-3 opacity-40 animate-pulse"
+                                style="animation-delay: 0.5s;"></div>
+                        </div>
+
+                        <!-- Glow Effect -->
+                        <div
+                            class="absolute inset-0 -m-2 rounded-2xl bg-gradient-to-r from-[#5B8BB8]/30 via-[#8AB9E0]/25 to-[#D4AB07]/30 blur-xl -z-10 animate-pulse">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visitor Card - Mobile (Top Right) -->
+                <div class="absolute z-20 lg:hidden top-20 right-4">
+                    <div class="relative">
+                        <!-- Glass Card -->
+                        <div
+                            class="relative px-4 py-3 overflow-hidden border shadow-xl backdrop-blur-md bg-white/10 rounded-xl border-white/20">
+                            <!-- Shine Effect -->
+                            <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-xl">
+                                <div
+                                    class="absolute w-1/2 h-full transform rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent -left-full animate-shine">
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="relative flex items-center gap-3">
+                                <!-- Icon -->
+                                <div
+                                    class="flex items-center justify-center w-10 h-10 bg-white/20 rounded-lg backdrop-blur-sm">
+                                    <i class="text-lg text-white fas fa-chart-line drop-shadow-lg"></i>
+                                </div>
+                                <!-- Text & Counter -->
+                                <div>
+                                    <p class="text-2xl font-black text-white counter-animate drop-shadow-lg"
+                                        data-target="{{ $weeklyVisitors }}"
+                                        style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
+                                        0
+                                    </p>
+                                    <p class="text-xs font-semibold text-white/80 uppercase drop-shadow-md">
+                                        Pengunjung</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Glow Effect -->
+                        <div
+                            class="absolute inset-0 -m-1 rounded-xl bg-gradient-to-r from-[#5B8BB8]/30 via-[#8AB9E0]/25 to-[#D4AB07]/30 blur-lg -z-10 animate-pulse">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between gap-8">
+                    <!-- Left Content -->
+                    <div class="max-w-2xl animate-fade-in-up">
+                        <h1 class="mb-4 text-5xl font-bold text-white opacity-0 md:text-6xl animate-slide-up"
+                            style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+                            Selamat Datang di <span class="text-primary"
+                                style="-webkit-text-stroke: 1px white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Kalibaru</span>
+                            <span class="text-accent"
+                                style="-webkit-text-stroke: 1px white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Manis</span>
+                        </h1>
+                        <p class="mb-8 text-xl text-gray-200 delay-200 opacity-0 md:text-2xl animate-slide-up">
+                            Membangun desa yang mandiri, sejahtera, dan berbudaya.
+                        </p>
+                        <div class="space-x-4 opacity-0 animate-slide-up delay-400">
+                            <a href="https://wa.me/6282228175411" target="_blank"
+                                class="inline-block px-6 py-3 text-white transition-all duration-300 transform rounded-lg bg-primary hover:bg-primary/90 hover:-translate-y-1">
+                                Hubungi Kami
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1399,6 +1498,43 @@
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
+                // Animasi Counter untuk Pengunjung dengan Easing
+                function animateCounter(element) {
+                    const target = parseInt(element.getAttribute('data-target'));
+                    const duration = 2500; // 2.5 detik untuk animasi lebih smooth
+                    const startTime = Date.now();
+
+                    // Easing function untuk animasi yang lebih natural (ease-out)
+                    function easeOutQuart(t) {
+                        return 1 - Math.pow(1 - t, 4);
+                    }
+
+                    function updateCounter() {
+                        const elapsed = Date.now() - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easedProgress = easeOutQuart(progress);
+                        const current = Math.floor(easedProgress * target);
+
+                        element.textContent = current.toLocaleString('id-ID');
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            element.textContent = target.toLocaleString('id-ID');
+                        }
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                }
+
+                // Jalankan animasi counter setelah delay
+                setTimeout(() => {
+                    const counters = document.querySelectorAll('.counter-animate');
+                    counters.forEach(counter => {
+                        animateCounter(counter);
+                    });
+                }, 800); // Mulai setelah 0.8 detik
+
                 const chartColors = {
                     primary: '#5B8BB8',
                     primaryLight: '#8AB9E0',
@@ -3039,6 +3175,79 @@
         .org-card-wrapper:hover .org-card-sheen {
             left: -10%;
             opacity: 1;
+        }
+
+        /* Shimmer animation for weekly visitors card */
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Custom animations for mega highlighted badge */
+        @keyframes bounce-slow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes bounce-gentle {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            20%,
+            100% {
+                left: 100%;
+            }
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 3s ease-in-out infinite;
+        }
+
+        .animate-bounce-gentle {
+            animation: bounce-gentle 2s ease-in-out infinite;
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+        }
+
+        .animate-shine {
+            animation: shine 3s ease-in-out infinite;
         }
     </style>
 

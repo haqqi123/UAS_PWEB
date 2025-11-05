@@ -36,6 +36,19 @@ class DashboardController extends Controller
             'maps' => 'https://maps.google.com/?q=-8.172,113.700',
         ];
 
-        return view('dashboard', compact('statistik', 'organisations', 'profil', 'kontak', 'artikel', 'umkm'));
+        // Generate random weekly visitors (200-500)
+        // Menggunakan nomor minggu sebagai seed agar konsisten dalam 1 minggu
+        $weekNumber = date('W'); // Nomor minggu dalam tahun (1-53)
+        $year = date('Y');
+        $seed = intval($year . $weekNumber); // Gabungkan tahun dan minggu sebagai seed
+        
+        // Set seed untuk random number generator
+        mt_srand($seed);
+        $weeklyVisitors = mt_rand(200, 500);
+        
+        // Reset random seed ke default
+        mt_srand();
+
+        return view('dashboard', compact('statistik', 'organisations', 'profil', 'kontak', 'artikel', 'umkm', 'weeklyVisitors'));
     }
 }
